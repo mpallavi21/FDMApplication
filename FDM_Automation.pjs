@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{6BEF09AB-195B-4837-944F-C6D7DCB5D1A0}">
+	<children>
+		<child name="FDM_Automation" key="{F5A067E9-4B3B-4FA3-AC2D-DBE923ADCCEE}" path="TestProject1\FDM_Automation.mds" />
+	</children>
+	<testItems key="{58B91293-B2E0-4B90-BB4C-DD04F8D2AFAA}">
+		<children>
+			<testItem key="{F5A067E9-4B3B-4FA3-AC2D-DBE923ADCCEE}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{FB1EC420-0389-4AC0-827B-606C95DF1364}" />
+	<analysis key="{9286D052-95B2-45A6-94BA-4E828B07FD3C}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>

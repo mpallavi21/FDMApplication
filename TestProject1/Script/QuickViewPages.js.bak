@@ -1,0 +1,111 @@
+﻿
+
+// =====================================================================
+// Author:        Bharath
+// Function:      verifyQuickViewLaunch
+// Description:   Launches QuickView from TreeView and verifies dialog
+// Created On:    2025-06-30
+// Modified On:   2025-06-30
+// =====================================================================
+
+function verifyQuickViewLaunch(treePath) {
+  try {
+   // const treePath = "|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644";
+    const treeView = Aliases.HCMClient.ClientMainWindow
+      .panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
+      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView
+      .tabConnected.treeView;
+
+    // Right-click and launch QuickView
+    treeView.ClickItemR(treePath);
+    treeView.StripPopupMenu.Click("QuickView");
+    Log.Message("Launched QuickView from TreeView path.");
+
+    const dlgConfig = Aliases.HCMClient.dlgFDMConfiguration;
+    const mdiClient = Aliases.HCMClient.ClientMainWindow.MdiClient;
+
+    if (dlgConfig.Exists) {
+      Log.Message("FDM Configuration dialog is already open.");
+      aqObject.CheckProperty(dlgConfig.Static, "Enabled", cmpEqual, true);
+      aqObject.CheckProperty(dlgConfig.Static, "WndCaption", cmpEqual, "The selected view is already open.", false);
+      dlgConfig.btnOK.ClickButton();
+      Log.Message("Closed existing configuration dialog.");
+    } else {
+      const viewLabel = mdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.labelDeviceTitle;
+      Log.Checkpoint("QuickView panel launched and verified.");
+    }
+
+//    // Close the QuickView or config panel
+//    mdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose.Click(11, 6);
+//    Log.Message("Closed the QuickView/config panel.");
+
+  } catch (error) {
+    Log.Error("An error occurred during QuickView launch verification.", error.message || error);
+  }
+}
+
+
+function viewHistory(){
+  
+}
+
+
+  // =====================================================================
+// Author:        Bharath
+// Function:      logFDMDeviceInformation
+// Description:   Extracts and logs device information such as Protocol, 
+//                Manufacturer, Device Type, and Device Revision from 
+//                the FDM QuickView panel's DataContext
+// Created On:    2025-06-30
+// Modified On:   2025-06-30
+// =====================================================================
+
+function logFDMDeviceInformation() {
+  try {
+    const stackPanel = Aliases.HCMClient.ClientMainWindow.MdiClient
+      .RightPanBaseFrame.panelBase.panelForDerivedForms
+      .ElementHost.HwndSource_AdornerDecorator.AdornerDecorator.StackPanel;
+    Log.Picture(stackPanel.Picture(), "Snapshot of the FDM StackPanel");
+    const dataCtx = stackPanel.DataContext;
+
+    Log.Message("Protocol: " + dataCtx.Protocol);
+    Log.Message("Manufacturer: " + dataCtx.Manufacturer);
+    Log.Message("Device Type: " + dataCtx.Devicemodel);
+    Log.Message("Device Revision: " + dataCtx.DeviceRevision);
+
+    Log.Checkpoint("FDM device information logged successfully from DataContext.");
+    Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose.Click(17, 14);
+  } catch (error) {
+    Log.Error("Failed to log FDM device information.", error.message || error);
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMDeviceStatus
+// Description:   Captures screenshot of StackPanel2 which holds NAMUR 
+//                Health Status and logs it with checkpoint
+// Created On:    2025-06-30
+// Modified On:   2025-06-30
+// =====================================================================
+
+function FDMDeviceStatus() {
+  try {
+    const statusPanel = Aliases.HCMClient.ClientMainWindow.MdiClient
+      .RightPanBaseFrame.panelBase.panelForDerivedForms
+      .ElementHost.HwndSource_AdornerDecorator.AdornerDecorator.StackPanel2;
+
+    const healthStatus = statusPanel.DataContext.NamurHealthStatus;
+
+    // Take and log the snapshot
+    const screenshot = statusPanel.Picture();
+    Log.Picture(screenshot, "NAMUR Health Status Panel");
+    Log.Checkpoint("NAMUR Health Status: " + healthStatus);
+    
+    Log.Checkpoint("Captured NAMUR Health Status panel and value successfully.");
+    Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose.Click(17, 14);
+  } catch (error) {
+    Log.Error("Failed to capture or log NAMUR Health Status panel.", error.message || error);
+  }
+}
+

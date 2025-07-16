@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{AA2F3067-5C9B-4CCF-89D4-1F93CE1C510F}" version="15.0">
+	<children>
+		<child name="APV400_fdi" key="{5BC01DFA-FF4B-45D2-B73B-FE56DDFEB6F1}">
+			<data signature="{FC92F8D9-8A57-4D74-B8B4-479AA50BF647}" version="15.0" caption="APV400_fdi" ID="{5BC01DFA-FF4B-45D2-B73B-FE56DDFEB6F1}" FileName="Files\APV400_fdi.fdix" Update="False" />
+		</child>
+		<child name="_101_fm8" key="{C04BCC79-36B4-4741-93D6-762DEE57F258}">
+			<data signature="{FC92F8D9-8A57-4D74-B8B4-479AA50BF647}" version="15.0" caption="_101_fm8" ID="{C04BCC79-36B4-4741-93D6-762DEE57F258}" FileName="Files\hart.0000c7.c786.01\0000c7\c786\0101.fm8" Update="False" />
+		</child>
+		<child name="_101_sym" key="{3933A5E5-FC2C-43DA-8D85-30A978171864}">
+			<data signature="{FC92F8D9-8A57-4D74-B8B4-479AA50BF647}" version="15.0" caption="_101_sym" ID="{3933A5E5-FC2C-43DA-8D85-30A978171864}" FileName="Files\hart.0000c7.c786.01\0000c7\c786\0101.sym" Update="False" />
+		</child>
+	</children>
+</Root>

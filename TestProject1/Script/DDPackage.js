@@ -1,0 +1,131 @@
+﻿//USEUNIT DDPackagesPages
+//USEUNIT ClientLoginPage
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR4779()
+// Description:   Test case to validate add DD User interfacee
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR4779() {
+  try {
+    Log.AppendFolder("FDMGR4779 - Test case to validate add DD User interface")
+    // Launch the FDM Client with credentials
+ //   launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    // Navigate and perform DD Package addition
+    openManageDDPackagesSection();
+    clickAddDDPackageButton();
+    selectDDFileTypeFromDropdown("*.fm8");
+    uploadDDPackageFile(Project.Path + "Stores\\Files", "0906");
+    clickAddToLibraryButton();
+
+    // Close relevant popups and exit
+    clickAdd_DDPackagePopUpCloseButton();
+    clickManage_DDPackagePopUpCloseButton();
+
+    // Terminate the client gracefully
+  //  TestedApps.HCMClient.Terminate();
+
+    Log.Message("Test 'addDDPackageAndExit' completed successfully.");
+  } catch (error) {
+    Log.Error("Test 'addDDPackageAndExit' failed: " + error.message);
+    // Optional: Consider taking a screenshot here
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR4798
+// Description:   Testcase to validate generic DD/package functionality
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR4798() {
+  try {
+    Log.AppendFolder("FDMGR4798 - Testcase to validate generic DD/package functionality")
+   // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    openManageDDPackagesSection();
+    selectProtocol("HART")
+    selectManufacturer("Rosemount (26)");
+    selectDeviceType("3051 (2606)");
+    findDDAndClickDeleteRow("3051 (2606)","9","6")
+    clickManage_DDPackagePopUpCloseButton();
+    TestedApps.HCMClient.Terminate();
+    Log.Message("Test 'deleteSpecificDDPackageAndExit' executed successfully.");
+  } catch (error) {
+    Log.Error("Test 'deleteSpecificDDPackageAndExit' failed: " + error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR4723()
+// Description:   Test case to validate add FDIX file User interfacee
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR4723() {
+  try {
+    Log.AppendFolder("FDMGR4723 - Test case to validate add FDIX file User interfacee")
+    // Launch the FDM Client with credentials
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    // Navigate and perform DD Package addition
+    openManageDDPackagesSection();
+    clickAddDDPackageButton();
+    selectDDFileTypeFromDropdown("*.fdix");
+    uploadDDPackageFile(Project.Path + "Stores\\Files", "abb.tzidc.02.02.00.hart");
+    clickAddToLibraryButton();
+
+    // Close relevant popups and exit
+    clickAdd_DDPackagePopUpCloseButton();
+    clickManage_DDPackagePopUpCloseButton();
+
+    // Terminate the client gracefully
+    TestedApps.HCMClient.Terminate();
+
+    Log.Message("Test 'addFDIXPackageAndExit' completed successfully.");
+  } catch (error) {
+    Log.Error("Test 'addFDIXPackageAndExit' failed: " + error.message);
+    // Optional: Consider taking a screenshot here
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR4790
+// Description:   Testcase to validate generic FDI/package functionality
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR4790() {
+  try {
+    Log.AppendFolder("FDMGR4790 - Testcase to validate generic FDI/package functionality")
+  //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    openManageDDPackagesSection();
+    selectProtocol("HART")
+    selectManufacturer("Rosemount (26)");
+    selectDeviceType("3051 (2606)");
+    findDDAndClickDeleteRow("3051 (2606)","9","6")
+    clickManage_DDPackagePopUpCloseButton();
+    TestedApps.HCMClient.Terminate();
+    Log.Message("Test 'deleteSpecificFDIPackageAndExit' executed successfully.");
+  } catch (error) {
+    Log.Error("Test 'deleteSpecificFDIPackageAndExit' failed: " + error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+
+

@@ -1,0 +1,67 @@
+﻿
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickOnPlantAreaView
+// Description:   Navigates to 'Plant Area View' via the 'View' menu and verifies the view is loaded.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function clickOnPlantAreaView() {
+  try {
+    let HCMClient = Aliases.HCMClient;
+
+    // Navigate to View > Plant Area View
+    OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("View").Click();
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Plant Area View").Click();
+    Log.Message("Clicked 'View > Plant Area View'.");
+
+    // Wait until the shell title matches the expected view
+    let shellWindow = HCMClient.PlantAreaViewWindow.Shell;
+    shellWindow.WaitProperty("WPFControlText", "Plant Area View", 20000);
+    aqObject.CheckProperty(shellWindow, "WPFControlText", cmpEqual, "Plant Area View");
+    HCMClient.HwndSource_ProgressView.ProgressView.WaitProperty("Exists",false,20000)
+    Log.Message("'Plant Area View' loaded successfully.");
+
+    // Interact with the window button commands if needed
+    shellWindow.WindowButtonCommands.WaitProperty("Enabled",true,20000)
+    shellWindow.WindowButtonCommands.Click(117, 27);
+  } catch (error) {
+    Log.Error("Failed to navigate to 'Plant Area View': " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickOnAlertMonitoringDashboard
+// Description:   Navigates to the 'Alert Monitoring Dashboard' via the 'View' menu
+//                and confirms that the 'Alert Monitor' window is loaded.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function clickOnAlertMonitoringDashboard() {
+  try {
+    let HCMClient = Aliases.HCMClient;
+
+    // Navigate: View > Alert Monitoring Dashboard
+    OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("View").Click();
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Alert Monitoring Dashboard").Click();
+    Log.Message("Clicked 'View > Alert Monitoring Dashboard'.");
+
+    // Wait for the Alert Monitor shell to appear
+    Aliases.HCMClient.AlertMonitorWindow.Shell.WindowButtonCommands
+    let shell = HCMClient.AlertMonitorWindow.Shell;
+    shell.Activate()
+    shell.WaitProperty("WPFControlText", "Alert Monitor", 20000);
+    aqObject.CheckProperty(shell, "WPFControlText", cmpEqual, "Alert Monitor");
+    Log.Message("'Alert Monitor' view loaded successfully.");
+
+    // Interact with the window's toolbar or controls
+    shell.WindowButtonCommands.WaitProperty("Enabled",true,20000)
+    shell.WindowButtonCommands.CLick();
+
+  } catch (error) {
+    Log.Error("Failed to open 'Alert Monitoring Dashboard': " + error.message);
+  }
+}

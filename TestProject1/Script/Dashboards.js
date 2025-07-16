@@ -1,0 +1,53 @@
+﻿//USEUNIT ClientLoginPage
+//USEUNIT DashboardsPages
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR11050
+// Description:   Validate to Launch PAV Dashboard
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR11050() {
+  try {
+    Log.AppendFolder("FDMGR11050 - Validate to Launch PAV Dashboard")
+    //launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    clickOnPlantAreaView();
+    closePlantAreaView();
+
+   // TestedApps.HCMClient.Terminate();
+    Log.Checkpoint("Test 'FDMGR11050' executed successfully.");
+  } catch (error) {
+    Log.Error("Test 'FDMGR11050' encountered an error: " + error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR11051
+// Description:   Validate to Launch Alert Monitoring Dashboard
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function FDMGR11051() {
+  try {
+    Log.AppendFolder("FDMGR11051 - Validate to Launch Alert Monitoring Dashboard")
+  //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    clickOnAlertMonitoringDashboard();
+    closeAlertMonitorView();
+
+  //  TestedApps.HCMClient.Terminate();
+    Log.Checkpoint("Test 'FDMGR11051' executed successfully.");
+  } catch (error) {
+    Log.Error("Test 'FDMGR11051' encountered an error: " + error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}

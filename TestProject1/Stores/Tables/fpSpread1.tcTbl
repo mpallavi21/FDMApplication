@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{F1D3EE30-C2A8-4AFF-801C-1D39E2C902F0}" version="15.0">
+	<Table Name="fpSpread1">
+		<Source Object="Aliases.HCMClient.ResourceSelectionDlg.fpSpread1">
+			<DataExtraction Type="OpticalTableRecognition" DetectionMode="Automatic" SelectionPreference="NearestToCenter" HasHeader="True" />
+		</Source>
+		<Columns>
+			<Column IsKey="True">Device Type Name</Column>
+			<Column IsKey="True">Select</Column>
+		</Columns>
+		<Rows>
+			<Row>
+				<Cell Type="String">$86)\Honeywell\FDM\ClientMachine\</Cell>
+				<Cell Type="String">☐</Cell>
+			</Row>
+		</Rows>
+	</Table>
+</Root>

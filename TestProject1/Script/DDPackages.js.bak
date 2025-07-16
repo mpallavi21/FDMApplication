@@ -1,0 +1,233 @@
+﻿
+// =====================================================================
+// Author:        Bharath
+// Function:      openManageDDPackagesSection
+// Description:   Navigates through the HCM Client UI to access the 
+//                "Manage DD/Packages" section via the "Library" menu.
+// Created On:    23-06-2025
+// Modified On:   
+// =====================================================================
+
+function openManageDDPackagesSection() {
+  try {
+    let HCMClient = Aliases.HCMClient;
+    Log.Checkpoint("Navigating to 'Manage DD/Packages'...");
+
+    OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Library").Click();
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Manage DD/Packages").Click();
+    
+    let ManagePackagesWindow = HCMClient.ManagePackagesWindow;
+    // Wait for the window to become visible (timeout: 10 seconds)
+    if (ManagePackagesWindow.WaitProperty("Exists", true, 10000)) {
+      Log.Message("'ManagePackagesWindow' is visible.");
+    } else {
+      Log.Error("'ManagePackagesWindow' did not appear within the expected time.");
+    }
+    
+    Log.Message("Navigation completed successfully.");
+  } catch (error) {
+    Log.Error("Navigation failed: " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickAddDDPackageButton
+// Description:   Clicks the 'Add DD Package' button in the Manage Packages window.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function clickAddDDPackageButton() {
+  try {
+    let addButton = Aliases.HCMClient.ManagePackagesWindow.ManagePackageMainWindow.ButtonAddDdPackage;
+    addButton.ClickButton();
+    Log.Message("Clicked 'Add DD Package' button successfully.");
+  } catch (error) {
+    Log.Error("Failed to click 'Add DD Package' button: " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      selectDDFileTypeFromDropdown
+// Description:   Selects a specified file type from the 'FileType' dropdown
+//                in the 'Add DD Package File' popup.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function selectDDFileTypeFromDropdown(fileType) {
+  try {
+    let comboBox = Aliases.HCMClient.Add_DDPackageFilePopUp.FileTypeDropDown;
+    comboBox.ClickItem(fileType);
+    Log.Message("Selected file type: " + fileType);
+  } catch (error) {
+    Log.Error("Failed to select file type '" + fileType + "': " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      uploadDDPackageFile
+// Description:   Opens the 'Add DD Package File' dialog, navigates to a specified folder,
+//                and uploads the desired type file.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function uploadDDPackageFile(folderPath, fileName) {
+  try {
+    let HCMClient = Aliases.HCMClient;
+    
+    // Open the file dialog
+    HCMClient.Add_DDPackageFilePopUp.Rectangle.Click();
+
+    let dlgOpen = HCMClient.dlgOpen;
+    let progress = dlgOpen.WorkerW.ReBarWindow32.AddressBandRoot.progress;
+
+    // Navigate to the folder path
+    progress.BreadcrumbParent.toolbar.ClickItem("All locations");
+    progress.comboBox.SetText(folderPath);
+    
+    // Select the desired file to upload
+    dlgOpen.OpenFile(folderPath + "\\" + fileName);
+
+    Log.Message("File '" + fileName + "' uploaded successfully from: " + folderPath);
+  } catch (error) {
+    Log.Error("Failed to upload DD Package file: " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickAddToLibraryButton
+// Description:   Clicks the 'Add To Library' button on the Add DD Package File popup.
+// Created On:    23-June-2025
+// Modified On:   23-June-2025 - Enhanced validation handling and added return value.
+// =====================================================================
+function clickAddToLibraryButton() {
+  try {
+  let addToLibraryButton = Aliases.HCMClient.Add_DDPackageFilePopUp.ButtonAddToLibrary;
+
+    if (addToLibraryButton && addToLibraryButton.Enabled) {
+      addToLibraryButton.ClickButton();
+      Log.Message("Clicked 'Add To Library' button successfully.");
+    } else {
+      Log.Warning("'Add To Library' button is not available or not enabled.");
+    }
+
+    // Handle package validation confirmation prompt, if it appears
+    let PkgValidationStatusViewPopUp = Aliases.HCMClient.PkgValidationStatusViewPopUp;
+    if (PkgValidationStatusViewPopUp.Exists) {
+      Log.Message("Package validation prompt detected. Confirming with 'Yes' button.");
+      PkgValidationStatusViewPopUp.btn_Yes.Click();
+    }
+
+    // Check for and respond to Information popup
+    let InformationWindowPopUp = Aliases.HCMClient.InformationWindowPopUp;
+    let Message = InformationWindowPopUp.InformationTextView.WPFControlText;
+    if (InformationWindowPopUp.Exists && Message.includes("successfully")) {
+      Log.Message("Successfully added DD Package: Message - " + Message);
+      InformationWindowPopUp.ButtonOk.ClickButton();
+      return true;
+    }
+
+    if (InformationWindowPopUp.Exists && Message.includes("failure")) {
+      Log.Error("Failed to add DD Package: Message - " + Message);
+      InformationWindowPopUp.ButtonOk.ClickButton();
+      return false;
+    }
+    return true;
+  } catch (error) {
+    Log.Error("Unexpected error in clickAddToLibraryButton: " + error.message);
+    return false;
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickAdd_DDPackagePopUpCloseButton
+// Description:   Clicks the 'Close' button on the Add DD Package File popup.
+// Created On:    23-June-2025
+// Modified On:   23-June-2025 - Implemented functionality and logging.
+// =====================================================================
+function clickAdd_DDPackagePopUpCloseButton() {
+  try {
+    let closeButton = Aliases.HCMClient.Add_DDPackageFilePopUp.Button.CloseButton;
+
+    if (closeButton && closeButton.Enabled) {
+      closeButton.ClickButton();
+      Log.Message("Clicked 'Close' button successfully.");
+    } else {
+      Log.Error("'Close' button is not available or not enabled.");
+    }
+  } catch (error) {
+    Log.Error("Failed to click 'Close' button: " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      deleteDDPackageByDeviceType
+// Description:   Deletes a DD Package matching the given device type, and 
+//                verifies success message based on provided input.
+// Created On:    23-June-2025
+// Modified On:   23-June-2025 - Parameterized function for reuse.
+// =====================================================================
+function deleteDDPackageByDeviceType(deviceType) {
+  try {
+    let HCMClient = Aliases.HCMClient;
+    let dataGrid = HCMClient.ManagePackagesWindow.ManagePackageMainWindow.dataGrid;
+
+    aqObject.CheckProperty(dataGrid.Datagridcell, "WPFControlText", cmpEqual, deviceType);
+    dataGrid.ButtonDelete.ClickButton();
+
+    let confirmationWindow = HCMClient.ConfirmationWindow;
+    aqObject.CheckProperty(confirmationWindow.TextblockDeletePackage, "WPFControlText", cmpEqual, "Delete Package");
+    confirmationWindow.ButtonOk.ClickButton();
+
+    aqObject.CheckProperty(HCMClient.HwndSource_ProgressBar.ProgressBar.Border, "Enabled", cmpEqual, true);
+
+    let dlgDeleteDDFile = HCMClient.dlgDeleteDDFile;
+    aqObject.CheckProperty(dlgDeleteDDFile, "Enabled", cmpEqual, true);
+    let btnYes = dlgDeleteDDFile.btnYes;
+    aqObject.CheckProperty(btnYes, "WndCaption", cmpEqual, "&Yes");
+    btnYes.ClickButton();
+
+    let hwndSource = HCMClient.InformationWindowPopUp;
+    hwndSource.ButtonOk.ClickButton();
+
+    Log.Message("DD Package '" + deviceType + "' deleted successfully.");
+
+  } catch (error) {
+    Log.Error("Error while deleting DD Package '" + deviceType + "': " + error.message);
+  }
+}
+
+
+function Test(){
+  deleteDDPackageByDeviceType("APV400 (E66C)")
+}
+function Test1()
+{
+  let HCMClient = Aliases.HCMClient;
+  let dataGrid = HCMClient.ManagePackagesWindow.ManagePackageMainWindow.dataGrid;
+  aqObject.CheckProperty(dataGrid.Datagridcell, "WPFControlText", cmpEqual, "APV400 (E66C)");
+  dataGrid.ButtonDelete.ClickButton();
+  let confirmationWindow = HCMClient.ConfirmationWindow;
+  aqObject.CheckProperty(confirmationWindow.TextblockDeletePackage, "WPFControlText", cmpEqual, "Delete Package");
+  confirmationWindow.ButtonOk.ClickButton();
+  aqObject.CheckProperty(HCMClient.HwndSource_ProgressBar.ProgressBar.Border, "Enabled", cmpEqual, true);
+  let dlgDeleteDDFile = HCMClient.dlgDeleteDDFile;
+  aqObject.CheckProperty(dlgDeleteDDFile, "Enabled", cmpEqual, true);
+  let btnYes = dlgDeleteDDFile.btnYes;
+  aqObject.CheckProperty(btnYes, "WndCaption", cmpEqual, "&Yes");
+  btnYes.ClickButton();
+  let hwndSource = HCMClient.InformationWindowPopUp;
+  aqObject.CheckProperty(hwndSource.InformationTextView.TextblockPackageDeletedSuccessfullyPackage, "WPFControlText", cmpEqual, "Package Deleted Successfully!\n\nPackage Details : \nProtocol Name\t: HART\nManufacturer\t: HollySys (6054)\nDevice Type\t: APV400 (E66C)\nPackage Version\t: 01.01.00\nDevice Revision\t: 1\n");
+  hwndSource.ButtonOk.ClickButton();
+}

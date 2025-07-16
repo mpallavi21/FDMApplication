@@ -1,0 +1,36 @@
+﻿function selectComboBoxItemByName(comboBox, itemName) {
+  Log.AppendFolder(`selectComboBoxItemByName :- comboBox = ${comboBox}  itemName = ${itemName}`)
+  // Expand the ComboBox
+  comboBox.Click();
+  Log.Message("ComboBox clicked to expand.");
+
+  // Wait and get the popup container
+  var popupRoot = Sys.Process("HCMClient").WPFObject("HwndSource: PopupRoot", "").WPFObject("PopupRoot", "", 1);
+  
+  // Get all ComboBoxItem objects
+  var items = popupRoot.FindAllChildren("ClrClassName", "ComboBoxItem", 10);
+  Log.Message("Found " + items.length + " ComboBox items.");
+
+  var itemFound = false;
+
+  // Iterate and find the matching item
+  for (var i = 0; i < items.length; i++) {
+    var textBlock = items[i].FindChild("ClrClassName", "TextBlock", 100,true);
+    var actualText = textBlock ? textBlock.WPFControlText.trim().replace(/\s+/g, '') : "";
+
+    var expectedText = itemName.trim().replace(/\s+/g, '');
+
+    if (actualText === expectedText) {
+      items[i].Click();
+      Log.Message("The item '" + itemName + "' was successfully selected.");
+      itemFound = true;
+      break;
+    }
+  }
+
+  if (!itemFound) {
+    Log.Error("Item '" + itemName + "' not found in the ComboBox.");
+  }
+  
+  Log.PopLogFolder()
+}

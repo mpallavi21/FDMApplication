@@ -1,0 +1,62 @@
+﻿
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      navigateToOfflineDiagnostics
+// Description:   Opens the 'Offline' tab and selects the '*Diag*' view from the sub-tab.
+// Created On:    24-06-2025
+// Modified On:   
+// =====================================================================
+function navigateToOfflineDiagnostics() {
+  try {
+    let tabControl = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain.tabControlLeftPanMain;
+
+    OCR.Recognize(tabControl).BlockByText("Offline", spNearestToCenter).Click();
+    OCR.Recognize(tabControl.tabPageOfflineView.panelOfflineView.tabControlOfflineView)
+      .BlockByText("*Diag*")
+      .Click();
+
+    Log.Message("Navigated to Offline Diagnostics tab successfully.");
+  } catch (error) {
+    Log.Error("Failed to navigate to Offline Diagnostics: " + error.message);
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      createDiagnosticModel
+// Description:   Right-clicks the specified node in the Fault Model tree 
+//                and selects 'Create Diagnostic Model' from the context menu.
+// Created On:    24-06-2025
+// Modified On:   
+// =====================================================================
+function createDiagnosticModel(treePath) {
+  try {
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOfflineView.panelOfflineView
+      .tabControlOfflineView.tabPageFaultModel.treeView;
+
+    treeView.ClickItemR(treePath);
+    Log.Message("Right-clicked on node: '" + treePath + "'");
+
+    treeView.StripPopupMenu.Click(" Create Diagnostic Model");
+    Log.Message("Selected 'Create Diagnostic Model' from the context menu.");
+    let dlgFDMDiagnosticModelConfiguration = Aliases.HCMClient.dlgFDMConfiguration;
+    if (dlgFDMDiagnosticModelConfiguration.btnOK.Exists) {
+      dlgFDMDiagnosticModelConfiguration.btnOK.ClickButton();
+      Log.Message("Clicked 'OK' on Diagnostic Model Configuration dialog.");
+    }
+    let labelDeviceTitle = Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.labelDeviceTitle
+    labelDeviceTitle.WaitWFCObject("Diagnostic Model","WndCaption",5000)
+  } catch (error) {
+    Log.Error("Failed to create diagnostic model from '" + treePath + "': " + error.message);
+  }
+}
+
+function test(){
+  createDiagnosticModel("|FF")
+}
+

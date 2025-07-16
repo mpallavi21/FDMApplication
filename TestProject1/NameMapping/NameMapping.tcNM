@@ -1,0 +1,2212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root Signature="{5DCBAC3B-D39C-497C-9BE8-744CBADD37AA}" NameMappingVersion="7" SaveImages="0">
+	<Storages Current="0">
+		<Child Name="Default Configuration" />
+	</Storages>
+	<Nodes Name="NameMapping" Key="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Children>
+			<Child Name="Sys" Key="{131785A7-24FD-4359-A8F1-EA92C48D176F}">
+				<TypeInfo Item0="{1AD7FAC5-B19C-4351-BF2D-FCCD89B7C201}" />
+				<Properties>
+					<Property Name="Name">
+						<Value Value="Sys" />
+					</Property>
+				</Properties>
+				<Children>
+					<Child Name="HCMClient" Key="{248F4DB3-9E5A-44A9-8CFE-5A145FFE4CF2}">
+						<TypeInfo Item0="{948E027C-C7C4-495F-AA83-26CAC8DC6532}" />
+						<Properties>
+							<Property Name="ProcessName">
+								<Value Value="HCMClient" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="ClientLogin" Key="{83EFBE01-244B-4ED6-90A1-77923EF775E4}">
+								<Image FileName="-391643259" Left="0" Top="0" Right="522" Bottom="341" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="CLogin" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="FdmServerNameField" Key="{A6A76A5B-0FBC-4816-8EF1-2BEE7E879CDD}">
+										<Image FileName="-1947517515" Left="360" Top="173" Right="504" Bottom="193" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="uxFdmServerName" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="dropDownBtn" Key="{43F6C199-562A-4623-8CAD-94CF766C60D3}">
+												<Image FileName="-1947517515" Left="486" Top="174" Right="503" Bottom="192" />
+												<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="dropDownButton*" />
+													</Property>
+													<FilterCriteria>
+														<Root Operation="stdopequal">
+															<Left Value="DispValue:WinFormsControlName" />
+															<Right Value="ConstStr:dropDownButton*" />
+														</Root>
+													</FilterCriteria>
+												</Properties>
+											</Child>
+											<Child Name="TextFieldArea" Key="{C336ED21-FDDA-481F-A229-91659FAAB7C6}">
+												<Image FileName="1144558326" Left="361" Top="174" Right="486" Bottom="192" />
+												<TypeInfo Item0="{BFD62BFD-A9F6-405E-B994-4E78DEAAAF67}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.ComboBoxTextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="UserNameTextBox" Key="{1B4CCD03-6C91-4A5B-A438-21DAA0B02135}">
+										<Image FileName="1580179966" Left="360" Top="141" Right="504" Bottom="161" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="txtbxUserName" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TextBoxArea" Key="{D1D54FEF-433F-452F-B4E3-6B1E26459D86}">
+												<Image FileName="1580179966" Left="361" Top="142" Right="503" Bottom="160" />
+												<TypeInfo Item0="{BFD62BFD-A9F6-405E-B994-4E78DEAAAF67}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.TextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="PasswordTextBox" Key="{694F5003-138D-441B-BD80-2A398E8F04DE}">
+										<Image FileName="1580179966" Left="360" Top="173" Right="504" Bottom="193" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="txtbxPassword" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TextBoxArea" Key="{ABDB84A3-D891-4927-B276-FD0F210536F1}">
+												<Image FileName="1580179966" Left="361" Top="174" Right="503" Bottom="192" />
+												<TypeInfo Item0="{BFD62BFD-A9F6-405E-B994-4E78DEAAAF67}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.TextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="DomainTextBox" Key="{FB0678A6-F365-42D2-83BD-7960A9225109}">
+										<Image FileName="1580179966" Left="360" Top="205" Right="504" Bottom="226" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="m_cbDomain" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="dropDownBtn" Key="{4B1B2708-386E-4B2C-A843-792CDAB43B59}">
+												<Image FileName="1580179966" Left="486" Top="206" Right="503" Bottom="225" />
+												<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="dropDownButton*" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="TextBoxArea" Key="{49B151D7-E885-4C42-BAC2-6010E7E53696}">
+												<Image FileName="1580179966" Left="361" Top="206" Right="486" Bottom="225" />
+												<TypeInfo Item0="{BFD62BFD-A9F6-405E-B994-4E78DEAAAF67}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.ComboBoxTextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="LoginBtn" Key="{55D7A736-5BBC-4AB3-93CA-30AF9048832B}">
+										<Image FileName="-391643259" Left="375" Top="273" Right="428" Bottom="296" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="btnOK" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ResizableFloatingWindow" Key="{BB1F6498-A015-4B67-8C7C-065DD7A2137B}">
+								<Image FileName="1851285193" Left="0" Top="0" Right="144" Bottom="146" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="ResizableFloatingWindow" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="DropDownGrid" Key="{F01DC1DE-2E3E-43DB-B0B0-F8B9C0A8C0B1}">
+										<Image FileName="1851285193" Left="1" Top="1" Right="143" Bottom="145" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="DropDownGrid" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ClientMainWindow" Key="{876F9820-8CEA-4093-ACA1-F38AECD32ECC}">
+								<Image FileName="681648099" Left="-8" Top="-8" Right="1448" Bottom="868" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="frmHCMClientMain" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="mainMenu" Key="{A28B42CD-33D1-4955-A0B7-E73496C26BED}">
+										<Image FileName="681648099" Left="0" Top="23" Right="1440" Bottom="46" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="mainMenu" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="MdiClient" Key="{18F795DB-17E5-4C57-9BEA-3995EA24FD88}">
+										<Image FileName="-1570826737" Left="306" Top="80" Right="1448" Bottom="842" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="System.Windows.Forms.MdiClient" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="CDeviceHomePage" Key="{DBF708DB-75FB-4C0C-8429-84091D242393}">
+												<Image FileName="1988055892" Left="308" Top="82" Right="1446" Bottom="840" />
+												<TypeInfo Item0="{A48ADEFB-6207-459A-9D7F-69BB50DF4065}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="CDeviceHomePage" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelBase" Key="{ED8F18E9-F850-4775-8A01-1F126499B360}">
+														<Image FileName="1988055892" Left="308" Top="82" Right="1446" Bottom="840" />
+														<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelBase" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelForDerivedForms" Key="{CDB5A89D-F173-4C95-B365-7CAEC5484B48}">
+																<Image FileName="1988055892" Left="308" Top="106" Right="1446" Bottom="817" />
+																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelForDerivedForms" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="Panel" Key="{AD44737A-BCB0-48D8-869D-004A79ECDEFC}">
+																		<Image FileName="307141109" Left="308" Top="106" Right="1446" Bottom="817" />
+																		<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																		<Properties>
+																			<Property Name="ClrFullClassName">
+																				<Value Value="System.Windows.Forms.Panel" />
+																			</Property>
+																			<Property Name="WndCaption">
+																				<Value Value="" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="MagicTabControlEx" Key="{E6DA590F-831C-4EAE-A002-51220BBEED12}">
+																				<Image FileName="307141109" Left="308" Top="106" Right="1446" Bottom="817" />
+																				<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																				<Properties>
+																					<Property Name="ClrFullClassName">
+																						<Value Value="HCMClient.CGenericViewHandler+MagicTabControlEx" />
+																					</Property>
+																					<Property Name="WndCaption">
+																						<Value Value="" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="EntryPointTabPage" Key="{41B7A9DE-6D3A-47A1-BF17-E807DF465778}">
+																						<Image FileName="1359385262" Left="308" Top="106" Right="1446" Bottom="817" />
+																						<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																						<Properties>
+																							<Property Name="ClrFullClassName">
+																								<Value Value="Crownwood.Magic.Controls.TabPage" />
+																							</Property>
+																							<Property Name="WndCaption">
+																								<Value Value="" />
+																							</Property>
+																							<Property Name="Index">
+																								<Value Value="4" Type="0" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="CDeviceScreen" Key="{BA629D12-BCDD-4B0B-9E14-5FCFA4732DAC}">
+																								<Image FileName="2047691274" Left="308" Top="106" Right="1446" Bottom="817" />
+																								<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="CDeviceScreen" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="m_pnlDeviceScreen" Key="{0F534BA3-F7DE-4765-94A0-FD621CAA14CA}">
+																										<Image FileName="2047691274" Left="308" Top="106" Right="1446" Bottom="817" />
+																										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																										<Properties>
+																											<Property Name="WinFormsControlName">
+																												<Value Value="m_pnlDeviceScreen" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="TabControl" Key="{AB21C47B-5CEB-4125-91CB-E21DF14AA21C}">
+																												<Image FileName="2047691274" Left="308" Top="106" Right="1446" Bottom="817" />
+																												<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																												<Properties>
+																													<Property Name="ClrFullClassName">
+																														<Value Value="Crownwood.Magic.Controls.TabControl" />
+																													</Property>
+																													<Property Name="WndCaption">
+																														<Value Value="" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="EntryPointsTabPage" Key="{0F940466-C798-4EEC-AD34-BDCC1BC901C2}">
+																														<Image FileName="622909939" Left="308" Top="131" Right="1446" Bottom="817" />
+																														<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																														<Properties>
+																															<Property Name="ClrFullClassName">
+																																<Value Value="Crownwood.Magic.Controls.TabPage" />
+																															</Property>
+																															<Property Name="WndCaption">
+																																<Value Value="Entry Points" />
+																															</Property>
+																														</Properties>
+																														<Children>
+																															<Child Name="ElementHost" Key="{E108AD65-AC8C-442D-9890-E29887C373C1}">
+																																<Image FileName="622909939" Left="308" Top="131" Right="1446" Bottom="817" />
+																																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																																<Properties>
+																																	<Property Name="ClrFullClassName">
+																																		<Value Value="System.Windows.Forms.Integration.ElementHost" />
+																																	</Property>
+																																	<Property Name="WndCaption">
+																																		<Value Value="" />
+																																	</Property>
+																																</Properties>
+																																<Children>
+																																	<Child Name="HwndSource_AdornerDecorator" Key="{7C80135A-0F2C-40AE-A499-8710E4459335}">
+																																		<Image FileName="-316507705" Left="308" Top="131" Right="1446" Bottom="817" />
+																																		<TypeInfo Item0="{CF19D485-6C0F-4C63-B2A5-BFCF823D99F7}" />
+																																		<Properties>
+																																			<Property Name="RootVisual.ClrClassName">
+																																				<Value Value="AdornerDecorator" />
+																																			</Property>
+																																			<Property Name="WndCaption">
+																																				<Value Value="" />
+																																			</Property>
+																																		</Properties>
+																																		<Children>
+																																			<Child Name="AdornerDecorator" Key="{A10CD6F0-4C5E-4227-8B11-B02AC78EB320}">
+																																				<Image FileName="-316507705" Left="308" Top="131" Right="1447" Bottom="818" />
+																																				<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																				<Properties>
+																																					<Property Name="ClrFullClassName">
+																																						<Value Value="System.Windows.Documents.AdornerDecorator" />
+																																					</Property>
+																																				</Properties>
+																																				<Children>
+																																					<Child Name="ScrollViewer" Key="{654CAC86-28BD-40BE-872C-EDBE1106FD40}" ExtendedFind="True">
+																																						<Image FileName="-316507705" Left="308" Top="131" Right="1447" Bottom="818" />
+																																						<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																						<Properties>
+																																							<Property Name="ClrFullClassName">
+																																								<Value Value="System.Windows.Controls.ScrollViewer" />
+																																							</Property>
+																																							<Property Name="WPFControlText">
+																																								<Value Value="" />
+																																							</Property>
+																																						</Properties>
+																																						<Children>
+																																							<Child Name="Grid" Key="{41F5CB98-93D7-4BA0-A6E5-775AB2FD9D15}" ExtendedFind="True">
+																																								<Image FileName="-581575252" Left="1136" Top="131" Right="1437" Bottom="818" />
+																																								<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Controls.Grid" />
+																																									</Property>
+																																									<Property Name="WPFControlOrdinalNo">
+																																										<Value Value="2" Type="0" />
+																																									</Property>
+																																								</Properties>
+																																								<Children>
+																																									<Child Name="FDMDeviceStatusGrid" Key="{7AC5F0F7-FC50-4F7C-BA1D-B04C53B867A4}">
+																																										<Image FileName="-135871885" Left="1136" Top="141" Right="1437" Bottom="291" />
+																																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																										<Properties>
+																																											<Property Name="ClrFullClassName">
+																																												<Value Value="System.Windows.Controls.Grid" />
+																																											</Property>
+																																											<Property Name="Name">
+																																												<Value Value="WPFObject(&quot;Grid&quot;, &quot;&quot;, 1)" />
+																																											</Property>
+																																											<Property Name="FullName">
+																																												<Value Value="Sys.Process(&quot;HCMClient&quot;).WinFormsObject(&quot;frmHCMClientMain&quot;).WinFormsObject(&quot;MdiClient&quot;, &quot;&quot;).WinFormsObject(&quot;CDeviceHomePage&quot;).WinFormsObject(&quot;panelBase&quot;).WinFormsObject(&quot;panelForDerivedForms&quot;).WinFormsObject(&quot;Panel&quot;, &quot;&quot;).WinFormsObject(&quot;MagicTabControlEx&quot;, &quot;&quot;).WinFormsObject(&quot;TabPage&quot;, &quot;&quot;, 4).WinFormsObject(&quot;CDeviceScreen&quot;).WinFormsObject(&quot;m_pnlDeviceScreen&quot;).WinFormsObject(&quot;TabControl&quot;, &quot;&quot;).WinFormsObject(&quot;TabPage&quot;, &quot;Entry Points&quot;).WinFormsObject(&quot;ElementHost&quot;, &quot;&quot;).WPFObject(&quot;HwndSource: AdornerDecorator&quot;, &quot;&quot;).WPFObject(&quot;AdornerDecorator&quot;, &quot;&quot;, 1).WPFObject(&quot;AvalonAdapter&quot;, &quot;&quot;, 1).WPFObject(&quot;EntryPointView&quot;, &quot;&quot;, 1).WPFObject(&quot;ScrollViewer&quot;, &quot;&quot;, 1).WPFObject(&quot;Grid&quot;, &quot;&quot;, 1).WPFObject(&quot;Grid&quot;, &quot;&quot;, 2).WPFObject(&quot;Grid&quot;, &quot;&quot;, 1)" />
+																																											</Property>
+																																										</Properties>
+																																										<Children>
+																																											<Child Name="Textblock" Key="{F265BAE7-8036-48C0-AE75-CEBB50428C3F}" ExtendedFind="True">
+																																												<Image FileName="328633967" Left="1261" Top="256" Right="1311" Bottom="291" />
+																																												<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																												<Properties>
+																																													<Property Name="ClrFullClassName">
+																																														<Value Value="System.Windows.Controls.TextBlock" />
+																																													</Property>
+																																												</Properties>
+																																											</Child>
+																																										</Children>
+																																									</Child>
+																																								</Children>
+																																							</Child>
+																																							<Child Name="HyperlinkFdmDeviceProperties" Key="{EB854E6A-20ED-48D0-83E7-07773C1DE2F4}" ExtendedFind="True">
+																																								<Image FileName="1260110328" Left="357" Top="261" Right="509" Bottom="280" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="FDM Device properties" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkMethodList" Key="{CA101A7F-7463-4423-BDF6-E7682CC578EB}" ExtendedFind="True">
+																																								<Image FileName="761338248" Left="357" Top="293" Right="437" Bottom="312" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Method List" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkSaveHistoryRecord" Key="{CF517108-7EF4-4926-A6D3-1CA030E97DCC}" ExtendedFind="True">
+																																								<Image FileName="1057968802" Left="357" Top="439" Right="490" Bottom="458" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Save History Record" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkSaveAsOfflineTemplate" Key="{D752064F-34B9-4D73-B312-E5BCBF9F8775}" ExtendedFind="True">
+																																								<Image FileName="165644827" Left="357" Top="470" Right="519" Bottom="489" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Save as Offline Template" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkAdvancedConfiguration" Key="{9306265D-4435-4F21-B649-F4F867E4A958}" ExtendedFind="True">
+																																								<Image FileName="-493877666" Left="357" Top="199" Right="519" Bottom="218" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Advanced Configuration" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkFdmDeviceStatus" Key="{BB63A071-CB87-4998-9A82-B77FB655593E}" ExtendedFind="True">
+																																								<Image FileName="-276394753" Left="357" Top="230" Right="482" Bottom="249" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="FDM Device Status" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkExport" Key="{E910B883-8DF0-44CF-8B26-0616DAFDCFE4}" ExtendedFind="True">
+																																								<Image FileName="-718269097" Left="357" Top="501" Right="400" Bottom="520" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Export" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkPrint" Key="{81CC9EB6-C82C-42BF-97E5-1351E7C31898}" ExtendedFind="True">
+																																								<Image FileName="1819143620" Left="357" Top="533" Right="389" Bottom="552" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Print" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																							<Child Name="HyperlinkNotifications" Key="{2E1B08BB-B00A-40BF-A10A-D6DF0C6DC3F7}" ExtendedFind="True">
+																																								<Image FileName="1578063633" Left="357" Top="564" Right="442" Bottom="583" />
+																																								<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																																								<Properties>
+																																									<Property Name="ClrFullClassName">
+																																										<Value Value="System.Windows.Documents.Hyperlink" />
+																																									</Property>
+																																									<Property Name="WPFControlText">
+																																										<Value Value="Notifications" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																						</Children>
+																																					</Child>
+																																				</Children>
+																																			</Child>
+																																		</Children>
+																																	</Child>
+																																</Children>
+																															</Child>
+																														</Children>
+																													</Child>
+																													<Child Name="InertButton" Key="{154DAB9C-A393-4B22-8426-16B5CF4C0D8D}">
+																														<Image FileName="1561143441" Left="1901" Top="114" Right="1915" Bottom="128" />
+																														<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																														<Properties>
+																															<Property Name="ClrFullClassName">
+																																<Value Value="Crownwood.Magic.Controls.InertButton" />
+																															</Property>
+																															<Property Name="WndCaption">
+																																<Value Value="" />
+																															</Property>
+																															<Property Name="Index">
+																																<Value Value="1" Type="0" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="panelFullTop" Key="{4EA93F7B-81B7-461D-9426-57D489BA5070}">
+																<Image FileName="-1332722930" Left="308" Top="82" Right="1446" Bottom="106" />
+																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelFullTop" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panelTitle" Key="{B1C11641-27A6-4DE3-9BC5-522BFAAE520D}">
+																		<Image FileName="1352810626" Left="308" Top="82" Right="1446" Bottom="106" />
+																		<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panelTitle" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="DeviceTitle" Key="{AB36D286-F7AF-459F-AD5C-647E454924CD}">
+																				<Image FileName="1352810626" Left="308" Top="82" Right="1446" Bottom="106" />
+																				<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="labelDeviceTitle" />
+																					</Property>
+																				</Properties>
+																			</Child>
+																			<Child Name="buttonClose" Key="{7278353C-98FE-46FB-9071-E8A317DA343B}">
+																				<Image FileName="529498095" Left="1414" Top="74" Right="1438" Bottom="98" />
+																				<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="buttonClose" />
+																					</Property>
+																				</Properties>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="RightPanBaseFrame" Key="{03831CB2-ABBB-41B2-AB28-0BFC9E8C1F36}">
+												<Image FileName="57639261" Left="308" Top="82" Right="1446" Bottom="703" />
+												<TypeInfo Item0="{A48ADEFB-6207-459A-9D7F-69BB50DF4065}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="RightPanBaseFrame" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelBase" Key="{2BD6FF35-EC77-44FF-8078-0E52A1C94BF6}">
+														<Image FileName="57639261" Left="308" Top="82" Right="1446" Bottom="703" />
+														<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelBase" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelFullTop" Key="{D13007AE-BEDB-4D90-903A-8615ADBF9C20}">
+																<Image FileName="57639261" Left="308" Top="82" Right="1446" Bottom="106" />
+																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelFullTop" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panelTitle" Key="{F5ACABE0-218B-4A75-9586-BA496CFEB096}">
+																		<Image FileName="57639261" Left="308" Top="82" Right="1446" Bottom="106" />
+																		<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panelTitle" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="buttonClose" Key="{C77EF8B7-AD77-468D-8F7D-FCB1FEE9B028}">
+																				<Image FileName="57639261" Left="1422" Top="82" Right="1446" Bottom="106" />
+																				<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="buttonClose" />
+																					</Property>
+																				</Properties>
+																			</Child>
+																			<Child Name="labelDeviceTitle" Key="{73DA985E-5571-48F2-A27E-4FA54E1C06C7}">
+																				<Image FileName="-1279896225" Left="308" Top="82" Right="1030" Bottom="106" />
+																				<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="labelDeviceTitle" />
+																					</Property>
+																				</Properties>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="panelForDerivedForms" Key="{DDC312C5-148C-410D-91C5-0F8753BCD68B}">
+																<Image FileName="871465872" Left="308" Top="106" Right="1030" Bottom="708" />
+																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelForDerivedForms" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="ElementHost" Key="{E5D9B49F-939F-466C-86A2-87CB4DF01E0B}">
+																		<Image FileName="871465872" Left="308" Top="106" Right="1030" Bottom="708" />
+																		<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																		<Properties>
+																			<Property Name="ClrFullClassName">
+																				<Value Value="System.Windows.Forms.Integration.ElementHost" />
+																			</Property>
+																			<Property Name="WndCaption">
+																				<Value Value="" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="HwndSource_AdornerDecorator" Key="{776D6123-8A59-492D-93B0-6EB6C8A72FD9}">
+																				<Image FileName="871465872" Left="308" Top="106" Right="1030" Bottom="708" />
+																				<TypeInfo Item0="{CF19D485-6C0F-4C63-B2A5-BFCF823D99F7}" />
+																				<Properties>
+																					<Property Name="RootVisual.ClrClassName">
+																						<Value Value="AdornerDecorator" />
+																					</Property>
+																					<Property Name="WndCaption">
+																						<Value Value="" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="AdornerDecorator" Key="{BC96A5EB-80E3-4F04-B72F-A8FCF51657BF}">
+																						<Image FileName="871465872" Left="308" Top="106" Right="1031" Bottom="709" />
+																						<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																						<Properties>
+																							<Property Name="ClrFullClassName">
+																								<Value Value="System.Windows.Documents.AdornerDecorator" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="Grid" Key="{ED25CAF0-8F31-4F18-8765-6D8181CAEE95}" ExtendedFind="True">
+																								<Image FileName="871465872" Left="308" Top="106" Right="1269" Bottom="767" />
+																								<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																								<Properties>
+																									<Property Name="ClrFullClassName">
+																										<Value Value="System.Windows.Controls.Grid" />
+																									</Property>
+																									<Property Name="WPFControlOrdinalNo">
+																										<Value Value="2" Type="0" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="Border" Key="{27C77ABD-5B26-49C0-8660-8C05A0D93214}" ExtendedFind="True">
+																										<Image FileName="871465872" Left="633" Top="116" Right="944" Bottom="317" />
+																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.Border" />
+																											</Property>
+																											<Property Name="WPFControlOrdinalNo">
+																												<Value Value="2" Type="0" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="StackPanel" Key="{5C2835E4-2DEE-4FBF-A1BD-5B8439CC0663}" ExtendedFind="True">
+																												<Image FileName="871465872" Left="644" Top="140" Right="933" Bottom="306" />
+																												<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																												<Properties>
+																													<Property Name="ClrFullClassName">
+																														<Value Value="System.Windows.Controls.StackPanel" />
+																													</Property>
+																												</Properties>
+																											</Child>
+																										</Children>
+																									</Child>
+																									<Child Name="TextblockDeviceStatus" Key="{6464B73B-ADA3-4267-B0F6-4CAD0E4C3477}" ExtendedFind="True">
+																										<Image FileName="-1778089827" Left="324" Top="121" Right="623" Bottom="316" />
+																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.TextBlock" />
+																											</Property>
+																											<Property Name="WPFControlText">
+																												<Value Value="Device status" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																									<Child Name="Border2" Key="{F8307095-B12E-40D6-9976-837D16C38960}" ExtendedFind="True">
+																										<Image FileName="234016128" Left="313" Top="116" Right="624" Bottom="317" />
+																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.Border" />
+																											</Property>
+																											<Property Name="WPFControlOrdinalNo">
+																												<Value Value="1" Type="0" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="StackPanel" Key="{0CA78992-815E-4A08-A25E-6EE1C4ED93F8}" ExtendedFind="True">
+																												<Image FileName="234016128" Left="324" Top="140" Right="613" Bottom="306" />
+																												<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																												<Properties>
+																													<Property Name="ClrFullClassName">
+																														<Value Value="System.Windows.Controls.StackPanel" />
+																													</Property>
+																												</Properties>
+																											</Child>
+																										</Children>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="panelLeftPanMain" Key="{FA193912-1A86-464B-829F-240737861C5D}">
+										<Image FileName="1918027603" Left="0" Top="72" Right="270" Bottom="834" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="panelLeftPanMain" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="tabControlLeftPanMain" Key="{DB3A5AC5-23B7-4EC9-8B80-DF96821A1329}">
+												<Image FileName="1918027603" Left="0" Top="88" Right="270" Bottom="834" />
+												<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="tabControlLeftPanMain" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="tabPageOfflineView" Key="{AD8C468D-B374-4B43-BAA2-AAAA3FD9E79E}">
+														<Image FileName="132382616" Left="0" Top="88" Right="270" Bottom="809" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="tabPageOfflineView" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelOfflineView" Key="{7C9A4B13-BAD2-4F16-A8CC-D8F0DFD47384}">
+																<Image FileName="132382616" Left="0" Top="88" Right="270" Bottom="809" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelOfflineView" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="tabControlOfflineView" Key="{E5AA6AAA-B883-433D-B6BC-0312A525C457}">
+																		<Image FileName="132382616" Left="0" Top="88" Right="270" Bottom="809" />
+																		<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="tabControlOfflineView" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="tabPageFaultModel" Key="{75688BDE-954A-4721-ACEC-AA9FAE6E2765}">
+																				<Image FileName="245977591" Left="0" Top="113" Right="250" Bottom="809" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="tabPageFaultModel" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="treeView" Key="{B55B650D-DF2F-469E-9DCF-D1781D5C5DC8}">
+																						<Image FileName="245977591" Left="0" Top="113" Right="250" Bottom="809" />
+																						<TypeInfo Item0="{B7F7919F-8E34-4891-BEB1-8F9A313D5054}" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value Value="treeView" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+													<Child Name="tabPageOnlineView" Key="{0A68C7EA-15A3-4568-8F88-079851903CDC}">
+														<Image FileName="-768214966" Left="8" Top="96" Right="278" Bottom="680" />
+														<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="tabPageOnlineView" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelOnlineView" Key="{F93D52BC-B990-4715-A14D-FE412498F270}">
+																<Image FileName="-768214966" Left="8" Top="96" Right="278" Bottom="680" />
+																<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelOnlineView" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panelTabControlOnlineView" Key="{96BFED6C-F2A4-4303-A847-F10FF96AA158}">
+																		<Image FileName="-768214966" Left="8" Top="197" Right="278" Bottom="680" />
+																		<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panelTabControlOnlineView" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="tabControlOnlineView" Key="{EDF9D635-EBFC-4E46-9CD3-B9BE9ECFF8B9}">
+																				<Image FileName="-768214966" Left="8" Top="197" Right="278" Bottom="680" />
+																				<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="tabControlOnlineView" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="tabConnected" Key="{BF91D2A0-CDCF-4EC4-AC5A-FBB8C5EDAE61}">
+																						<Image FileName="-768214966" Left="8" Top="222" Right="278" Bottom="680" />
+																						<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value Value="tabConnected" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="treeView" Key="{24B42B24-D923-4D81-A1AF-3548DEF3819B}">
+																								<Image FileName="-768214966" Left="8" Top="222" Right="278" Bottom="680" />
+																								<TypeInfo Item0="{EADFB66E-23B7-4031-9CD3-93A925506B47}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="treeView" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="panelDeviceTabCtrl" Key="{6AEF7E4E-4A77-4479-A448-D75580D4B4EA}">
+										<Image FileName="-1974620911" Left="282" Top="80" Right="306" Bottom="705" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="panelDeviceTabCtrl" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="panelInCurrentDevice" Key="{854B39B1-298F-4756-A35F-085EF2836F65}">
+												<Image FileName="-1974620911" Left="282" Top="80" Right="306" Bottom="705" />
+												<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="panelInCurrentDevice" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelActiveDevices" Key="{F826C80A-798A-4ED4-AC7C-FD8FFB49907F}">
+														<Image FileName="-1974620911" Left="282" Top="80" Right="306" Bottom="705" />
+														<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelActiveDevices" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="tabControlActiveDevices" Key="{66B5EFED-FC33-4AB5-B87A-4C021CEA673A}">
+																<Image FileName="-1974620911" Left="284" Top="80" Right="308" Bottom="186" />
+																<TypeInfo Item0="{0FAD3D2F-5134-44D0-BBD3-39AC3CE2A224}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="tabControlActiveDevices" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="DropDownForm" Key="{8A68B566-FC4B-45EA-838F-DE951A36D30E}">
+								<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="DropDownForm" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="SubSmartControl" Key="{54A97370-193E-4C6B-8A56-F55A499A0E34}">
+										<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="Xceed.SmartUI.SubSmartControl" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="SettingsForm" Key="{2F7258EB-6558-4F54-864D-4890A55AD2E7}">
+								<Image FileName="-1587651848" Left="0" Top="0" Right="498" Bottom="749" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="SettingsForm" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="tabControl1" Key="{39463FEA-5844-4865-A04A-FBEE51063DAC}">
+										<Image FileName="-1201069184" Left="16" Top="50" Right="479" Bottom="664" />
+										<TypeInfo Item0="{5CDFD1A5-B1E6-49D6-B3C2-86586EA87F70}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="tabControl1" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="tabPageHealthSettings" Key="{09A71404-EC4B-4D90-8FA3-B70A35C12083}">
+												<Image FileName="-1313178151" Left="20" Top="72" Right="475" Bottom="660" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="tabPageHealthSettings" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="gbMuxHealthScan" Key="{7E0EBAAE-57F9-4886-A953-9C5A042A7940}">
+														<Image FileName="-1313178151" Left="36" Top="149" Right="453" Bottom="202" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="gbMuxHealthScan" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="mTimePickerMuxHealth" Key="{2B854486-FD26-43C2-A1E8-D7CB0A46C988}">
+																<Image FileName="-1313178151" Left="266" Top="170" Right="326" Bottom="190" />
+																<TypeInfo Item0="{E9283F09-5D30-4018-A38D-2B083131287E}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="mTimePickerMuxHealth" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="buttonOK" Key="{7B4C5948-C957-4A8C-A4E6-52FED19397D8}">
+										<Image FileName="-1064010053" Left="227" Top="712" Right="299" Bottom="736" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonOK" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgRebuildNetwork" Key="{3B05714C-CBFB-4227-A8F2-0442FF4E8C28}">
+								<Image FileName="932015023" Left="0" Top="0" Right="412" Bottom="159" />
+								<TypeInfo Item0="{37DF9858-AB29-43AB-B938-FEBF5D12886F}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Rebuild Network" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnYes" Key="{EC2EFB9E-7CEB-47E7-A1C0-182D03ABA100}">
+										<Image FileName="932015023" Left="232" Top="119" Right="307" Bottom="142" />
+										<TypeInfo Item0="{E032E9B5-C679-4DEE-9ADA-A0987B6C6083}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Yes" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgFDM" Key="{7F8F4FA8-5EA6-4B14-A559-871E418D8AE6}">
+								<Image FileName="-741876006" Left="0" Top="0" Right="286" Bottom="140" />
+								<TypeInfo Item0="{37DF9858-AB29-43AB-B938-FEBF5D12886F}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="FDM" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Static" Key="{07458185-4508-446D-8213-D45FB839D550}">
+										<Image FileName="-741876006" Left="19" Top="54" Right="249" Bottom="69" />
+										<TypeInfo Item0="{9E85F7D1-5032-43C5-8794-C6FCA00BB001}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Static" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ManagePackagesWindow" Key="{F3918C62-8AF9-450D-86F3-2D79A6FC5ED1}">
+								<Image FileName="791914957" Left="0" Top="0" Right="1080" Bottom="627" />
+								<TypeInfo Item0="{94F163F0-25F6-4EB6-902F-8441B1DC57B1}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="Shell" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Manage Packages" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="ManagePackageMainWindow" Key="{93D239FE-B1F7-46AC-A422-AF40B6CDE061}">
+										<Image FileName="639090360" Left="7" Top="7" Right="1088" Bottom="635" />
+										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AddRemovePackageClient.Shell" />
+											</Property>
+											<Property Name="Name">
+												<Value Value="WPFObject(&quot;Shell&quot;, &quot;Manage Packages&quot;, 1)" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="ButtonAddDdPackage" Key="{B9F3FDA4-7D2D-4D03-88E6-FC29CB351E60}" ExtendedFind="True">
+												<Image FileName="1005092512" Left="747" Top="13" Right="856" Bottom="46" />
+												<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="System.Windows.Controls.Button" />
+													</Property>
+													<Property Name="WPFControlText">
+														<Value Value=" Add DD/PACKAGE " />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="dataGrid" Key="{EEED0821-BAE6-4B33-8D65-57BD505CC1BF}" ExtendedFind="True">
+												<Image FileName="-1023807487" Left="18" Top="188" Right="1063" Bottom="610" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="dataGrid" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="DataGridRow" Key="{ED56D9F1-7162-4A69-8A37-84D635D7DD42}" ExtendedFind="True">
+														<Image FileName="-1023807487" Left="18" Top="223" Right="1046" Bottom="259" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.DataGridRow" />
+															</Property>
+															<Property Name="WPFControlOrdinalNo">
+																<Value Value="1" Type="0" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="ButtonDelete" Key="{8F1145A3-49D7-4455-A56E-4E189F1C640C}" ExtendedFind="True">
+																<Image FileName="1201375916" Left="903" Top="224" Right="1004" Bottom="257" />
+																<TypeInfo Item0="{52A391CA-AF44-470E-84C4-953A0E4597B7}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.Button" />
+																	</Property>
+																	<Property Name="WPFControlText">
+																		<Value Value="DELETE" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="Datagridcell" Key="{6C106C11-5B24-4A4D-9852-E43F5158592E}" ExtendedFind="True">
+																<Image FileName="-1275185989" Left="315" Top="223" Right="457" Bottom="259" />
+																<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.DataGridCell" />
+																	</Property>
+																	<Property Name="Name">
+																		<Value Value="WPFObject(&quot;DataGridCell&quot;, &quot;*&quot;, 3)" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="ManagePackages" Key="{62405A3B-F54F-42E1-B12F-C5A0A2EABA4E}" ExtendedFind="True">
+												<Image FileName="1953744331" Left="7" Top="7" Right="1074" Bottom="621" />
+												<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="AddRemovePackageClient.ManagePackages" />
+													</Property>
+													<Property Name="WPFControlText">
+														<Value Value="" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Grid" Key="{CFFD6492-BC25-448E-998A-46ECA5B69741}">
+														<Image FileName="497357120" Left="7" Top="7" Right="1074" Bottom="621" />
+														<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.Grid" />
+															</Property>
+															<Property Name="WPFControlOrdinalNo">
+																<Value Value="1" Type="0" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="Grid" Key="{35896784-E79B-4C58-8FBE-A63402220D22}">
+																<Image FileName="-16842209" Left="7" Top="7" Right="1074" Bottom="53" />
+																<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.Grid" />
+																	</Property>
+																	<Property Name="WPFControlOrdinalNo">
+																		<Value Value="1" Type="0" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="CloseManageDDPackageWind" Key="{B990918D-5634-4682-ADEB-46FFFFDE46C9}" ExtendedFind="True">
+																		<Image FileName="1459587752" Left="1042" Top="21" Right="1059" Bottom="38" />
+																		<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																		<Properties>
+																			<Property Name="ClrFullClassName">
+																				<Value Value="System.Windows.Shapes.Rectangle" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="ComboboxProtocol" Key="{DD055B53-F7A4-4AC4-9DA8-4F98A1E29F34}" ExtendedFind="True">
+																<Image FileName="782397173" Left="28" Top="93" Right="363" Bottom="126" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.ComboBox" />
+																	</Property>
+																	<Property Name="DisplayMemberPath">
+																		<Value Value="ProtocolName" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="ComboboxManufacturer" Key="{8336EA21-18E5-43C5-A8E2-BB4621908995}" ExtendedFind="True">
+																<Image FileName="939961198" Left="372" Top="93" Right="708" Bottom="126" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.ComboBox" />
+																	</Property>
+																	<Property Name="DisplayMemberPath">
+																		<Value Value="ManufacturerName" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="ComboboxDeviceType" Key="{CC731884-4800-4BC5-83DB-149039D786D3}" ExtendedFind="True">
+																<Image FileName="914592888" Left="717" Top="93" Right="1053" Bottom="126" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.ComboBox" />
+																	</Property>
+																	<Property Name="DisplayMemberPath">
+																		<Value Value="DeviceTypeName" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="Add_DDPackageFilePopUp" Key="{31FD6FBC-2C0F-4BD5-9946-859157B91856}">
+								<Image FileName="-1930604306" Left="0" Top="0" Right="500" Bottom="350" />
+								<TypeInfo Item0="{94F163F0-25F6-4EB6-902F-8441B1DC57B1}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="Add_DDPackage" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Add_DDPackage" Key="{381C8F85-0D7B-4459-9855-920D1D8C0670}">
+										<Image FileName="-166482920" Left="7" Top="7" Right="508" Bottom="358" />
+										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AddRemovePackageClient.View.Add_DDPackage" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="FileTypeDropDown" Key="{9BD54F03-ABEF-45EA-960E-C1D980B6C383}" ExtendedFind="True">
+												<Image FileName="1966138603" Left="22" Top="123" Right="479" Bottom="156" />
+												<TypeInfo Item0="{3B5AB0E1-649E-4947-9B85-CD8B5299772A}" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="cmb_FileType" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="Grid" Key="{B9AC3E80-984A-4DF6-A9B5-46833F856141}" ExtendedFind="True">
+												<Image FileName="1227864313" Left="7" Top="7" Right="494" Bottom="348" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="System.Windows.Controls.Grid" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="Grid" Key="{93DD83DC-3621-4AE8-A02E-33868FB65AFB}" ExtendedFind="True">
+														<Image FileName="1227864313" Left="22" Top="237" Right="479" Bottom="288" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.Grid" />
+															</Property>
+															<Property Name="WPFControlOrdinalNo">
+																<Value Value="1" Type="0" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="Rectangle" Key="{9D3DD9D1-A912-4C0B-B75D-791D462054EE}" ExtendedFind="True">
+																<Image FileName="1227864313" Left="452" Top="249" Right="479" Bottom="276" />
+																<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Shapes.Rectangle" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+													<Child Name="ButtonAddToLibrary" Key="{E9F924D1-DD23-4F86-A921-86F4C42207D0}" ExtendedFind="True">
+														<Image FileName="-1459929973" Left="250" Top="296" Right="479" Bottom="329" />
+														<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.Button" />
+															</Property>
+															<Property Name="WPFControlText">
+																<Value Value="ADD TO LIBRARY" />
+															</Property>
+														</Properties>
+													</Child>
+													<Child Name="Button" Key="{F6C81526-D012-4A04-9742-534423AF3A75}">
+														<Image FileName="-1811307117" Left="462" Top="14" Right="479" Bottom="40" />
+														<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.Button" />
+															</Property>
+															<Property Name="WPFControlText">
+																<Value Value="" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="CloseButton" Key="{5CCE4484-D2B3-4DB5-9356-B72B7B9FA17D}" ExtendedFind="True">
+																<Image FileName="680814689" Left="462" Top="19" Right="479" Bottom="36" />
+																<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Shapes.Rectangle" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgOpen" Key="{05EFBCB6-94A6-4594-B4A2-55D6338854C6}">
+								<Image FileName="1370483076" Left="0" Top="0" Right="720" Bottom="480" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Open" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="WorkerW" Key="{F0B207D4-59DD-4A61-9E44-253D1C778A17}">
+										<Image FileName="1370483076" Left="8" Top="31" Right="712" Bottom="66" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="WorkerW" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="ReBarWindow32" Key="{C80FD0F2-C117-45AE-B215-10027C9D9AE4}">
+												<Image FileName="1370483076" Left="8" Top="31" Right="712" Bottom="66" />
+												<Properties>
+													<Property Name="WndClass">
+														<Value Value="ReBarWindow32" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="AddressBandRoot" Key="{C6CD0F93-3A18-4E16-965A-E3CB3C972DD8}">
+														<Image FileName="1370483076" Left="113" Top="33" Right="487" Bottom="61" />
+														<Properties>
+															<Property Name="WndClass">
+																<Value Value="Address Band Root" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="progress" Key="{EA950CA7-2BDF-470E-BA51-E8C0D91FDC6C}">
+																<Image FileName="1370483076" Left="115" Top="37" Right="485" Bottom="59" />
+																<Properties>
+																	<Property Name="WndClass">
+																		<Value Value="msctls_progress32" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="BreadcrumbParent" Key="{3CF3F564-BEA8-42C7-8BBD-1FF57243FE93}">
+																		<Image FileName="1370483076" Left="115" Top="37" Right="445" Bottom="59" />
+																		<Properties>
+																			<Property Name="WndClass">
+																				<Value Value="Breadcrumb Parent" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="toolbar" Key="{87F69BC2-9D6C-4C61-ADC9-082C4B835766}">
+																				<Image FileName="1370483076" Left="115" Top="37" Right="445" Bottom="59" />
+																				<TypeInfo Item0="{46A5CDEC-EE1B-4750-B6BA-9179B97CF07E}" />
+																				<Properties>
+																					<Property Name="WndClass">
+																						<Value Value="ToolbarWindow32" />
+																					</Property>
+																				</Properties>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="comboBox" Key="{540CB2A0-0DE7-4272-9AAA-B70E6E316AE1}">
+																		<Image FileName="-1308637695" Left="115" Top="37" Right="465" Bottom="59" />
+																		<Properties>
+																			<Property Name="WndClass">
+																				<Value Value="ComboBoxEx32" />
+																			</Property>
+																		</Properties>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="InformationWindowPopUp" Key="{46055BDC-59D0-4325-9950-31E97A286F3C}">
+								<Image FileName="1175021448" Left="0" Top="0" Right="500" Bottom="255" />
+								<TypeInfo Item0="{94F163F0-25F6-4EB6-902F-8441B1DC57B1}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="InformationWindow" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="InformationWindow" Key="{E67D0414-F83B-4F1D-B358-329CEFFC4875}">
+										<Image FileName="1175021448" Left="7" Top="7" Right="508" Bottom="263" />
+										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AddRemovePackageClient.InformationWindow" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="InformationTextView" Key="{D791913E-C2FB-4CBE-8F06-DDDB1C6CEFF9}" ExtendedFind="True">
+												<Image FileName="1175021448" Left="17" Top="37" Right="484" Bottom="202" />
+												<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="System.Windows.Controls.ScrollViewer" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="TextblockPackageDeletedSuccessfullyPackage" Key="{80376A94-47D6-42A5-A2B8-D2CE756C1844}" ExtendedFind="True">
+														<Image FileName="925328279" Left="17" Top="37" Right="484" Bottom="202" />
+														<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.TextBlock" />
+															</Property>
+															<Property Name="WPFControlText">
+																<Value Value="*Package Deleted Successfully*" />
+															</Property>
+														</Properties>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="ButtonOk" Key="{B95659A8-E58F-4678-8C0C-74647E610F12}" ExtendedFind="True">
+												<Image FileName="1175021448" Left="383" Top="206" Right="484" Bottom="239" />
+												<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="System.Windows.Controls.Button" />
+													</Property>
+													<Property Name="WPFControlText">
+														<Value Value="OK" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="PkgValidationStatusViewPopUp" Key="{C2FAD3E1-DF93-4EDF-817B-082DD3ABBCA2}">
+								<Image FileName="-2105202779" Left="0" Top="0" Right="600" Bottom="300" />
+								<TypeInfo Item0="{94F163F0-25F6-4EB6-902F-8441B1DC57B1}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="PkgValidationStatusView" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="PkgValidationStatusView" Key="{8356E7A1-9108-4390-9EF7-A90B90AE8639}">
+										<Image FileName="930759781" Left="7" Top="7" Right="608" Bottom="308" />
+										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AddRemovePackageClient.View.PkgValidationStatusView" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="dataGrid" Key="{4E3705FC-5FE2-49C7-9866-B0078C1C4EAB}" ExtendedFind="True">
+												<Image FileName="-1793146303" Left="17" Top="37" Right="584" Bottom="242" />
+												<TypeInfo Item0="{1068D490-943F-4AC3-B190-878CE7B2C428}" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="dataGrid" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="DataGridRow" Key="{A126D164-CC81-4404-A4C7-093E164009DD}" ExtendedFind="True">
+														<Image FileName="1104718910" Left="18" Top="73" Right="583" Bottom="109" />
+														<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+														<Properties>
+															<Property Name="ClrFullClassName">
+																<Value Value="System.Windows.Controls.DataGridRow" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="Datagridcell" Key="{665B2F37-41F2-4F2B-85AB-814C25861390}" ExtendedFind="True">
+																<Image FileName="-1717661643" Left="123" Top="73" Right="583" Bottom="109" />
+																<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																<Properties>
+																	<Property Name="ClrFullClassName">
+																		<Value Value="System.Windows.Controls.DataGridCell" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="btn_Yes" Key="{15A9A0EE-21FB-4C64-9571-5E3C790538E7}" ExtendedFind="True">
+												<Image FileName="-754264393" Left="373" Top="251" Right="474" Bottom="284" />
+												<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="btn_Yes" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="HwndSource_ProgressBar" Key="{7B0C5689-A031-4A81-BC8E-4476B2798FDD}">
+								<Image FileName="1389955330" Left="0" Top="0" Right="350" Bottom="150" />
+								<TypeInfo Item0="{054CFFBD-FCBF-4B3F-83DE-34DE99B8A7FF}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="ProgressBar" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="ProgressBar" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="ProgressBar" Key="{35940BD4-D2DD-40ED-ACE3-E9A312A86E97}">
+										<Image FileName="1389955330" Left="0" Top="0" Right="351" Bottom="151" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AddRemovePackageClient.ProgressBar" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="Border" Key="{4EE0D708-9D8E-4858-9D99-2D48FC8E2447}" ExtendedFind="True">
+												<Image FileName="1389955330" Left="0" Top="0" Right="351" Bottom="151" />
+												<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="System.Windows.Controls.Border" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgDeleteDDFile" Key="{72179AF5-88C0-4A58-81A6-0E360EAD1505}">
+								<Image FileName="-1748856120" Left="0" Top="0" Right="411" Bottom="159" />
+								<TypeInfo Item0="{96463CC8-508B-4F58-B594-16FCBC008462}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Delete DD File" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnYes" Key="{445E1546-6155-4788-BA3D-BD5331F5FD5F}">
+										<Image FileName="-1522585392" Left="230" Top="119" Right="305" Bottom="142" />
+										<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Yes" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ConfirmationWindow" Key="{92E62F8C-BBA4-4BEA-89C1-7451BCF45877}" ExtendedFind="True">
+								<Image FileName="-1164986622" Left="0" Top="0" Right="500" Bottom="255" />
+								<Properties>
+									<Property Name="RootVisual.Name">
+										<Value Value="ConfirmationWindow1" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="TextblockDeletePackage" Key="{B2021B64-7681-4DF1-93F9-1EE42980BED4}" ExtendedFind="True">
+										<Image FileName="-1164986622" Left="17" Top="7" Right="484" Bottom="32" />
+										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="System.Windows.Controls.TextBlock" />
+											</Property>
+											<Property Name="WPFControlText">
+												<Value Value="*" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="ButtonOk" Key="{6B7E18B1-2970-4ECC-8B8C-1183A9C7F1E3}" ExtendedFind="True">
+										<Image FileName="1962528722" Left="273" Top="206" Right="374" Bottom="239" />
+										<TypeInfo Item0="{AE52D276-FFA9-4F0D-B6C0-DE05E8F23616}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="System.Windows.Controls.Button" />
+											</Property>
+											<Property Name="WPFControlText">
+												<Value Value="OK" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="PlantAreaViewWindow" Key="{7814FD48-1B9C-4CF6-8584-DC207D92469D}">
+								<Image FileName="-1083527207" Left="-8" Top="-8" Right="1448" Bottom="868" />
+								<TypeInfo Item0="{96463CC8-508B-4F58-B594-16FCBC008462}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="Shell" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Plant Area View" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Shell" Key="{0B9B88E1-DDD1-4851-A5EA-8D3B200140F0}">
+										<Image FileName="-1083527207" Left="0" Top="0" Right="1457" Bottom="877" />
+										<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="Fdm.PlantAreaView.Infrastructure.Shell" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="WindowButtonCommands" Key="{E3E8AEA0-F176-45E5-9308-D69047D32C37}" ExtendedFind="True">
+												<Image FileName="2120749016" Left="1302" Top="0" Right="1441" Bottom="61" />
+												<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="MahApps.Metro.Controls.WindowButtonCommands" />
+													</Property>
+													<Property Name="WPFControlText">
+														<Value Value="" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="AlertMonitorWindow" Key="{320234C1-91A4-4CC1-A11B-FFA0A2446DE3}">
+								<Image FileName="-57383916" Left="-8" Top="-8" Right="1448" Bottom="868" />
+								<TypeInfo Item0="{96463CC8-508B-4F58-B594-16FCBC008462}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="Shell" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="Alert Monitor" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="Shell" Key="{A797374C-B44C-4D64-97A1-D19F8CBE1D53}">
+										<Image FileName="-57383916" Left="0" Top="0" Right="1457" Bottom="877" />
+										<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="AlertMonitoringDashboardUI.Infrastructure.Shell" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="WindowButtonCommands" Key="{A8EA510B-EF9F-4C7E-9124-F1BD3D10F842}" ExtendedFind="True">
+												<Image FileName="113033063" Left="1302" Top="0" Right="1441" Bottom="31" />
+												<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="MahApps.Metro.Controls.WindowButtonCommands" />
+													</Property>
+													<Property Name="WPFControlText">
+														<Value Value="" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="HwndSource_ProgressView" Key="{950D71C3-7210-4DAE-ABA8-F92DB1AEB03D}">
+								<Image FileName="670634607" Left="0" Top="0" Right="390" Bottom="209" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="ProgressView" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="ProgressView" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="ProgressView" Key="{6B6DF58B-BA19-4398-AABE-B9011CEAA67F}">
+										<Image FileName="670634607" Left="0" Top="0" Right="391" Bottom="210" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="Fdm.PlantAreaView.View.ProgressView" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="CustomErrorMessage" Key="{DFC544D6-9F88-45D0-BD77-461A01C14DBD}">
+								<Image FileName="-449732916" Left="0" Top="0" Right="602" Bottom="183" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="CustomErrorMessage" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="panelOK" Key="{1E07B1FA-B082-4CE9-BF01-D863F9562962}">
+										<Image FileName="-1189897966" Left="8" Top="143" Right="594" Bottom="175" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="panelOK" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="btnOK" Key="{47FE95B9-5218-4584-88EB-54A2875FECF6}">
+												<Image FileName="-1189897966" Left="208" Top="143" Right="283" Bottom="166" />
+												<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="btnOK" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="dlgFDMConfiguration" Key="{9BA2BDFF-DEB4-4235-B703-8D949812F560}" ExtendedFind="True">
+								<Image FileName="-2093679470" Left="0" Top="0" Right="348" Bottom="159" />
+								<TypeInfo Item0="{96463CC8-508B-4F58-B594-16FCBC008462}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="#32770" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnOK" Key="{E8A85CB5-4CC5-4673-8444-C4A0BAC3AA1F}">
+										<Image FileName="-2093679470" Left="250" Top="119" Right="325" Bottom="142" />
+										<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="OK" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="btnYes" Key="{A91344A7-7F13-434B-93F4-229DCDB5E661}">
+										<Image FileName="-2017202184" Left="241" Top="125" Right="316" Bottom="148" />
+										<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="&amp;Yes" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="Static" Key="{35758544-A3C5-41EB-9F6F-893EAC0B5518}">
+										<Image FileName="1302964412" Left="70" Top="64" Right="246" Bottom="79" />
+										<TypeInfo Item0="{9E85F7D1-5032-43C5-8794-C6FCA00BB001}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Static" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="The selected view is already open." />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ApplicationSelectionDlg" Key="{B00665A4-53DF-483F-B6D6-9212051002DB}">
+								<Image FileName="-768861421" Left="0" Top="0" Right="386" Bottom="222" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="ApplicationSelectionDlg" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="buttonBrowse" Key="{1937F1A7-D1ED-484C-81B9-894BD4D810F8}">
+										<Image FileName="1155724226" Left="336" Top="53" Right="360" Bottom="71" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonBrowse" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="buttonOK" Key="{816494EB-F058-4A5F-A302-1FEFFDFF2556}">
+										<Image FileName="-2032083317" Left="192" Top="180" Right="267" Bottom="203" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonOK" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="buttonCancel" Key="{BF6F72E9-FDBA-4952-B297-A788EC44A3EA}">
+										<Image FileName="-2008843884" Left="280" Top="180" Right="355" Bottom="203" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonCancel" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ResourceSelectionDlg" Key="{9F28FFEC-89C2-454F-8D12-C18C9EDF8AA1}">
+								<Image FileName="1947382706" Left="0" Top="0" Right="330" Bottom="270" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="ResourceSelectionDlg" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="fpSpread1" Key="{C589CDD3-F99C-41AB-9237-5CA64DE763EA}">
+										<Image FileName="1947382706" Left="24" Top="75" Right="305" Bottom="219" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="fpSpread1" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="OKButton" Key="{8B73C285-9CEF-4D9A-B4A1-038B3F331E53}">
+										<Image FileName="1691852798" Left="152" Top="231" Right="216" Bottom="255" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="OKButton" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ToolTipNativeWindow" Key="{624795C2-D9C0-480A-B2FC-9080DE027291}">
+								<Image FileName="-744612387" Left="0" Top="0" Right="211" Bottom="110" />
+								<TypeInfo Item0="{054CFFBD-FCBF-4B3F-83DE-34DE99B8A7FF}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="WindowsForms10.tooltips_class32.app.0.13965fa_r8_ad1" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+								</Properties>
+							</Child>
+						</Children>
+					</Child>
+					<Child Name="ServerMgmtTool" Key="{76854944-2403-43C4-974D-965705263715}">
+						<Properties>
+							<Property Name="ProcessName">
+								<Value Value="ServerMgmtTool" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="LoginForm" Key="{C7E1F0B4-EB87-4A30-AADD-6BBD4A943AA1}">
+								<Image FileName="-298581188" Left="0" Top="0" Right="691" Bottom="398" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="LoginForm" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="m_txtLoginName" Key="{53B5A2F4-5F1A-4570-B90C-4A701573E65A}">
+										<Image FileName="-298581188" Left="496" Top="200" Right="676" Bottom="225" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="m_txtLoginName" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TextBoxArea" Key="{DC239EEB-5101-424A-9F70-70B53A6B7DBA}">
+												<Image FileName="-298581188" Left="497" Top="202" Right="675" Bottom="225" />
+												<TypeInfo Item0="{13717E7F-375F-4A91-B0C1-B1B3477FFDBC}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.TextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="m_txtPassword" Key="{0D9F85D3-416A-46A3-B8FE-C056A23D2A45}">
+										<Image FileName="-1552326098" Left="496" Top="242" Right="676" Bottom="267" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="m_txtPassword" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="TextBoxArea" Key="{B0368387-E9A3-4B9B-ADCA-781D4CD99ACE}">
+												<Image FileName="-1552326098" Left="497" Top="243" Right="675" Bottom="266" />
+												<TypeInfo Item0="{13717E7F-375F-4A91-B0C1-B1B3477FFDBC}" />
+												<Properties>
+													<Property Name="ClrFullClassName">
+														<Value Value="Xceed.Editors.TextBoxArea" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+									<Child Name="m_btnLogin" Key="{873501C3-A87F-4A18-8D70-6A85574F8522}">
+										<Image FileName="86916498" Left="500" Top="329" Right="571" Bottom="358" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="m_btnLogin" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
+							<Child Name="ServerManagerMainForm" Key="{AB0C5D2A-A328-406F-96C3-CEF61A906C72}">
+								<Image FileName="665015" Left="0" Top="0" Right="983" Bottom="836" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="ServerManagerMainForm" />
+									</Property>
+								</Properties>
+							</Child>
+						</Children>
+					</Child>
+				</Children>
+			</Child>
+		</Children>
+	</Nodes>
+	<LogicalNodes Name="Aliases" Owner="{BE401E45-B2D6-4FBA-931A-C2117D5C51AD}">
+		<Child Name="HCMClient" Owner="{248F4DB3-9E5A-44A9-8CFE-5A145FFE4CF2}">
+			<Child Name="ClientLogin" Owner="{83EFBE01-244B-4ED6-90A1-77923EF775E4}">
+				<Child Name="FdmServerNameField" Owner="{A6A76A5B-0FBC-4816-8EF1-2BEE7E879CDD}">
+					<Child Name="dropDownBtn" Owner="{43F6C199-562A-4623-8CAD-94CF766C60D3}" />
+					<Child Name="TextFieldArea" Owner="{C336ED21-FDDA-481F-A229-91659FAAB7C6}" />
+				</Child>
+				<Child Name="UserNameTextBox" Owner="{1B4CCD03-6C91-4A5B-A438-21DAA0B02135}">
+					<Child Name="TextBoxArea" Owner="{D1D54FEF-433F-452F-B4E3-6B1E26459D86}" />
+				</Child>
+				<Child Name="PasswordTextBox" Owner="{694F5003-138D-441B-BD80-2A398E8F04DE}">
+					<Child Name="TextBoxArea" Owner="{ABDB84A3-D891-4927-B276-FD0F210536F1}" />
+				</Child>
+				<Child Name="DomainTextBox" Owner="{FB0678A6-F365-42D2-83BD-7960A9225109}">
+					<Child Name="dropDownBtn" Owner="{4B1B2708-386E-4B2C-A843-792CDAB43B59}" />
+					<Child Name="TextBoxArea" Owner="{49B151D7-E885-4C42-BAC2-6010E7E53696}" />
+				</Child>
+				<Child Name="LoginBtn" Owner="{55D7A736-5BBC-4AB3-93CA-30AF9048832B}" />
+			</Child>
+			<Child Name="DropDownGrid" Owner="{F01DC1DE-2E3E-43DB-B0B0-F8B9C0A8C0B1}" />
+			<Child Name="ClientMainWindow" Owner="{876F9820-8CEA-4093-ACA1-F38AECD32ECC}">
+				<Child Name="mainMenu" Owner="{A28B42CD-33D1-4955-A0B7-E73496C26BED}" />
+				<Child Name="MdiClient" Owner="{18F795DB-17E5-4C57-9BEA-3995EA24FD88}">
+					<Child Name="EntryPointTabPage" Owner="{41B7A9DE-6D3A-47A1-BF17-E807DF465778}">
+						<Child Name="EntryPointsTabPage" Owner="{0F940466-C798-4EEC-AD34-BDCC1BC901C2}">
+							<Child Name="HwndSource_AdornerDecorator" Owner="{7C80135A-0F2C-40AE-A499-8710E4459335}">
+								<Child Name="AdornerDecorator" Owner="{A10CD6F0-4C5E-4227-8B11-B02AC78EB320}">
+									<Child Name="FDMDeviceStatusGrid" Owner="{7AC5F0F7-FC50-4F7C-BA1D-B04C53B867A4}">
+										<Child Name="Textblock" Owner="{F265BAE7-8036-48C0-AE75-CEBB50428C3F}" />
+									</Child>
+									<Child Name="HyperlinkFdmDeviceProperties" Owner="{EB854E6A-20ED-48D0-83E7-07773C1DE2F4}" />
+									<Child Name="HyperlinkMethodList" Owner="{CA101A7F-7463-4423-BDF6-E7682CC578EB}" />
+									<Child Name="HyperlinkSaveHistoryRecord" Owner="{CF517108-7EF4-4926-A6D3-1CA030E97DCC}" />
+									<Child Name="HyperlinkSaveAsOfflineTemplate" Owner="{D752064F-34B9-4D73-B312-E5BCBF9F8775}" />
+									<Child Name="HyperlinkAdvancedConfiguration" Owner="{9306265D-4435-4F21-B649-F4F867E4A958}" />
+									<Child Name="HyperlinkFdmDeviceStatus" Owner="{BB63A071-CB87-4998-9A82-B77FB655593E}" />
+									<Child Name="HyperlinkExport" Owner="{E910B883-8DF0-44CF-8B26-0616DAFDCFE4}" />
+									<Child Name="HyperlinkPrint" Owner="{81CC9EB6-C82C-42BF-97E5-1351E7C31898}" />
+									<Child Name="HyperlinkNotifications" Owner="{2E1B08BB-B00A-40BF-A10A-D6DF0C6DC3F7}" />
+								</Child>
+							</Child>
+						</Child>
+						<Child Name="InertButton" Owner="{154DAB9C-A393-4B22-8426-16B5CF4C0D8D}" />
+					</Child>
+					<Child Name="panelFullTop" Owner="{4EA93F7B-81B7-461D-9426-57D489BA5070}">
+						<Child Name="panelTitle" Owner="{B1C11641-27A6-4DE3-9BC5-522BFAAE520D}">
+							<Child Name="DeviceTitle" Owner="{AB36D286-F7AF-459F-AD5C-647E454924CD}" />
+							<Child Name="buttonClose" Owner="{7278353C-98FE-46FB-9071-E8A317DA343B}" />
+						</Child>
+					</Child>
+					<Child Name="RightPanBaseFrame" Owner="{03831CB2-ABBB-41B2-AB28-0BFC9E8C1F36}">
+						<Child Name="panelBase" Owner="{2BD6FF35-EC77-44FF-8078-0E52A1C94BF6}">
+							<Child Name="panelFullTop" Owner="{D13007AE-BEDB-4D90-903A-8615ADBF9C20}">
+								<Child Name="panelTitle" Owner="{F5ACABE0-218B-4A75-9586-BA496CFEB096}">
+									<Child Name="buttonClose" Owner="{C77EF8B7-AD77-468D-8F7D-FCB1FEE9B028}" />
+									<Child Name="labelDeviceTitle" Owner="{73DA985E-5571-48F2-A27E-4FA54E1C06C7}" />
+								</Child>
+							</Child>
+							<Child Name="panelForDerivedForms" Owner="{DDC312C5-148C-410D-91C5-0F8753BCD68B}">
+								<Child Name="ElementHost" Owner="{E5D9B49F-939F-466C-86A2-87CB4DF01E0B}">
+									<Child Name="HwndSource_AdornerDecorator" Owner="{776D6123-8A59-492D-93B0-6EB6C8A72FD9}">
+										<Child Name="AdornerDecorator" Owner="{BC96A5EB-80E3-4F04-B72F-A8FCF51657BF}">
+											<Child Name="StackPanel" Owner="{5C2835E4-2DEE-4FBF-A1BD-5B8439CC0663}" />
+											<Child Name="TextblockDeviceStatus" Owner="{6464B73B-ADA3-4267-B0F6-4CAD0E4C3477}" />
+											<Child Name="StackPanel2" Owner="{0CA78992-815E-4A08-A25E-6EE1C4ED93F8}" />
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+				</Child>
+				<Child Name="panelLeftPanMain" Owner="{FA193912-1A86-464B-829F-240737861C5D}">
+					<Child Name="tabControlLeftPanMain" Owner="{DB3A5AC5-23B7-4EC9-8B80-DF96821A1329}">
+						<Child Name="tabPageOfflineView" Owner="{AD8C468D-B374-4B43-BAA2-AAAA3FD9E79E}">
+							<Child Name="panelOfflineView" Owner="{7C9A4B13-BAD2-4F16-A8CC-D8F0DFD47384}">
+								<Child Name="tabControlOfflineView" Owner="{E5AA6AAA-B883-433D-B6BC-0312A525C457}">
+									<Child Name="tabPageFaultModel" Owner="{75688BDE-954A-4721-ACEC-AA9FAE6E2765}">
+										<Child Name="treeView" Owner="{B55B650D-DF2F-469E-9DCF-D1781D5C5DC8}" />
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+						<Child Name="tabPageOnlineView" Owner="{0A68C7EA-15A3-4568-8F88-079851903CDC}">
+							<Child Name="panelOnlineView" Owner="{F93D52BC-B990-4715-A14D-FE412498F270}">
+								<Child Name="panelTabControlOnlineView" Owner="{96BFED6C-F2A4-4303-A847-F10FF96AA158}">
+									<Child Name="tabControlOnlineView" Owner="{EDF9D635-EBFC-4E46-9CD3-B9BE9ECFF8B9}">
+										<Child Name="tabConnected" Owner="{BF91D2A0-CDCF-4EC4-AC5A-FBB8C5EDAE61}">
+											<Child Name="treeView" Owner="{24B42B24-D923-4D81-A1AF-3548DEF3819B}" />
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+				</Child>
+				<Child Name="panelDeviceTabCtrl" Owner="{6AEF7E4E-4A77-4479-A448-D75580D4B4EA}">
+					<Child Name="panelInCurrentDevice" Owner="{854B39B1-298F-4756-A35F-085EF2836F65}">
+						<Child Name="panelActiveDevices" Owner="{F826C80A-798A-4ED4-AC7C-FD8FFB49907F}">
+							<Child Name="tabControlActiveDevices" Owner="{66B5EFED-FC33-4AB5-B87A-4C021CEA673A}" />
+						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="DropDownForm" Owner="{8A68B566-FC4B-45EA-838F-DE951A36D30E}">
+				<Child Name="SubSmartControl" Owner="{54A97370-193E-4C6B-8A56-F55A499A0E34}" />
+			</Child>
+			<Child Name="SettingsForm" Owner="{2F7258EB-6558-4F54-864D-4890A55AD2E7}">
+				<Child Name="tabControl1" Owner="{39463FEA-5844-4865-A04A-FBEE51063DAC}">
+					<Child Name="tabPageHealthSettings" Owner="{09A71404-EC4B-4D90-8FA3-B70A35C12083}">
+						<Child Name="gbMuxHealthScan" Owner="{7E0EBAAE-57F9-4886-A953-9C5A042A7940}">
+							<Child Name="mTimePickerMuxHealth" Owner="{2B854486-FD26-43C2-A1E8-D7CB0A46C988}" />
+						</Child>
+					</Child>
+				</Child>
+				<Child Name="buttonOK" Owner="{7B4C5948-C957-4A8C-A4E6-52FED19397D8}" />
+			</Child>
+			<Child Name="dlgRebuildNetwork" Owner="{3B05714C-CBFB-4227-A8F2-0442FF4E8C28}">
+				<Child Name="btnYes" Owner="{EC2EFB9E-7CEB-47E7-A1C0-182D03ABA100}" />
+			</Child>
+			<Child Name="dlgFDM" Owner="{7F8F4FA8-5EA6-4B14-A559-871E418D8AE6}">
+				<Child Name="Static" Owner="{07458185-4508-446D-8213-D45FB839D550}" />
+			</Child>
+			<Child Name="ManagePackagesWindow" Owner="{F3918C62-8AF9-450D-86F3-2D79A6FC5ED1}">
+				<Child Name="ManagePackageMainWindow" Owner="{93D239FE-B1F7-46AC-A422-AF40B6CDE061}">
+					<Child Name="ButtonAddDdPackage" Owner="{B9F3FDA4-7D2D-4D03-88E6-FC29CB351E60}" />
+					<Child Name="dataGrid" Owner="{EEED0821-BAE6-4B33-8D65-57BD505CC1BF}">
+						<Child Name="ButtonDelete" Owner="{8F1145A3-49D7-4455-A56E-4E189F1C640C}" />
+						<Child Name="Datagridcell" Owner="{6C106C11-5B24-4A4D-9852-E43F5158592E}" />
+					</Child>
+					<Child Name="ManagePackages" Owner="{62405A3B-F54F-42E1-B12F-C5A0A2EABA4E}">
+						<Child Name="CloseManageDDPackageWind" Owner="{B990918D-5634-4682-ADEB-46FFFFDE46C9}" />
+						<Child Name="ComboboxProtocol" Owner="{DD055B53-F7A4-4AC4-9DA8-4F98A1E29F34}" />
+						<Child Name="ComboboxManufacturer" Owner="{8336EA21-18E5-43C5-A8E2-BB4621908995}" />
+						<Child Name="ComboboxDeviceType" Owner="{CC731884-4800-4BC5-83DB-149039D786D3}" />
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="Add_DDPackageFilePopUp" Owner="{31FD6FBC-2C0F-4BD5-9946-859157B91856}">
+				<Child Name="FileTypeDropDown" Owner="{9BD54F03-ABEF-45EA-960E-C1D980B6C383}" />
+				<Child Name="Rectangle" Owner="{9D3DD9D1-A912-4C0B-B75D-791D462054EE}" />
+				<Child Name="ButtonAddToLibrary" Owner="{E9F924D1-DD23-4F86-A921-86F4C42207D0}" />
+				<Child Name="Button" Owner="{F6C81526-D012-4A04-9742-534423AF3A75}">
+					<Child Name="CloseButton" Owner="{5CCE4484-D2B3-4DB5-9356-B72B7B9FA17D}" />
+				</Child>
+			</Child>
+			<Child Name="dlgOpen" Owner="{05EFBCB6-94A6-4594-B4A2-55D6338854C6}">
+				<Child Name="WorkerW" Owner="{F0B207D4-59DD-4A61-9E44-253D1C778A17}">
+					<Child Name="ReBarWindow32" Owner="{C80FD0F2-C117-45AE-B215-10027C9D9AE4}">
+						<Child Name="AddressBandRoot" Owner="{C6CD0F93-3A18-4E16-965A-E3CB3C972DD8}">
+							<Child Name="progress" Owner="{EA950CA7-2BDF-470E-BA51-E8C0D91FDC6C}">
+								<Child Name="BreadcrumbParent" Owner="{3CF3F564-BEA8-42C7-8BBD-1FF57243FE93}">
+									<Child Name="toolbar" Owner="{87F69BC2-9D6C-4C61-ADC9-082C4B835766}" />
+								</Child>
+								<Child Name="comboBox" Owner="{540CB2A0-0DE7-4272-9AAA-B70E6E316AE1}" />
+							</Child>
+						</Child>
+					</Child>
+				</Child>
+			</Child>
+			<Child Name="InformationWindowPopUp" Owner="{46055BDC-59D0-4325-9950-31E97A286F3C}">
+				<Child Name="InformationTextView" Owner="{D791913E-C2FB-4CBE-8F06-DDDB1C6CEFF9}">
+					<Child Name="TextblockPackageDeletedSuccessfullyPackage" Owner="{80376A94-47D6-42A5-A2B8-D2CE756C1844}" />
+				</Child>
+				<Child Name="ButtonOk" Owner="{B95659A8-E58F-4678-8C0C-74647E610F12}" />
+			</Child>
+			<Child Name="PkgValidationStatusViewPopUp" Owner="{C2FAD3E1-DF93-4EDF-817B-082DD3ABBCA2}">
+				<Child Name="dataGrid" Owner="{4E3705FC-5FE2-49C7-9866-B0078C1C4EAB}">
+					<Child Name="Datagridcell" Owner="{665B2F37-41F2-4F2B-85AB-814C25861390}" />
+					<Child Name="DataGridRow" Owner="{A126D164-CC81-4404-A4C7-093E164009DD}" />
+				</Child>
+				<Child Name="btn_Yes" Owner="{15A9A0EE-21FB-4C64-9571-5E3C790538E7}" />
+			</Child>
+			<Child Name="HwndSource_ProgressBar" Owner="{7B0C5689-A031-4A81-BC8E-4476B2798FDD}">
+				<Child Name="ProgressBar" Owner="{35940BD4-D2DD-40ED-ACE3-E9A312A86E97}">
+					<Child Name="Border" Owner="{4EE0D708-9D8E-4858-9D99-2D48FC8E2447}" />
+				</Child>
+			</Child>
+			<Child Name="dlgDeleteDDFile" Owner="{72179AF5-88C0-4A58-81A6-0E360EAD1505}">
+				<Child Name="btnYes" Owner="{445E1546-6155-4788-BA3D-BD5331F5FD5F}" />
+			</Child>
+			<Child Name="ConfirmationWindow" Owner="{92E62F8C-BBA4-4BEA-89C1-7451BCF45877}">
+				<Child Name="TextblockDeletePackage" Owner="{B2021B64-7681-4DF1-93F9-1EE42980BED4}" />
+				<Child Name="ButtonOk" Owner="{6B7E18B1-2970-4ECC-8B8C-1183A9C7F1E3}" />
+			</Child>
+			<Child Name="PlantAreaViewWindow" Owner="{7814FD48-1B9C-4CF6-8584-DC207D92469D}">
+				<Child Name="Shell" Owner="{0B9B88E1-DDD1-4851-A5EA-8D3B200140F0}">
+					<Child Name="WindowButtonCommands" Owner="{E3E8AEA0-F176-45E5-9308-D69047D32C37}" />
+				</Child>
+			</Child>
+			<Child Name="AlertMonitorWindow" Owner="{320234C1-91A4-4CC1-A11B-FFA0A2446DE3}">
+				<Child Name="Shell" Owner="{A797374C-B44C-4D64-97A1-D19F8CBE1D53}">
+					<Child Name="WindowButtonCommands" Owner="{A8EA510B-EF9F-4C7E-9124-F1BD3D10F842}" />
+				</Child>
+			</Child>
+			<Child Name="HwndSource_ProgressView" Owner="{950D71C3-7210-4DAE-ABA8-F92DB1AEB03D}">
+				<Child Name="ProgressView" Owner="{6B6DF58B-BA19-4398-AABE-B9011CEAA67F}" />
+			</Child>
+			<Child Name="CustomErrorMessage" Owner="{DFC544D6-9F88-45D0-BD77-461A01C14DBD}">
+				<Child Name="panelOK" Owner="{1E07B1FA-B082-4CE9-BF01-D863F9562962}">
+					<Child Name="btnOK" Owner="{47FE95B9-5218-4584-88EB-54A2875FECF6}" />
+				</Child>
+			</Child>
+			<Child Name="dlgFDMConfiguration" Owner="{9BA2BDFF-DEB4-4235-B703-8D949812F560}">
+				<Child Name="btnOK" Owner="{E8A85CB5-4CC5-4673-8444-C4A0BAC3AA1F}" />
+				<Child Name="btnYes" Owner="{A91344A7-7F13-434B-93F4-229DCDB5E661}" />
+				<Child Name="Static" Owner="{35758544-A3C5-41EB-9F6F-893EAC0B5518}" />
+			</Child>
+			<Child Name="ApplicationSelectionDlg" Owner="{B00665A4-53DF-483F-B6D6-9212051002DB}">
+				<Child Name="buttonBrowse" Owner="{1937F1A7-D1ED-484C-81B9-894BD4D810F8}" />
+				<Child Name="buttonOK" Owner="{816494EB-F058-4A5F-A302-1FEFFDFF2556}" />
+				<Child Name="buttonCancel" Owner="{BF6F72E9-FDBA-4952-B297-A788EC44A3EA}" />
+			</Child>
+			<Child Name="ResourceSelectionDlg" Owner="{9F28FFEC-89C2-454F-8D12-C18C9EDF8AA1}">
+				<Child Name="fpSpread1" Owner="{C589CDD3-F99C-41AB-9237-5CA64DE763EA}" />
+				<Child Name="OKButton" Owner="{8B73C285-9CEF-4D9A-B4A1-038B3F331E53}" />
+			</Child>
+			<Child Name="ToolTipNativeWindow" Owner="{624795C2-D9C0-480A-B2FC-9080DE027291}" />
+		</Child>
+		<Child Name="ServerMgmtTool" Owner="{76854944-2403-43C4-974D-965705263715}">
+			<Child Name="LoginForm" Owner="{C7E1F0B4-EB87-4A30-AADD-6BBD4A943AA1}">
+				<Child Name="m_txtLoginName" Owner="{53B5A2F4-5F1A-4570-B90C-4A701573E65A}">
+					<Child Name="TextBoxArea" Owner="{DC239EEB-5101-424A-9F70-70B53A6B7DBA}" />
+				</Child>
+				<Child Name="m_txtPassword" Owner="{0D9F85D3-416A-46A3-B8FE-C056A23D2A45}">
+					<Child Name="TextBoxArea" Owner="{B0368387-E9A3-4B9B-ADCA-781D4CD99ACE}" />
+				</Child>
+				<Child Name="m_btnLogin" Owner="{873501C3-A87F-4A18-8D70-6A85574F8522}" />
+			</Child>
+			<Child Name="ServerManagerMainForm" Owner="{AB0C5D2A-A328-406F-96C3-CEF61A906C72}" />
+		</Child>
+	</LogicalNodes>
+</Root>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{42D2222C-ACA2-405F-8E67-05D5C42EB839}" version="2">
+	<data key="{848AFEB1-3381-4A41-973D-4FDF47E51B9A}">
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="257" kind="0" dateTime="45833.2595601852" objectName="Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose" objectLeft="1414" objectTop="74" objectRight="1438" objectBottom="98" clickPointX="1424" clickPointY="89" imageFileName="tcvi123053154040.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="258" kind="0" dateTime="45833.2595949074" objectName="Aliases.HCMClient.dlgFDMDiagnosticModelConfiguration.btnYes" objectLeft="241" objectTop="125" objectRight="316" objectBottom="148" clickPointX="266" clickPointY="137" imageFileName="tcvi123315654043.png" storageFileName="" needUpdate="False" rectColor="255" />
+	</data>
+</Root>

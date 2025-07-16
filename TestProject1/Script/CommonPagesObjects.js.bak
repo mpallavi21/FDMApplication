@@ -1,0 +1,21 @@
+﻿// =====================================================================
+// Author:        Bharath
+// Function:      closePage
+// Description:   Closes the active page from the right pane.
+// Created On:    24-06-2025
+// Modified On:   
+// =====================================================================
+function closePage() {
+  try {
+    let buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose;
+
+    if (buttonClose.Exists && buttonClose.Enabled) {
+      buttonClose.Click();
+      Log.Message("Closed the page successfully.");
+    } else {
+      Log.Warning("Close button is not available or not enabled.");
+    }
+  } catch (error) {
+    Log.Error("Failed to close the page: " + error.message);
+  }
+}
