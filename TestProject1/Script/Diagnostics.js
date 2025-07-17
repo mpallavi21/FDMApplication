@@ -51,3 +51,28 @@ function FDMGR7505() {
     Log.Error("Test 'FDMGR7505' encountered an error: " + error.message);
   }
 }
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMGR4279
+// Description:   verify that offline configuration can be saved for FF devices
+// Created On:    17-07-2025
+// Modified On:   
+// =====================================================================
+function FDMGR4279() {
+  try {
+    Log.AppendFolder("FDMGR4279 - verify that offline configuration can be saved for FF devices")
+  //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    navigateToOfflineDiagnostics();
+    createDiagnosticModel("|FF");
+    closeRightPanBaseFramePage();
+
+   // TestedApps.HCMClient.Terminate();
+    Log.Message("Test 'FDMGR4279' executed successfully.");
+  } catch (error) {
+    Log.Error("Test 'FDMGR4279' encountered an error: " + error.message);
+  }
+}
