@@ -317,7 +317,7 @@ function selectProtocol(protocolName) {
     let comboBoxProtocol = managePackages.ComboboxProtocol;
 
     if (comboBoxProtocol.Exists && comboBoxProtocol.Enabled) {
-      selectComboBoxItemByName(comboBoxProtocol, protocolName);
+      selectComboBoxItemByNameDD(comboBoxProtocol, protocolName);
       Log.Message(`'${protocolName}' protocol selected successfully from the combo box.`);
     } else {
       Log.Warning("Protocol combobox is not available or not enabled.");
@@ -349,7 +349,7 @@ function selectManufacturer(manufacturerName) {
     let comboBoxManufacturer = managePackages.ComboboxManufacturer;
 
     if (comboBoxManufacturer.Exists && comboBoxManufacturer.Enabled) {
-      selectComboBoxItemByName(comboBoxManufacturer, manufacturerName);
+      selectComboBoxItemByNameDD(comboBoxManufacturer, manufacturerName);
       Log.Message(`'${manufacturerName}' selected successfully from the Manufacturer combobox.`);
     } else {
       Log.Warning("Manufacturer combobox is not available or not enabled.");
@@ -380,7 +380,7 @@ function selectDeviceType(deviceTypeName) {
     let comboBoxDeviceType = managePackages.ComboboxDeviceType;
 
     if (comboBoxDeviceType.Exists && comboBoxDeviceType.Enabled) {
-      selectComboBoxItemByName(comboBoxDeviceType, deviceTypeName);
+      selectComboBoxItemByNameDD(comboBoxDeviceType, deviceTypeName);
       Log.Message(`'${deviceTypeName}' selected successfully from the Device Type combobox.`);
     } else {
       Log.Warning("Device Type combobox is not available or not enabled.");

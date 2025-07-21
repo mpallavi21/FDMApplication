@@ -136,7 +136,7 @@ function clickAddToLibraryButton() {
      if (CustomErrorMessage.Exists) {
        if(CustomErrorMessage.panelOK.btnOK)
        {
-         Log.Message("Error message popup present due to added invalid or occured failure")
+         Log.Error("Error message popup present due to added invalid or occured failure")
          CustomErrorMessage.panelOK.btnOK.Click()
          
        }
@@ -144,7 +144,7 @@ function clickAddToLibraryButton() {
       if (InformationWindowPopUp.Exists){
         let Message = InformationWindowPopUp.InformationTextView.WPFControlText;
         if(Message.includes("Failure")) {
-        Log.Message("Failure while adding DD Package: Message - " + Message);
+        Log.Error("Failure while adding DD Package: Message - " + Message);
         InformationWindowPopUp.ButtonOk.Click();
         }
       }

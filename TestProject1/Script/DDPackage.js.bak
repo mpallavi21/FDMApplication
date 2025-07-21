@@ -10,6 +10,7 @@
 // =====================================================================
 function FDMGR4779() {
   try {
+    Log.AppendFolder("FDMGR4779 - Test case to validate add DD User interface")
     // Launch the FDM Client with credentials
  //   launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
@@ -31,6 +32,8 @@ function FDMGR4779() {
   } catch (error) {
     Log.Error("Test 'addDDPackageAndExit' failed: " + error.message);
     // Optional: Consider taking a screenshot here
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
@@ -44,6 +47,7 @@ function FDMGR4779() {
 // =====================================================================
 function FDMGR4798() {
   try {
+    Log.AppendFolder("FDMGR4798 - Testcase to validate generic DD/package functionality")
    // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     openManageDDPackagesSection();
     selectProtocol("HART")
@@ -55,6 +59,8 @@ function FDMGR4798() {
     Log.Message("Test 'deleteSpecificDDPackageAndExit' executed successfully.");
   } catch (error) {
     Log.Error("Test 'deleteSpecificDDPackageAndExit' failed: " + error.message);
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
@@ -67,6 +73,7 @@ function FDMGR4798() {
 // =====================================================================
 function FDMGR4723() {
   try {
+    Log.AppendFolder("FDMGR4723 - Test case to validate add FDIX file User interfacee")
     // Launch the FDM Client with credentials
     launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
@@ -88,6 +95,8 @@ function FDMGR4723() {
   } catch (error) {
     Log.Error("Test 'addFDIXPackageAndExit' failed: " + error.message);
     // Optional: Consider taking a screenshot here
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
@@ -101,6 +110,7 @@ function FDMGR4723() {
 // =====================================================================
 function FDMGR4790() {
   try {
+    Log.AppendFolder("FDMGR4790 - Testcase to validate generic FDI/package functionality")
   //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     openManageDDPackagesSection();
     selectProtocol("HART")
@@ -112,6 +122,8 @@ function FDMGR4790() {
     Log.Message("Test 'deleteSpecificFDIPackageAndExit' executed successfully.");
   } catch (error) {
     Log.Error("Test 'deleteSpecificFDIPackageAndExit' failed: " + error.message);
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
