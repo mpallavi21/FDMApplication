@@ -547,6 +547,8 @@ function clickMainPanelButton(buttonType) {
     } else {
       Log.Error("❌ Button '" + buttonType + "' not found or not enabled.");
     }
+    
+    
 
   } catch (error) {
     Log.Error("❌ Error clicking panel button: " + error.message);

@@ -385,6 +385,18 @@
 																																											</Child>
 																																										</Children>
 																																									</Child>
+																																									<Child Name="TextblockDeviceUsage" Key="{0FCD1386-76AE-4E64-9646-98608B13C6BC}" ExtendedFind="True">
+																																										<Image FileName="-1277977466" Left="1539" Top="411" Right="1701" Bottom="455" />
+																																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
+																																										<Properties>
+																																											<Property Name="ClrFullClassName">
+																																												<Value Value="System.Windows.Controls.TextBlock" />
+																																											</Property>
+																																											<Property Name="WPFControlText">
+																																												<Value Value="Device Usage :" />
+																																											</Property>
+																																										</Properties>
+																																									</Child>
 																																								</Children>
 																																							</Child>
 																																							<Child Name="HyperlinkFdmDeviceProperties" Key="{EB854E6A-20ED-48D0-83E7-07773C1DE2F4}" ExtendedFind="True">
@@ -559,6 +571,9 @@
 																					<Property Name="WinFormsControlName">
 																						<Value Value="labelDeviceTitle" />
 																					</Property>
+																					<Property Name="Name">
+																						<Value Value="WinFormsObject(&quot;labelDeviceTitle&quot;)" />
+																					</Property>
 																				</Properties>
 																			</Child>
 																			<Child Name="buttonClose" Key="{7278353C-98FE-46FB-9071-E8A317DA343B}">
@@ -573,6 +588,15 @@
 																		</Children>
 																	</Child>
 																</Children>
+															</Child>
+															<Child Name="statusBarDevice" Key="{6BFE0418-788A-4C51-8168-E95914CAB040}">
+																<Image FileName="-221111397" Left="300" Top="979" Right="1918" Bottom="1002" />
+																<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="statusBarDevice" />
+																	</Property>
+																</Properties>
 															</Child>
 														</Children>
 													</Child>
@@ -748,11 +772,217 @@
 																											</Child>
 																										</Children>
 																									</Child>
+																									<Child Name="ComboboxManufacturer" Key="{C623A56F-0CFA-4F7B-AD4A-82696C819C24}" ExtendedFind="True">
+																										<Image FileName="1773502258" Left="438" Top="174" Right="653" Bottom="215" />
+																										<TypeInfo Item0="{BFDEB998-2A27-4248-86D6-42B0660B5020}" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.ComboBox" />
+																											</Property>
+																											<Property Name="DisplayMemberPath">
+																												<Value Value="ManufacturerName" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																									<Child Name="ListBox" Key="{BB618558-7D62-485E-A91D-8C8F96C6E4D2}" ExtendedFind="True">
+																										<Image FileName="-1848213491" Left="338" Top="360" Right="747" Bottom="839" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.ListBox" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="ListBoxItem" Key="{D2CBB9FC-DF20-43A4-A8D0-69F07F1B5053}" ExtendedFind="True">
+																												<Image FileName="-1848213491" Left="340" Top="361" Right="746" Bottom="399" />
+																												<Properties>
+																													<Property Name="ClrFullClassName">
+																														<Value Value="System.Windows.Controls.ListBoxItem" />
+																													</Property>
+																													<Property Name="WPFControlText">
+																														<Value Value="" />
+																													</Property>
+																													<Property Name="WPFControlOrdinalNo">
+																														<Value Value="1" Type="0" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="CheckBox" Key="{C825F867-0EA1-4F7C-A27F-EEB4F094427C}" ExtendedFind="True">
+																														<Image FileName="-1848213491" Left="345" Top="367" Right="383" Bottom="393" />
+																														<TypeInfo Item0="{32415D76-3A6A-4DD6-A178-EEDF3778766E}" />
+																														<Properties>
+																															<Property Name="ClrFullClassName">
+																																<Value Value="System.Windows.Controls.CheckBox" />
+																															</Property>
+																															<Property Name="WPFControlText">
+																																<Value Value="" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
+																									</Child>
+																									<Child Name="ParamBits" Key="{DB51835C-9E18-4638-A5C5-C929797FAE36}" ExtendedFind="True">
+																										<Image FileName="-1951190355" Left="811" Top="353" Right="1892" Bottom="814" />
+																										<Properties>
+																											<Property Name="WPFControlName">
+																												<Value Value="ParamBits" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="combo1" Key="{06C04866-8E96-4D3A-900C-C83EF1B8B1CB}" ExtendedFind="True">
+																												<Image FileName="348677412" Left="1690" Top="405" Right="1891" Bottom="439" />
+																												<Properties>
+																													<Property Name="WPFControlName">
+																														<Value Value="combo1" />
+																													</Property>
+																												</Properties>
+																											</Child>
+																										</Children>
+																									</Child>
+																									<Child Name="ButtonAddToSummary" Key="{9FEE0593-B527-441A-8B82-504B8D9D947E}" ExtendedFind="True">
+																										<Image FileName="1453780956" Left="1716" Top="820" Right="1892" Bottom="851" />
+																										<TypeInfo Item0="{52A391CA-AF44-470E-84C4-953A0E4597B7}" />
+																										<Properties>
+																											<Property Name="ClrFullClassName">
+																												<Value Value="System.Windows.Controls.Button" />
+																											</Property>
+																											<Property Name="WPFControlText">
+																												<Value Value="Add to Summary" />
+																											</Property>
+																										</Properties>
+																									</Child>
+																								</Children>
+																							</Child>
+																							<Child Name="ButtonSave" Key="{710743D2-35AE-4E25-B8FF-3A3389656906}" ExtendedFind="True">
+																								<Image FileName="1648267969" Left="1730" Top="968" Right="1906" Bottom="999" />
+																								<TypeInfo Item0="{52A391CA-AF44-470E-84C4-953A0E4597B7}" />
+																								<Properties>
+																									<Property Name="ClrFullClassName">
+																										<Value Value="System.Windows.Controls.Button" />
+																									</Property>
+																									<Property Name="WPFControlText">
+																										<Value Value="Save" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="HistoryFrom" Key="{0B97693D-159B-4C1A-AB10-AD401FC85B1C}">
+												<Image FileName="-392299991" Left="300" Top="83" Right="1918" Bottom="1002" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="HistoryFrom" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelBase" Key="{3142FE7D-4F23-452D-97D2-961603AF2636}">
+														<Image FileName="-392299991" Left="300" Top="83" Right="1918" Bottom="1002" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelBase" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelForDerivedForms" Key="{CC57E101-74B7-4C1F-B850-4307F26C6842}">
+																<Image FileName="-392299991" Left="300" Top="113" Right="1918" Bottom="979" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelForDerivedForms" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panel1" Key="{D9C420E5-2524-46F1-8E50-0B3EA9744581}">
+																		<Image FileName="-392299991" Left="301" Top="114" Right="1917" Bottom="184" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panel1" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="ElementHost" Key="{870CD955-292F-4CFD-BA45-06BC94F4DF89}">
+																				<Image FileName="-392299991" Left="303" Top="116" Right="1915" Bottom="182" />
+																				<Properties>
+																					<Property Name="ClrFullClassName">
+																						<Value Value="System.Windows.Forms.Integration.ElementHost" />
+																					</Property>
+																					<Property Name="WndCaption">
+																						<Value Value="" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="HwndSource_AdornerDecorator" Key="{99D3C943-AAD0-470E-94E6-229D1EF28FFA}">
+																						<Image FileName="-392299991" Left="303" Top="116" Right="1915" Bottom="182" />
+																						<Properties>
+																							<Property Name="RootVisual.ClrClassName">
+																								<Value Value="AdornerDecorator" />
+																							</Property>
+																							<Property Name="WndCaption">
+																								<Value Value="" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="AdornerDecorator" Key="{FC3CC84D-71F3-4747-B264-5BEFCA135982}">
+																								<Image FileName="-392299991" Left="303" Top="116" Right="1916" Bottom="183" />
+																								<Properties>
+																									<Property Name="ClrFullClassName">
+																										<Value Value="System.Windows.Documents.AdornerDecorator" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="btn_View" Key="{E46AADC1-1302-44A1-B0CD-EAB676D410CD}" ExtendedFind="True">
+																										<Image FileName="-392299991" Left="1139" Top="143" Right="1302" Bottom="184" />
+																										<TypeInfo Item0="{52A391CA-AF44-470E-84C4-953A0E4597B7}" />
+																										<Properties>
+																											<Property Name="WPFControlName">
+																												<Value Value="btn_View" />
+																											</Property>
+																										</Properties>
+																									</Child>
 																								</Children>
 																							</Child>
 																						</Children>
 																					</Child>
 																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+															<Child Name="panelFullTop" Key="{F5401253-EAFD-4BE1-B635-871ECB54FF4A}">
+																<Image FileName="-1833882533" Left="300" Top="83" Right="1918" Bottom="113" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelFullTop" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panelTitle" Key="{F7FD82D1-DF56-4B97-8659-9297FAAE76A9}">
+																		<Image FileName="-1833882533" Left="300" Top="83" Right="1918" Bottom="113" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panelTitle" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="buttonClose" Key="{5E76E4D9-E612-4A2A-8756-258159FF7DF8}">
+																				<Image FileName="-1833882533" Left="1887" Top="83" Right="1918" Bottom="113" />
+																				<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="buttonClose" />
+																					</Property>
+																				</Properties>
 																			</Child>
 																		</Children>
 																	</Child>
@@ -1896,6 +2126,48 @@
 									</Property>
 								</Properties>
 							</Child>
+							<Child Name="HwndSource_SaveHistoryDialogView" Key="{45673DA2-425A-4736-924D-17E832047354}">
+								<Image FileName="2032893501" Left="0" Top="0" Right="1125" Bottom="625" />
+								<TypeInfo Item0="{054CFFBD-FCBF-4B3F-83DE-34DE99B8A7FF}" />
+								<Properties>
+									<Property Name="RootVisual.ClrClassName">
+										<Value Value="SaveHistoryDialogView" />
+									</Property>
+									<Property Name="WndCaption">
+										<Value Value="" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="SaveHistoryDialogView" Key="{DBBBE93E-68D4-464C-AC63-17185DF6D893}">
+										<Image FileName="2032893501" Left="8" Top="8" Right="1134" Bottom="634" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="HCMClient.WPFViews.SaveHistoryDialogView" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="txt_Title" Key="{6F814EDC-869C-4420-B70F-D3F5C38EFC2A}" ExtendedFind="True">
+												<Image FileName="2032893501" Left="20" Top="19" Right="1105" Bottom="47" />
+												<TypeInfo Item0="{98EA0697-D980-46AE-B342-7D8B87A87885}" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="txt_Title" />
+													</Property>
+												</Properties>
+											</Child>
+											<Child Name="btn_Close" Key="{E6DAA3D1-3560-456A-810A-FD4CE97723AB}" ExtendedFind="True">
+												<Image FileName="1309210077" Left="979" Top="564" Right="1105" Bottom="605" />
+												<TypeInfo Item0="{52A391CA-AF44-470E-84C4-953A0E4597B7}" />
+												<Properties>
+													<Property Name="WPFControlName">
+														<Value Value="btn_Close" />
+													</Property>
+												</Properties>
+											</Child>
+										</Children>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ServerMgmtTool" Key="{76854944-2403-43C4-974D-965705263715}">
@@ -2016,6 +2288,7 @@
 									<Child Name="HyperlinkExport" Owner="{E910B883-8DF0-44CF-8B26-0616DAFDCFE4}" />
 									<Child Name="HyperlinkPrint" Owner="{81CC9EB6-C82C-42BF-97E5-1351E7C31898}" />
 									<Child Name="HyperlinkNotifications" Owner="{2E1B08BB-B00A-40BF-A10A-D6DF0C6DC3F7}" />
+									<Child Name="TextblockDeviceUsage" Owner="{0FCD1386-76AE-4E64-9646-98608B13C6BC}" />
 								</Child>
 							</Child>
 						</Child>
@@ -2042,8 +2315,38 @@
 											<Child Name="StackPanel" Owner="{5C2835E4-2DEE-4FBF-A1BD-5B8439CC0663}" />
 											<Child Name="TextblockDeviceStatus" Owner="{6464B73B-ADA3-4267-B0F6-4CAD0E4C3477}" />
 											<Child Name="StackPanel2" Owner="{0CA78992-815E-4A08-A25E-6EE1C4ED93F8}" />
+											<Child Name="ComboboxManufacturer" Owner="{C623A56F-0CFA-4F7B-AD4A-82696C819C24}" />
+											<Child Name="ListBox" Owner="{BB618558-7D62-485E-A91D-8C8F96C6E4D2}">
+												<Child Name="CheckBox" Owner="{C825F867-0EA1-4F7C-A27F-EEB4F094427C}" />
+											</Child>
+											<Child Name="ParamBits" Owner="{DB51835C-9E18-4638-A5C5-C929797FAE36}">
+												<Child Name="combo1" Owner="{06C04866-8E96-4D3A-900C-C83EF1B8B1CB}" />
+											</Child>
+											<Child Name="ButtonAddToSummary" Owner="{9FEE0593-B527-441A-8B82-504B8D9D947E}" />
+											<Child Name="ButtonSave" Owner="{710743D2-35AE-4E25-B8FF-3A3389656906}" />
 										</Child>
 									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+					<Child Name="statusBarDevice" Owner="{6BFE0418-788A-4C51-8168-E95914CAB040}" />
+					<Child Name="HistoryFrom" Owner="{0B97693D-159B-4C1A-AB10-AD401FC85B1C}">
+						<Child Name="panelBase" Owner="{3142FE7D-4F23-452D-97D2-961603AF2636}">
+							<Child Name="panelForDerivedForms" Owner="{CC57E101-74B7-4C1F-B850-4307F26C6842}">
+								<Child Name="panel1" Owner="{D9C420E5-2524-46F1-8E50-0B3EA9744581}">
+									<Child Name="ElementHost" Owner="{870CD955-292F-4CFD-BA45-06BC94F4DF89}">
+										<Child Name="HwndSource_AdornerDecorator" Owner="{99D3C943-AAD0-470E-94E6-229D1EF28FFA}">
+											<Child Name="AdornerDecorator" Owner="{FC3CC84D-71F3-4747-B264-5BEFCA135982}">
+												<Child Name="btn_View" Owner="{E46AADC1-1302-44A1-B0CD-EAB676D410CD}" />
+											</Child>
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+							<Child Name="panelFullTop" Owner="{F5401253-EAFD-4BE1-B635-871ECB54FF4A}">
+								<Child Name="panelTitle" Owner="{F7FD82D1-DF56-4B97-8659-9297FAAE76A9}">
+									<Child Name="buttonClose" Owner="{5E76E4D9-E612-4A2A-8756-258159FF7DF8}" />
 								</Child>
 							</Child>
 						</Child>
@@ -2195,6 +2498,12 @@
 				<Child Name="OKButton" Owner="{8B73C285-9CEF-4D9A-B4A1-038B3F331E53}" />
 			</Child>
 			<Child Name="ToolTipNativeWindow" Owner="{624795C2-D9C0-480A-B2FC-9080DE027291}" />
+			<Child Name="HwndSource_SaveHistoryDialogView" Owner="{45673DA2-425A-4736-924D-17E832047354}">
+				<Child Name="SaveHistoryDialogView" Owner="{DBBBE93E-68D4-464C-AC63-17185DF6D893}">
+					<Child Name="txt_Title" Owner="{6F814EDC-869C-4420-B70F-D3F5C38EFC2A}" />
+					<Child Name="btn_Close" Owner="{E6DAA3D1-3560-456A-810A-FD4CE97723AB}" />
+				</Child>
+			</Child>
 		</Child>
 		<Child Name="ServerMgmtTool" Owner="{76854944-2403-43C4-974D-965705263715}">
 			<Child Name="LoginForm" Owner="{C7E1F0B4-EB87-4A30-AADD-6BBD4A943AA1}">

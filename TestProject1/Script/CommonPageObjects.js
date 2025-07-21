@@ -1,46 +1,33 @@
-﻿// =====================================================================
+﻿
+// =====================================================================
 // Author:        Bharath
-// Function:      closeRightPanBaseFramePage
-// Description:   Closes the active page from the right panel.
+// Function:      closeWindowPage
+// Description:   Closes the active page from the panel.
 // Created On:    24-06-2025
 // Modified On:   
 // =====================================================================
-function closeRightPanBaseFramePage() {
+function closeWindowPage() {
   try {
-    Log.AppendFolder("closeRightPanBaseFramePage - Closes the active page from the right panel.")
-    let buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose
+    Log.AppendFolder("Closes the active page from the panel.")
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose
 
     if (buttonClose.Exists && buttonClose.Enabled) {
       buttonClose.Click();
       Log.Message("Closed the page successfully.");
-    } else {
-      Log.Warning("Close button is not available or not enabled.");
     }
-  } catch (error) {
-    Log.Error("Failed to close the page: " + error.message);
-  } finally{
-    Log.PopLogFolder()
-  }
-}
-
-
-// =====================================================================
-// Author:        Bharath
-// Function:      closeClientMainWindowPage
-// Description:   Closes the active page from the right panel.
-// Created On:    24-06-2025
-// Modified On:   
-// =====================================================================
-function closeClientMainWindowPage() {
-  try {
-    Log.AppendFolder()
-    let buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose
+    
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose
 
     if (buttonClose.Exists && buttonClose.Enabled) {
       buttonClose.Click();
       Log.Message("Closed the page successfully.");
-    } else {
-      Log.Warning("Close button is not available or not enabled.");
+    }
+    
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.HistoryFrom.panelBase.panelFullTop.panelTitle.buttonClose
+    
+    if (buttonClose.Exists && buttonClose.Enabled) {
+      buttonClose.Click();
+      Log.Message("Closed the page successfully.");
     }
   } catch (error) {
     Log.Error("Failed to close the page: " + error.message);
@@ -75,6 +62,3 @@ function clickOnConfirmFDMYesButton() {
   }
 }
 
-function test(){
-  Aliases.HCMClient.dlgFDMDiagnosticModelConfiguration.btnYes.ClickButton();
-}

@@ -1,13 +1,15 @@
-﻿// =====================================================================
+﻿
+// =====================================================================
 // Author:        Bharath
-// Function:      closeRightPanBaseFramePage
-// Description:   Closes the active page from the right panel.
+// Function:      closeWindowPage
+// Description:   Closes the active page from the panel.
 // Created On:    24-06-2025
 // Modified On:   
 // =====================================================================
-function closeRightPanBaseFramePage() {
+function closeWindowPage() {
   try {
-    let buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose
+    Log.AppendFolder("Closes the active page from the panel.")
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelFullTop.panelTitle.buttonClose
 
     if (buttonClose.Exists && buttonClose.Enabled) {
       buttonClose.Click();
@@ -15,22 +17,8 @@ function closeRightPanBaseFramePage() {
     } else {
       Log.Warning("Close button is not available or not enabled.");
     }
-  } catch (error) {
-    Log.Error("Failed to close the page: " + error.message);
-  }
-}
-
-
-// =====================================================================
-// Author:        Bharath
-// Function:      closeClientMainWindowPage
-// Description:   Closes the active page from the right panel.
-// Created On:    24-06-2025
-// Modified On:   
-// =====================================================================
-function closeClientMainWindowPage() {
-  try {
-    let buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose
+    
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.buttonClose
 
     if (buttonClose.Exists && buttonClose.Enabled) {
       buttonClose.Click();
@@ -38,8 +26,20 @@ function closeClientMainWindowPage() {
     } else {
       Log.Warning("Close button is not available or not enabled.");
     }
+    
+    buttonClose = Aliases.HCMClient.ClientMainWindow.MdiClient.HistoryFrom.panelBase.panelFullTop.panelTitle.buttonClose
+    
+    if (buttonClose.Exists && buttonClose.Enabled) {
+      buttonClose.Click();
+      Log.Message("Closed the page successfully.");
+    } else {
+      Log.Warning("Close button is not available or not enabled.");
+    }
+    
   } catch (error) {
     Log.Error("Failed to close the page: " + error.message);
+  } finally {
+    Log.PopLogFolder()
   }
 }
 
@@ -53,6 +53,7 @@ function closeClientMainWindowPage() {
 // =====================================================================
 function clickOnConfirmFDMYesButton() {
   try {
+    Log.AppendFolder()
     let yesButton = Aliases.HCMClient.dlgFDMConfiguration.btnYes;
 
     if (yesButton.Exists && yesButton.Enabled) {
@@ -63,9 +64,8 @@ function clickOnConfirmFDMYesButton() {
     }
   } catch (error) {
     Log.Error("Failed to click 'Yes' button: " + error.message);
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
-function test(){
-  Aliases.HCMClient.dlgFDMDiagnosticModelConfiguration.btnYes.ClickButton();
-}

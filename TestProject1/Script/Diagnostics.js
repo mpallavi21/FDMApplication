@@ -43,7 +43,7 @@ function FDMGR7505() {
 
     navigateToOfflineDiagnostics();
     createDiagnosticModel("|HART");
-    closeRightPanBaseFramePage();
+    closeWindowPage();
 
    // TestedApps.HCMClient.Terminate();
     Log.Message("Test 'FDMGR7505' executed successfully.");
@@ -68,11 +68,31 @@ function FDMGR4279() {
 
     navigateToOfflineDiagnostics();
     createDiagnosticModel("|FF");
-    closeRightPanBaseFramePage();
+    closeWindowPage();
 
    // TestedApps.HCMClient.Terminate();
     Log.Message("Test 'FDMGR4279' executed successfully.");
   } catch (error) {
     Log.Error("Test 'FDMGR4279' encountered an error: " + error.message);
   }
+}
+
+
+function Test1()
+{
+  let HCMClient = Aliases.HCMClient;
+  let adornerDecorator = HCMClient.ClientMainWindow.MdiClient.RightPanBaseFrame.panelBase.panelForDerivedForms.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+  let comboBox = adornerDecorator.ComboboxManufacturer;
+  comboBox.Click(195, 16);
+  comboBox.ClickItem("Hart");
+  adornerDecorator.ListBox.CheckBox.ClickButton(cbChecked);
+  let dataGrid = adornerDecorator.ParamBits;
+  dataGrid.ClickCell(0, 0);
+  dataGrid.ClickCell(0, 0);
+  dataGrid.combo1.ClickItem("Maintenance Required");
+  adornerDecorator.ButtonAddToSummary.ClickButton();
+  adornerDecorator.ButtonSave.ClickButton();
+  let dlgDiagnosticModel = HCMClient.dlgFDMConfiguration;
+  dlgDiagnosticModel.btnYes.ClickButton();
+  dlgDiagnosticModel.btnOK.ClickButton();
 }

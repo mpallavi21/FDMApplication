@@ -11,6 +11,7 @@
 // =====================================================================
 function navigateToOfflineDiagnostics() {
   try {
+    Log.AppendFolder("navigateToOfflineDiagnostics - Opens the 'Offline' tab and selects the '*Diag*' view from the sub-tab.")
     let tabControl = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain.tabControlLeftPanMain;
 
     OCR.Recognize(tabControl).BlockByText("Offline", spNearestToCenter).Click();
@@ -21,6 +22,8 @@ function navigateToOfflineDiagnostics() {
     Log.Message("Navigated to Offline Diagnostics tab successfully.");
   } catch (error) {
     Log.Error("Failed to navigate to Offline Diagnostics: " + error.message);
+  } finally{
+    Log.PopLogFolder()
   }
 }
 
@@ -35,6 +38,7 @@ function navigateToOfflineDiagnostics() {
 // =====================================================================
 function createDiagnosticModel(treePath) {
   try {
+    Log.AppendFolder("createDiagnosticModel - Right-clicks the specified node in the Fault Model tree \n and selects 'Create Diagnostic Model' from the context menu.")
     let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
       .tabControlLeftPanMain.tabPageOfflineView.panelOfflineView
       .tabControlOfflineView.tabPageFaultModel.treeView;
@@ -53,6 +57,8 @@ function createDiagnosticModel(treePath) {
     labelDeviceTitle.WaitWFCObject("Diagnostic Model","WndCaption",5000)
   } catch (error) {
     Log.Error("Failed to create diagnostic model from '" + treePath + "': " + error.message);
+  } finally {
+    Log.PopLogFolder()
   }
 }
 

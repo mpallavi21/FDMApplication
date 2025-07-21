@@ -32,7 +32,7 @@ function FDMGR4302(){
  // launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
   clickAddNewNetworkButton()
   addNetworkConfiguration({
-  networkInterfaceName: "MUX1",
+  networkInterfaceName: "MUX",
   networkType: "RS-485 HART Multiplexer",
   rciServerName: "LOCALHOST",
   comPort: "COM3",
@@ -49,7 +49,7 @@ function FDMGR4302(){
 }
 
 function DeleteNetwork(){
-  clickNetworkListItemByName("MUX1")
+  clickNetworkListItemByName("MUX")
   clickDeleteNetworkButton()
   handleCustomMessageBox()
   submitAuditTrailReason("Delete")

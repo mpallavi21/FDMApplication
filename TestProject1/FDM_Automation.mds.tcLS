@@ -56,6 +56,12 @@
 						</Node>
 						<Prp name="name" type="S" value="FDMServerPassword"/>
 					</Node>
+					<Node name="var6">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="7C00460044004D0020005300650072007600650072002000280020004400450053004B0054004F0050002D0041004A0037004F0035004F003500200029007C004400450053004B0054004F0050002D0041004A0037004F0035004F0035007C004D00750078007C005300460054005F0050004E0046007C00360034003400"/>
+						</Node>
+						<Prp name="name" type="S" value="Device"/>
+					</Node>
 				</Node>
 				<Prp name="version" type="I" value="4"/>
 			</Node>

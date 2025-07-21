@@ -15,13 +15,7 @@
 				<children>
 					<testItem name="Login" key="{F5A7B8A8-7F94-4CF5-9F25-DFF4033C8EF9}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
-						<children>
-							<testItem name="FDMGR3909" key="{DB7B4AF6-9783-484A-9799-0C2FC6659A17}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}FDMGR3909" count="1" timeout="0" stopOnError="0" stopOnException="0" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
-								<testParameters />
-								<environments activeCloud="SWT" />
-								<children />
-							</testItem>
-						</children>
+						<children />
 					</testItem>
 					<testItem name="Settings" key="{91970660-5C2E-4D34-AAD2-A22BAE2F1A3D}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
@@ -50,18 +44,7 @@
 					</testItem>
 					<testItem name="Dashboards" key="{C7AC5E8E-BAE1-4DB9-AF92-98B94C4B82E7}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
-						<children>
-							<testItem name="FDMGR11050" key="{AA7962C9-0B25-4A94-900C-B9509ABA9830}" group="False" parallel="False" enabled="True" load="False" testMoniker="{0A0F84A6-4003-4414-A92A-A39DCBE51147}FDMGR11050" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
-								<testParameters />
-								<environments activeCloud="SWT" />
-								<children />
-							</testItem>
-							<testItem name="FDMGR11051" key="{FB7D66E3-0AFF-497B-8A50-A7D14728262A}" group="False" parallel="False" enabled="True" load="False" testMoniker="{0A0F84A6-4003-4414-A92A-A39DCBE51147}FDMGR11051" count="1" timeout="0" stopOnError="3" stopOnException="0" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
-								<testParameters />
-								<environments activeCloud="SWT" />
-								<children />
-							</testItem>
-						</children>
+						<children />
 					</testItem>
 					<testItem name="Diagnostics" key="{42A8E73E-D9FC-4D34-AE1C-424F26CFF05E}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
@@ -86,16 +69,6 @@
 					<testItem name="DDPackage" key="{F2983B6B-156D-4293-A8F1-57785D2EA295}" group="True" parallel="False" enabled="False" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<children>
-							<testItem name="FDMGR4779" key="{2E02F268-1672-4C76-8471-71A346AC032D}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4779" count="1" timeout="0" stopOnError="3" stopOnException="0" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
-								<testParameters />
-								<environments activeCloud="SWT" />
-								<children />
-							</testItem>
-							<testItem name="FDMGR4798" key="{CDA20A8F-1FDE-4B3A-A19F-2AC609F61CF1}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4798" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
-								<testParameters />
-								<environments activeCloud="SWT" />
-								<children />
-							</testItem>
 							<testItem name="FDMGR4723" key="{DD5D8DA7-B190-4ADB-BB09-4C8ACDCE6B35}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4723" count="1" timeout="0" stopOnError="3" stopOnException="0" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 								<testParameters />
 								<environments activeCloud="SWT" />
@@ -109,6 +82,35 @@
 						</children>
 					</testItem>
 				</children>
+			</testItem>
+			<testItem name="QT Cases" key="{91B47CF4-F85E-43C9-BCF1-46A7C79C669D}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<children />
+			</testItem>
+			<testItem name="FDMGR3909" key="{DB7B4AF6-9783-484A-9799-0C2FC6659A17}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}FDMGR3909" count="1" timeout="0" stopOnError="0" stopOnException="1" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<environments activeCloud="SWT" />
+				<children />
+			</testItem>
+			<testItem name="FDMGR11050" key="{AA7962C9-0B25-4A94-900C-B9509ABA9830}" group="False" parallel="False" enabled="True" load="False" testMoniker="{0A0F84A6-4003-4414-A92A-A39DCBE51147}FDMGR11050" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<environments activeCloud="SWT" />
+				<children />
+			</testItem>
+			<testItem name="FDMGR11051" key="{FB7D66E3-0AFF-497B-8A50-A7D14728262A}" group="False" parallel="False" enabled="True" load="False" testMoniker="{0A0F84A6-4003-4414-A92A-A39DCBE51147}FDMGR11051" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<environments activeCloud="SWT" />
+				<children />
+			</testItem>
+			<testItem name="FDMGR4779" key="{2E02F268-1672-4C76-8471-71A346AC032D}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4779" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<environments activeCloud="SWT" />
+				<children />
+			</testItem>
+			<testItem name="FDMGR4798" key="{CDA20A8F-1FDE-4B3A-A19F-2AC609F61CF1}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4798" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+				<testParameters />
+				<environments activeCloud="SWT" />
+				<children />
 			</testItem>
 		</children>
 	</testItems>
@@ -131,6 +133,9 @@
 					<DefValue />
 				</Variable>
 				<Variable Name="FDMServerPassword" Type="Password" Local="True">
+					<DefValue />
+				</Variable>
+				<Variable Name="Device" Type="String" Local="True">
 					<DefValue />
 				</Variable>
 			</Items>

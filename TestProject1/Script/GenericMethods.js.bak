@@ -5,7 +5,7 @@
   Log.Message("ComboBox clicked to expand.");
 
   // Wait and get the popup container
- // var popupRoot = Sys.Process("HCMClient").WPFObject("HwndSource: PopupRoot", "").WPFObject("PopupRoot", "", 1);
+  var popupRoot = Sys.Process("HCMClient").WPFObject("HwndSource: PopupRoot", "").WPFObject("PopupRoot", "", 1);
   
   // Get all ComboBoxItem objects
   var items = popupRoot.FindAllChildren("ClrClassName", "ComboBoxItem", 10);
@@ -33,4 +33,46 @@
   }
   
   Log.PopLogFolder()
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      handleFdmConfigurationPopup
+// Description:   Validates FDM Configuration popup, prints its caption, and clicks OK
+// Created On:    17-July-2025
+// Modified On:   
+// =====================================================================
+function handleFdmConfigurationPopup() {
+  Log.AppendFolder("handleFdmConfigurationPopup");
+
+  try {
+    let popup = Aliases.HCMClient.dlgFDMConfiguration;
+
+    if (!popup.Exists) {
+      Log.Message("⚠️ dlgFDMConfiguration popup not present.");
+      return;
+    }
+
+    // Read and log the window caption
+    let captionObject = popup.Window("Static", "*", 1);
+    if (captionObject.Exists) {
+      let captionText = aqString.Trim(captionObject.WndCaption);
+      Log.Message("📝 Popup Caption: " + captionText);
+    } else {
+      Log.Warning("⚠️ Caption object not found.");
+    }
+
+    // Click the OK button
+    let okButton = popup.btnOK;
+    if (okButton.Exists && okButton.Enabled) {
+      okButton.ClickButton();
+      Log.Checkpoint("✅ OK button clicked on FDM Configuration popup.");
+    }
+
+  } catch (error) {
+    Log.Error("❌ Failed to handle FDM Configuration popup: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
 }

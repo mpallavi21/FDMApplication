@@ -83,7 +83,7 @@ function addNetworkConfiguration(params) {
 
     if (params.networkType !== undefined) {
       let cmbNetworkType = gpNetworkConfig.FindChild("Name", 'WinFormsObject("m_combNetworkType")', 100, true);
-      selectComboBoxItemByNameServer(cmbNetworkType, params.networkType);
+      selectComboBoxItemByName(cmbNetworkType, params.networkType);
     }
 
     if (params.rciServerName !== undefined && grpRciConfig.Exists) {
@@ -93,12 +93,12 @@ function addNetworkConfiguration(params) {
 
     if (params.comPort !== undefined && gpNetworkSpecific.Exists) {
       let cmbComPort = gpNetworkSpecific.FindChild("Name", 'WinFormsObject("m_combComPort")', 100, true);
-      selectComboBoxItemByNameServer(cmbComPort, params.comPort);
+      selectComboBoxItemByName(cmbComPort, params.comPort);
     }
 
     if (params.baudRate !== undefined && gpNetworkSpecific.Exists) {
       let cmbBaudRate = gpNetworkSpecific.FindChild("Name", 'WinFormsObject("m_combBaudRate")', 100, true);
-      selectComboBoxItemByNameServer(cmbBaudRate, params.baudRate);
+      selectComboBoxItemByName(cmbBaudRate, params.baudRate);
     }
 
     if (params.retryCount !== undefined && gpNetworkSpecific.Exists) {
@@ -125,18 +125,7 @@ function addNetworkConfiguration(params) {
 }
 
 
-// =====================================================================
-// Function:      selectComboBoxItemByName
-// Description:   Selects an item in a combo box by name
-// =====================================================================
-function selectComboBoxItemByNameServer(comboBoxObj, itemName) {
-  if (comboBoxObj.Exists) {
-    comboBoxObj.ClickItem(itemName);
-    Log.Message("✅ Selected '" + itemName + "' in combo box.");
-  } else {
-    Log.Error("❌ Combo box not found for selecting: " + itemName);
-  }
-}
+
 
 // =====================================================================
 // Function:      clickOnAddNetworkOkButton

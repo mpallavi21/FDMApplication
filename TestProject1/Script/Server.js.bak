@@ -26,11 +26,13 @@ function FDMGR() {
 }
 
 
-function AddNetwork(){
+function FDMGR4302(){
+  try{
+  Log.AppendFolder("FDMGR4302 - AddNetwork (Verify that the network configuration is successful for different types of networks")
  // launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
   clickAddNewNetworkButton()
   addNetworkConfiguration({
-  networkInterfaceName: "MUX1",
+  networkInterfaceName: "MUX",
   networkType: "RS-485 HART Multiplexer",
   rciServerName: "LOCALHOST",
   comPort: "COM3",
@@ -39,6 +41,11 @@ function AddNetwork(){
   clickOnAddNetworkOkButton()
   submitAuditTrailReason("Add")
   handleCustomMessageBox()
+   } catch (error) {
+    Log.Error("Error occurred in FDMGR ", error.message);
+  } finally {
+    Log.PopLogFolder()
+  }
 }
 
 function DeleteNetwork(){
@@ -50,7 +57,15 @@ function DeleteNetwork(){
 }
 
 
-function updateLicenses(){
+function FDMGR4303(){
+  try{
+  Log.AppendFolder("FDMGR4303 - Update to New licence")
   clickMainPanelButton("licensing")
   updateLicense("\\C:\\Users\\Admin\\Desktop\\FDMR540_Base_License_with_all_features.xml")
+  Log.Checkpoint("FDMGR4303 executed successfully.");
+  } catch (error) {
+    Log.Error("Error occurred in FDMGR ", error.message);
+  } finally {
+    Log.PopLogFolder()
+  }
 }
