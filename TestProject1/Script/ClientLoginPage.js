@@ -25,7 +25,7 @@ function EnterClientPassword(Password){
 function launchFDMClient(Username,Password) {
   Log.AppendFolder("launchFDMClient - Launches the FDM Client using specified credentials")
   Log.Checkpoint("Launching FDM Client...");
-
+  
   // Terminate HCMClient if already running
   if (Sys.WaitProcess("HCMClient", 5000).Exists) {
     Log.Message("HCMClient process found. Terminating...");
@@ -35,38 +35,40 @@ function launchFDMClient(Username,Password) {
   // Launch the HCMClient tested application
   Log.Message("Running TestedApps.HCMClient...");
   TestedApps.HCMClient.Run(1, true);
-
+  
   // Select server from dropdown
   Log.Message("Setting server...");
   let server = Aliases.HCMClient.ClientLogin.FdmServerNameField
   let ServerDDbox = server.TextFieldArea
   ServerDDbox.SetText("LocalHost");
   Log.Message("Server set to: " + "LocalHost");
+  
+  clickOnLoginBtn()
+  
+  let ClientLogin = Aliases.HCMClient.ClientLogin
+  ClientLogin.WaitProperty("Exists", true, 5000);
+  
+  if(ClientLogin.Exists){
+    // Set Username
+    EnterClientUserName(Username);
 
-  // Click 'OK' to proceed to credentials
-  Log.Message("Clicking initial login button...");
-  let LoginBtn = HCMClient.FindChild("WinFormsControlName", "btnOK", 50, true);
-  LoginBtn.Click();
+    // Set Password
+    EnterClientPassword(Password)
 
-  // Set Username
-  EnterClientUserName(Username);
+    // Select Domain
+    Log.Message("Selecting domain...");
+    HCMClient.ClientLogin.DomainTextBox.Click();
+    Log.Message("Domain selected via keyboard input.");
 
-  // Set Password
-  EnterClientPassword(Password)
-
-  // Select Domain
-  Log.Message("Selecting domain...");
-  HCMClient.ClientLogin.DomainTextBox.Click();
-  Log.Message("Domain selected via keyboard input.");
-
-  // Final Login
-  Log.Message("Clicking final login button...");
-  let FDMLoginBtn = HCMClient.FindChild("WinFormsControlName", "btnOK", 50, true);
-  FDMLoginBtn.Click();
-
+    clickOnLoginBtn()
+  }else{
+    Log.Message("Here used single sign On")
+    Project.Variables.SignOnToggle = cbUnchecked
+  }
+  
   // Wait for main application window
   Log.Message("Waiting for main application window...");
-  let mainWindow = HCMClient.FindChild("WinFormsControlName", "frmHCMClientMain", 50, true);
+  mainWindow = HCMClient.FindChild("WinFormsControlName", "frmHCMClientMain", 50, true);
   mainWindow.WaitProperty("Exists", true, 50000);
   Log.Checkpoint("FDM Client launched and main window detected.");
   aqUtils.Delay(1000);
@@ -77,3 +79,49 @@ function launchFDMClient(Username,Password) {
 function terminateFMD(){
   TestedApps.HCMClient.Terminate()
 }
+
+function openFDMToolBarSwitchServer(serverName) {
+  Log.AppendFolder("openFDMToolBarSwithcServer - Opens the FDM toolbar Switch server menu using OCR clicks")
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+    let mainMenu = HCMClient.ClientMainWindow.mainMenu
+    OCR.Recognize(mainMenu).BlockByText("FDM").Click();
+    Log.Message("Clicked on 'FDM' menu item.");
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Switch").Click();
+    Log.Message("Clicked on 'Switch' option.");
+    
+    // Select server from dropdown
+    ClientLogin = Aliases.HCMClient.ClientLogin
+    if(ClientLogin.Exists){
+      Log.Message("Setting server...");
+      let server = ClientLogin.FdmServerNameField
+      let ServerDDbox = server.TextFieldArea
+      ServerDDbox.SetText(serverName);
+      Log.Message("Server set to: " + serverName);
+      
+      
+    }
+  } catch (error) {
+    Log.Error("Failed to open FDM toolbar Switch Server.", error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+
+function clickOnLoginBtn(){
+      // Click 'Login' to proceed to credentials
+      let HCMClient = Aliases.HCMClient;
+      Log.Message("Clicking login button...");
+      let LoginBtn = HCMClient.FindChild("WinFormsControlName", "btnOK", 50, true);
+      LoginBtn.Click();
+}
+
+function clickOnLoginCancelBtn(){
+      // Click 'Login' to proceed to credentials
+      let HCMClient = Aliases.HCMClient;
+      Log.Message("Clicking login button...");
+      let CancelButton = HCMClient.ClientLogin.buttonCancel
+      CancelButton.Click()
+}
+

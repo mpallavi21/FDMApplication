@@ -130,3 +130,68 @@ function applyFDMSettings() {
     Log.PopLogFolder()
   }
 }
+
+function EnableSSO() {
+  // Calls the toggle function to enable Single Sign-On
+  enableDisableSingleSignOn(cbChecked);
+}
+
+function DisableSSO() {
+  // Calls the toggle function to enable Single Sign-On
+  enableDisableSingleSignOn(0);
+}
+
+function SSO(){
+  enableDisableSingleSignOn(Project.Variables.SignOnToggle);
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      enableDisableSingleSignOn
+// Description:   Opens the 'General' tab and sets the Single Sign-On checkbox
+//                based on the desired state: cbChecked or cbUnchecked.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function enableDisableSingleSignOn(desiredState) {
+  Log.AppendFolder("enableDisableSingleSignOn - SSO Toggle Workflow");
+
+  try {
+    
+    openFDMToolBarSettings()  
+  
+    let tabControl = Aliases.HCMClient.SettingsForm.tabControl1;
+
+    if (!tabControl.Exists) {
+      Log.Error("Tab control not found.");
+      return;
+    }
+
+    tabControl.ClickTab("General");
+
+    let groupBox = tabControl.tabPageSystemSettings.gbSingleSignOn;
+    let checkBox = groupBox.checkBoxSignOn;
+
+    if (!groupBox.Exists || !checkBox.Exists) {
+      Log.Error("Single Sign-On group or checkbox not found.");
+      return;
+    }
+
+    // Validate label text
+    if (aqObject.CheckProperty(groupBox, "Text", cmpEqual, "Single Sign On")) {
+      checkBox.wState = desiredState;
+      Log.Message("🔧 SSO checkbox set to: " + (desiredState === cbChecked ? "Checked" : "Unchecked"));
+    } else {
+      Log.Warning("GroupBox label mismatch. Expected: 'Single Sign On'");
+    }
+    
+    okFDMSettings()
+
+  } catch (error) {
+    Log.Error("Exception in enableDisableSingleSignOn: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}

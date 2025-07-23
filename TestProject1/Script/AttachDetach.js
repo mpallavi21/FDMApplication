@@ -30,3 +30,88 @@ function AttachDetachApp() {
     Log.PopLogFolder();
   }
 }
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      AttachDetachSystemDocument
+// Description:   Automates the process of attaching and detaching a system-level
+//                document via menu navigation, file upload, and confirmation steps.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function AttachDetachSystemDocument() {
+  Log.AppendFolder("AttachDetachSystemDocument - System-Level Document Flow");
+
+  try {
+    // Step 1: Navigate via menu and select system document
+    clickOnSystemDocument();
+    Log.Message("Navigated to system document attachment workflow.");
+
+    // Step 2: Upload document
+    uploadPackageFile(Project.Path + "Stores\\Files", "0906.fm8");
+    Log.Message("Uploaded system document: 0906.fm8");
+
+    // Step 3: Confirm attachment
+    clickOnConfirmFDMButton();
+    Log.Message("Confirmed attachment in FDM dialog.");
+
+    // Step 4: Detach system document
+    DetachDocument();
+    Log.Message("Initiated detachment of system document.");
+
+  } catch (error) {
+    Log.Error("Exception occurred in AttachDetachSystemDocument: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      AttachDetachDeviceDocumentation
+// Description:   Attaches a document to a device via context menu flow,
+//                confirms the action, then initiates detachment and confirms.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function AttachDetachDeviceDocumentation() {
+  Log.AppendFolder("AttachDetachDeviceDocumentation - Document Attach/Detach Flow");
+
+  try {
+    // Step 1: Attach document
+    clickOnAttachDocument();
+
+    // Step 2: Upload package file
+    uploadPackageFile(Project.Path + "Stores\\Files", "0906.fm8");
+    Log.Message("Uploaded document: 0906.fm8");
+
+    // Step 3: Confirm attachment
+    clickOnConfirmFDMButton();
+    Log.Message("Confirmed attachment in FDM dialog.");
+
+    // Step 4: Detach document
+    clickOnDeviceDetachDocument();
+
+    // Step 5: Handle resource dialog for detachment
+    DetachDocumentFromResourceDlg();
+
+    // Step 6: Confirm detachment
+    clickOnConfirmFDMButton();
+    Log.Message("Confirmed detachment in FDM dialog.");
+
+  } catch (e) {
+    Log.Error("Exception occurred during attach/detach process: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+
+
+

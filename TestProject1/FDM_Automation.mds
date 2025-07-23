@@ -138,6 +138,15 @@
 				<Variable Name="Device" Type="String" Local="True">
 					<DefValue />
 				</Variable>
+				<Variable Name="ClientWindowUserName" Type="String" Local="True">
+					<DefValue />
+				</Variable>
+				<Variable Name="ClientWindowPassword" Type="Password" Local="True">
+					<DefValue />
+				</Variable>
+				<Variable Name="SignOnToggle" Type="Integer" Local="True">
+					<DefValue IntValue="0" />
+				</Variable>
 			</Items>
 		</data>
 	</variables>

@@ -91,3 +91,37 @@ function selectComboBoxItemByNameDD(comboBox, itemName) {
   
   Log.PopLogFolder()
 }
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      uploadPackageFile
+// Description:   Opens the 'Add Package File' dialog, navigates to a specified folder,
+//                and uploads the desired type file.
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function uploadPackageFile(folderPath, fileName) {
+  try {
+    Log.AppendFolder("uploadDDPackageFile - Opens the 'Add DD Package File' dialog, navigates to a specified folder,\n and uploads the desired type file.")
+    let HCMClient = Aliases.HCMClient;
+
+    let dlgOpen = HCMClient.dlgOpen;
+    let progress = dlgOpen.WorkerW.ReBarWindow32.AddressBandRoot.progress;
+
+    // Navigate to the folder path
+    progress.BreadcrumbParent.toolbar.ClickItem("All locations");
+    progress.comboBox.SetText(folderPath);
+    
+    // Select the desired file to upload
+    dlgOpen.OpenFile(folderPath + "\\" + fileName);
+
+    Log.Message("File '" + fileName + "' uploaded successfully from: " + folderPath);
+  } catch (error) {
+    Log.Error("Failed to upload DD Package file: " + error.message);
+  } finally{
+    Log.PopLogFolder()
+  }
+}
+

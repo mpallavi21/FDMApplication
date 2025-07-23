@@ -143,6 +143,33 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="buttonCancel" Key="{4D01071E-1329-42BA-AA04-AE75BA553A4C}">
+										<Image FileName="1835509618" Left="438" Top="273" Right="491" Bottom="296" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonCancel" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="uxCopyrightInformation" Key="{9AE63206-979D-4B1B-ACC1-E1FB8352A6BE}">
+										<Image FileName="1835509618" Left="7" Top="324" Right="329" Bottom="340" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="uxCopyrightInformation" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="lblServerName" Key="{D80D6040-3D61-42AC-B8E1-5DFB7B278036}">
+										<Image FileName="1835509618" Left="280" Top="173" Right="344" Bottom="196" />
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="lblServerName" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 							<Child Name="ResizableFloatingWindow" Key="{BB1F6498-A015-4B67-8C7C-065DD7A2137B}">
@@ -992,6 +1019,102 @@
 													</Child>
 												</Children>
 											</Child>
+											<Child Name="AuditTrailView" Key="{281D7DF3-492A-4C32-A1E3-0FD6EA7BC4FD}">
+												<Image FileName="1529112993" Left="300" Top="83" Right="1918" Bottom="1002" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="AuditTrailView" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelBase" Key="{4D27BD41-608C-40A0-9D99-845FDEA86D76}">
+														<Image FileName="1529112993" Left="300" Top="83" Right="1918" Bottom="1002" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelBase" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelForDerivedForms" Key="{944BD40E-F026-45F3-8E18-1F4994417747}">
+																<Image FileName="1529112993" Left="300" Top="113" Right="1918" Bottom="979" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelForDerivedForms" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panel4" Key="{2F9B4282-C639-4080-92DF-0B5239E041DE}">
+																		<Image FileName="1529112993" Left="300" Top="113" Right="1918" Bottom="979" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panel4" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="panel2" Key="{6A555BF8-7AF5-42A6-BD96-20E4CE7099DF}">
+																				<Image FileName="1529112993" Left="301" Top="114" Right="1917" Bottom="895" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="panel2" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="groupBox1" Key="{3709A9F9-D134-47CE-83C2-0AF8E1B84B3E}">
+																						<Image FileName="1529112993" Left="301" Top="114" Right="1917" Bottom="387" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value Value="groupBox1" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="ActionTypeListBox" Key="{4AC02BE3-1A8D-4EB4-9055-F368CFFC5F21}">
+																								<Image FileName="1529112993" Left="424" Top="144" Right="708" Bottom="226" />
+																								<TypeInfo Item0="{77B8C4C4-1A2C-4596-9774-E616647759C8}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="ActionTypeListBox" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="UserListBox" Key="{D6E112BD-F6D5-4FB1-8FA9-053E97DD29FF}">
+																								<Image FileName="1861571759" Left="793" Top="144" Right="1120" Bottom="187" />
+																								<TypeInfo Item0="{77B8C4C4-1A2C-4596-9774-E616647759C8}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="UserListBox" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="DeviceListBox" Key="{209B4B35-7D73-4CA9-9623-9201050B5ECC}">
+																								<Image FileName="-1403603735" Left="424" Top="252" Right="708" Bottom="334" />
+																								<TypeInfo Item0="{77B8C4C4-1A2C-4596-9774-E616647759C8}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="DeviceListBox" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																							<Child Name="ViewButton" Key="{389399B4-5F02-4CEF-B037-12397C046247}">
+																								<Image FileName="1426285721" Left="913" Top="311" Right="1009" Bottom="341" />
+																								<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="ViewButton" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
 										</Children>
 									</Child>
 									<Child Name="panelLeftPanMain" Key="{FA193912-1A86-464B-829F-240737861C5D}">
@@ -1235,6 +1358,36 @@
 																<Properties>
 																	<Property Name="WinFormsControlName">
 																		<Value Value="mTimePickerMuxHealth" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+											<Child Name="tabPageSystemSettings" Key="{36F4108B-18BA-482E-A926-81643255C137}">
+												<Image FileName="-1778284322" Left="20" Top="72" Right="475" Bottom="660" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="tabPageSystemSettings" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="gbSingleSignOn" Key="{8A327AC8-E5A7-4003-951E-FB6F2BFD4116}">
+														<Image FileName="-1778284322" Left="36" Top="88" Right="436" Bottom="136" />
+														<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="gbSingleSignOn" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="checkBoxSignOn" Key="{FA8940EB-D76B-4FF8-81E4-2EC591038623}">
+																<Image FileName="583564465" Left="52" Top="104" Right="212" Bottom="128" />
+																<TypeInfo Item0="{9A2AF5CD-3C1E-4347-B6ED-AD8C93613A9B}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="checkBoxSignOn" />
 																	</Property>
 																</Properties>
 															</Child>
@@ -2112,6 +2265,15 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="label_Details" Key="{FBC2E80A-CF47-4098-9FE7-3A3559D538CE}">
+										<Image FileName="1955858727" Left="29" Top="48" Right="398" Bottom="87" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="label_Details" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 							<Child Name="ToolTipNativeWindow" Key="{624795C2-D9C0-480A-B2FC-9080DE027291}">
@@ -2267,6 +2429,9 @@
 					<Child Name="TextBoxArea" Owner="{49B151D7-E885-4C42-BAC2-6010E7E53696}" />
 				</Child>
 				<Child Name="LoginBtn" Owner="{55D7A736-5BBC-4AB3-93CA-30AF9048832B}" />
+				<Child Name="buttonCancel" Owner="{4D01071E-1329-42BA-AA04-AE75BA553A4C}" />
+				<Child Name="uxCopyrightInformation" Owner="{9AE63206-979D-4B1B-ACC1-E1FB8352A6BE}" />
+				<Child Name="lblServerName" Owner="{D80D6040-3D61-42AC-B8E1-5DFB7B278036}" />
 			</Child>
 			<Child Name="DropDownGrid" Owner="{F01DC1DE-2E3E-43DB-B0B0-F8B9C0A8C0B1}" />
 			<Child Name="ClientMainWindow" Owner="{876F9820-8CEA-4093-ACA1-F38AECD32ECC}">
@@ -2351,6 +2516,22 @@
 							</Child>
 						</Child>
 					</Child>
+					<Child Name="AuditTrailView" Owner="{281D7DF3-492A-4C32-A1E3-0FD6EA7BC4FD}">
+						<Child Name="panelBase" Owner="{4D27BD41-608C-40A0-9D99-845FDEA86D76}">
+							<Child Name="panelForDerivedForms" Owner="{944BD40E-F026-45F3-8E18-1F4994417747}">
+								<Child Name="panel4" Owner="{2F9B4282-C639-4080-92DF-0B5239E041DE}">
+									<Child Name="panel2" Owner="{6A555BF8-7AF5-42A6-BD96-20E4CE7099DF}">
+										<Child Name="groupBox1" Owner="{3709A9F9-D134-47CE-83C2-0AF8E1B84B3E}">
+											<Child Name="ActionTypeListBox" Owner="{4AC02BE3-1A8D-4EB4-9055-F368CFFC5F21}" />
+											<Child Name="UserListBox" Owner="{D6E112BD-F6D5-4FB1-8FA9-053E97DD29FF}" />
+											<Child Name="DeviceListBox" Owner="{209B4B35-7D73-4CA9-9623-9201050B5ECC}" />
+											<Child Name="ViewButton" Owner="{389399B4-5F02-4CEF-B037-12397C046247}" />
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
 				</Child>
 				<Child Name="panelLeftPanMain" Owner="{FA193912-1A86-464B-829F-240737861C5D}">
 					<Child Name="tabControlLeftPanMain" Owner="{DB3A5AC5-23B7-4EC9-8B80-DF96821A1329}">
@@ -2392,6 +2573,11 @@
 					<Child Name="tabPageHealthSettings" Owner="{09A71404-EC4B-4D90-8FA3-B70A35C12083}">
 						<Child Name="gbMuxHealthScan" Owner="{7E0EBAAE-57F9-4886-A953-9C5A042A7940}">
 							<Child Name="mTimePickerMuxHealth" Owner="{2B854486-FD26-43C2-A1E8-D7CB0A46C988}" />
+						</Child>
+					</Child>
+					<Child Name="tabPageSystemSettings" Owner="{36F4108B-18BA-482E-A926-81643255C137}">
+						<Child Name="gbSingleSignOn" Owner="{8A327AC8-E5A7-4003-951E-FB6F2BFD4116}">
+							<Child Name="checkBoxSignOn" Owner="{FA8940EB-D76B-4FF8-81E4-2EC591038623}" />
 						</Child>
 					</Child>
 				</Child>
@@ -2496,6 +2682,7 @@
 			<Child Name="ResourceSelectionDlg" Owner="{9F28FFEC-89C2-454F-8D12-C18C9EDF8AA1}">
 				<Child Name="fpSpread1" Owner="{C589CDD3-F99C-41AB-9237-5CA64DE763EA}" />
 				<Child Name="OKButton" Owner="{8B73C285-9CEF-4D9A-B4A1-038B3F331E53}" />
+				<Child Name="label_Details" Owner="{FBC2E80A-CF47-4098-9FE7-3A3559D538CE}" />
 			</Child>
 			<Child Name="ToolTipNativeWindow" Owner="{624795C2-D9C0-480A-B2FC-9080DE027291}" />
 			<Child Name="HwndSource_SaveHistoryDialogView" Owner="{45673DA2-425A-4736-924D-17E832047354}">

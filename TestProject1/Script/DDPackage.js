@@ -129,3 +129,38 @@ function FDMGR4790() {
 
 
 
+// =====================================================================
+// Author:        Bharath
+// Function:      AddDD()
+// Description:  Add the DD file
+// Created On:    23-June-2025
+// Modified On:   
+// =====================================================================
+function AddDD() {
+  try {
+    Log.AppendFolder("FDMGR4779 - Test case to validate add DD User interface")
+    // Launch the FDM Client with credentials
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+
+    // Navigate and perform DD Package addition
+    openManageDDPackagesSection();
+    clickAddDDPackageButton();
+    selectDDFileTypeFromDropdown("*.fm8");
+    uploadDDPackageFile(Project.Path + "Stores\\Files", "0906");
+    clickAddToLibraryButton();
+
+    // Close relevant popups and exit
+    clickAdd_DDPackagePopUpCloseButton();
+    clickManage_DDPackagePopUpCloseButton();
+
+    // Terminate the client gracefully
+  //  TestedApps.HCMClient.Terminate();
+
+    Log.Message("Test 'addDDPackageAndExit' completed successfully.");
+  } catch (error) {
+    Log.Error("Test 'addDDPackageAndExit' failed: " + error.message);
+    // Optional: Consider taking a screenshot here
+  } finally{
+    Log.PopLogFolder()
+  }
+}

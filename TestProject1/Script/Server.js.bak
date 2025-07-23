@@ -9,7 +9,7 @@
 // =====================================================================
 function FDMGR() {
   try {
-    Log.AppendFolder("FDMGR3909 - Verify that login server is successful")
+    Log.AppendFolder("FDMGR - Verify that login server is successful")
     Log.Message("Launching FDM server...");
     launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
 
@@ -49,7 +49,7 @@ function FDMGR4302(){
 }
 
 function DeleteNetwork(){
-  clickNetworkListItemByName("MUX1")
+  clickNetworkListItemByName("MUX")
   clickDeleteNetworkButton()
   handleCustomMessageBox()
   submitAuditTrailReason("Delete")
@@ -65,6 +65,41 @@ function FDMGR4303(){
   Log.Checkpoint("FDMGR4303 executed successfully.");
   } catch (error) {
     Log.Error("Error occurred in FDMGR ", error.message);
+  } finally {
+    Log.PopLogFolder()
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      ClientDisconnect
+// Description:   Launches FDM server, selects MUX network item,
+//                deletes it, handles confirmation, and submits audit trail reason.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function ClientDisconnect() {
+  Log.AppendFolder("ClientDisconnect - FDM Network Disconnection Flow");
+
+  try {
+    // Launch the FDM server using stored credentials
+    launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+    
+    // Select and delete network item
+    clickNetworkListItemByName("MUX");
+
+    clickDeleteNetworkButton();
+
+    // Handle custom confirmation box
+    handleCustomMessageBox();
+
+    // Submit audit trail reason
+    submitAuditTrailReason("Delete");
+
+  } catch (error) {
+    Log.Error("❌ Exception in ClientDisconnect: " + error.message);
   } finally {
     Log.PopLogFolder()
   }

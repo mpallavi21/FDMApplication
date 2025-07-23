@@ -9,7 +9,7 @@
 // =====================================================================
 function FDMGR() {
   try {
-    Log.AppendFolder("FDMGR3909 - Verify that login server is successful")
+    Log.AppendFolder("FDMGR - Verify that login server is successful")
     Log.Message("Launching FDM server...");
     launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
 
@@ -67,5 +67,68 @@ function FDMGR4303(){
     Log.Error("Error occurred in FDMGR ", error.message);
   } finally {
     Log.PopLogFolder()
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      ClientDisconnect
+// Description:   Launches FDM server, selects MUX network item,
+//                deletes it, handles confirmation, and submits audit trail reason.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function ClientDisconnect() {
+  Log.AppendFolder("ClientDisconnect - FDM Network Disconnection Flow");
+
+  try {
+    // Launch the FDM server using stored credentials
+    launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+    
+    // Select and delete network item
+    clickNetworkListItemByName("MUX");
+
+    clickDeleteNetworkButton();
+
+    // Handle custom confirmation box
+    handleCustomMessageBox();
+
+    // Submit audit trail reason
+    submitAuditTrailReason("Delete");
+
+  } catch (error) {
+    Log.Error("❌ Exception in ClientDisconnect: " + error.message);
+  } finally {
+    Log.PopLogFolder()
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      ServerLoginFDMServiceStartStop
+// Description:   Stops and then starts the FDM service using login controls.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function ServerLoginFDMServiceStartStop() {
+  Log.AppendFolder("ServerLoginFDMServiceStartStop - Restarting FDM Service");
+
+  try {
+    // Stop the FDM service
+    toggleServerStartStop("Stop");
+    Log.Message("FDM service stopped.");
+
+    // Start the FDM service
+    toggleServerStartStop("Start");
+    Log.Message("FDM service started.");
+
+  } catch (error) {
+    Log.Error("❌ Error during service restart: " + error.message);
+  } finally {
+    Log.PopLogFolder();
   }
 }

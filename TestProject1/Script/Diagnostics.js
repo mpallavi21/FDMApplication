@@ -13,7 +13,7 @@
 // =====================================================================
 function FDMGR7504() {
   try {
-    Log.AppendFolder("FDMGR7504 - Testcase to Validate Daignostic model Tab in FDM View")
+    Log.AppendFolder("FDMGR7504 - [Testcase to Validate Daignostic model Tab in FDM View")
    // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     navigateToOfflineDiagnostics();

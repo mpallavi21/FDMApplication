@@ -1,4 +1,6 @@
-﻿
+﻿//USEUNIT GenericMethods
+//USEUNIT CommonPageObjects
+
 // =====================================================================
 // Author:        Bharath
 // Function:      clickOnAttachApplication
@@ -144,6 +146,282 @@ function DetachApplication() {
       Log.Message("Detached application from the connected applications list.");
     } else {
       Log.Error("Connected applications tree view not found.");
+      return;
+    }
+    
+    var dlgFDM = Aliases.HCMClient.dlgFDM;
+    var dlgFDMConfiguration = Aliases.HCMClient.dlgFDMConfiguration
+    var staticText = dlgFDM.Static;
+
+    if (staticText.Exists && staticText.WndCaption === "There are no items for selection") {
+      Log.Message("Warning detected: 'There are no items for selection'");
+    
+      if (dlgFDMConfiguration.btnOK.Exists && dlgFDMConfiguration.btnOK.Enabled) {
+        dlgFDMConfiguration.btnOK.Click();
+        Log.Message("'OK' button clicked to dismiss the warning.");
+        return false
+      } else {
+        Log.Error("'OK' button not found or not enabled.");
+      }
+    } else {
+      Log.Message("No warning message displayed.");
+    }
+
+    // === Step 4: Handle Resource Selection dialog ===
+    let resourceSelectionDlg = HCMClient.WaitAliasChild("ResourceSelectionDlg", 5000);
+
+    if (resourceSelectionDlg.Exists) {
+      resourceSelectionDlg.fpSpread1.Click(229, 33);
+      Log.Message("Clicked device selection grid.");
+
+      if (resourceSelectionDlg.OKButton.Exists && resourceSelectionDlg.OKButton.Enabled) {
+        resourceSelectionDlg.OKButton.Click();
+        Log.Message("Clicked 'OK' on Resource Selection dialog.");
+      } else {
+        Log.Error("'OK' button is not available or enabled.");
+        return;
+      }
+
+      if (HCMClient.dlgFDMConfiguration.btnYes.Exists) {
+        let WndCaption = HCMClient.dlgFDM.Static.WndCaption;
+        HCMClient.dlgFDMConfiguration.btnYes.Click();
+        Log.Message("Confirmation dialog caption: " + WndCaption);
+      } else {
+        Log.Warning("'Yes' button not found in FDM Configuration dialog.");
+      }
+
+    } else {
+      Log.Error("Resource Selection dialog not found.");
+      return;
+    }
+
+    // === Step 5: Final FDM Configuration confirmation ===
+    let configDlg = HCMClient.WaitAliasChild("dlgFDMConfiguration", 10000);
+
+    if (configDlg.Exists && configDlg.btnOK.Exists) {
+      let caption = configDlg.Window("Static", "*", 1).WndCaption;
+      configDlg.btnOK.ClickButton();
+      Log.Message("Final confirmation: " + caption);
+    } else {
+      Log.Error("FDM Configuration confirmation dialog not found.");
+    }
+
+  } catch (error) {
+    Log.Error("Failed to detach application: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+function clickOnAttachDocument() {
+  Log.AppendFolder("clickOnAttachDocument - Initiating Document Attachment");
+
+  try {
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("TreeView not found.");
+      return;
+    }
+
+    let targetItem = Project.Variables.Device;
+
+    treeView.ClickItem(targetItem);
+    Log.Message("Clicked item: " + targetItem);
+
+    treeView.ClickItemR(targetItem);
+    Log.Message("Right-clicked item for context menu.");
+    Delay(1000)
+  
+    treeView.StripPopupMenu.Click("Device Documentation")
+    treeView.StripPopupMenu.Click("Device Documentation|Attach Document");
+    Log.Message("Selected 'Attach Document' from menu.");
+    
+  } catch (e) {
+    Log.Error("Exception occurred in clickOnAttachDocument: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+function clickOnDeviceDetachDocument() {
+  Log.AppendFolder("clickOnDeviceDetachDocument - Initiating Document Detachment");
+
+  try {
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("TreeView not found.");
+      return;
+    }
+
+    let targetItem = Project.Variables.Device;
+
+    treeView.ClickItem(targetItem);
+    Log.Message("Clicked item: " + targetItem);
+
+    treeView.ClickItemR(targetItem);
+    Log.Message("Right-clicked item for context menu.");
+    Delay(1000)
+  
+    treeView.StripPopupMenu.Click("Device Documentation")
+    treeView.StripPopupMenu.Click("Device Documentation|Detach Document");
+    Log.Message("Selected 'Attach Document' from menu.");
+    
+  } catch (e) {
+    Log.Error("Exception occurred in clickOnAttachDocument: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      DetachDocumentFromResourceDlg
+// Description:   Verifies the resource dialog label, interacts with the grid,
+//                and confirms document detachment.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function DetachDocumentFromResourceDlg() {
+  Log.AppendFolder("DetachDocumentFromResourceDlg - Detaching Document Flow");
+
+  try {
+    let resourceSelectionDlg = Aliases.HCMClient.ResourceSelectionDlg;
+
+    if (!resourceSelectionDlg.Exists) {
+      Log.Error("Resource Selection Dialog not found.");
+      return;
+    }
+
+    // Validate dialog text
+    let expectedText = "Select the documents to be detached";
+    if (aqObject.CheckProperty(resourceSelectionDlg.label_Details, "Text", cmpEqual, expectedText)) {
+      Log.Message("Verified dialog label text: " + expectedText);
+    } else {
+      Log.Error("Dialog label text mismatch.");
+      return;
+    }
+
+    // Click on the grid and confirm detachment
+    resourceSelectionDlg.fpSpread1.Click(226, 31);
+    Log.Message("Clicked document entry in grid.");
+
+    resourceSelectionDlg.OKButton.Click();
+    Log.Message("Clicked OK to confirm detachment.");
+
+  } catch (e) {
+    Log.Error("Exception in DetachDocumentFromResourceDlg: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickOnSystemDocument
+// Description:   Navigates to the 'Tools' menu using OCR, selects 'Document',
+//                and attaches the application via tree view interactions.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function clickOnSystemDocument() {
+  Log.AppendFolder("clickOnSystemDocument - System Document via Menu");
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+
+    // Step 1: Click on 'Tools' menu using OCR
+    let toolsBlock = OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools");
+    if (toolsBlock) {
+      toolsBlock.Click();
+      Log.Message("🛠️ Clicked 'Tools' from the main menu.");
+    } else {
+      Log.Error("'Tools' menu option not found via OCR.");
+      return;
+    }
+
+    // Step 2: Click on 'Document' from the dropdown
+    let documentBlock = OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Document");
+    if (documentBlock) {
+      documentBlock.Click();
+      Log.Message("📦 Selected 'Document' from the Tools dropdown.");
+    } else {
+      Log.Error("'Document' option not found in dropdown via OCR.");
+      return;
+    }
+
+    // Step 3: Expand and attach application via keyboard
+    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
+      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (treeView.Exists) {
+      treeView.Keys("[Right][Enter]");
+      Log.Message("✅ Application attached from the connected applications list.");
+    } else {
+      Log.Error("Tree view for connected applications not found.");
+    }
+
+  } catch (error) {
+    Log.Error("❌ Failed to attach application: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      DetachDocument
+// Description:   Navigates through the Document menu using OCR to detach
+//                a connected Document node from the tree view.
+// Created On:    27-June-2025
+// Modified On:   [Updated with robust waits and checks]
+// =====================================================================
+function DetachDocument() {
+  try {
+    Log.AppendFolder("DetachDocument - Navigates through the Document menu using OCR to detach\n a connected Document node from the tree view.")
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+
+    // === Step 1: Click 'Tools' using OCR ===
+    if (frmHCMClientMain.mainMenu.Exists) {
+      OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
+      Log.Message("Clicked 'Tools' from the main menu.");
+    } else {
+      Log.Error("Main menu not found.");
+      return;
+    }
+
+    // === Step 2: Click 'Applications' from the dropdown ===
+    if (HCMClient.DropDownForm.SubSmartControl.Exists) {
+      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Document").Click();
+      Log.Message("Selected 'Document' from the Tools dropdown.");
+    } else {
+      Log.Error("Document option in dropdown not found.");
+      return;
+    }
+
+    // === Step 3: Navigate and detach from tree view ===
+    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
+      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (treeView.Exists) {
+      treeView.Keys("[Right][Down][Enter]");
+      Log.Message("Detached Document from the connected applications list.");
+    } else {
+      Log.Error("Connected Document tree view not found.");
       return;
     }
     

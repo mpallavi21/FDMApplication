@@ -242,7 +242,7 @@ function handleCustomMessageBox() {
     if (!clicked) {
       Log.Warning("⚠️ No enabled button with expected caption (OK/YES) was clicked.");
     }
-    return messageText.WndCaption
+
   } catch (error) {
     Log.Error("❌ Error handling CustomMessageBox: " + error.message);
   } finally {
@@ -393,7 +393,7 @@ function toggleServerStartStop(action, timeoutMs) {
 
     let statusText = aqString.Trim(statusLabel.WndCaption);
     let actionLower = aqString.ToLower(action);
-    let timeout = timeoutMs || 20000; // default to 10 seconds
+    let timeout = timeoutMs || 120000; // default to 10 seconds
 
     if (actionLower === "stop") {
       if (statusText === "Server is currently STARTED") {

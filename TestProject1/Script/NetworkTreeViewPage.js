@@ -463,3 +463,4 @@ function LaunchViewHistory(Device) {
     Log.PopLogFolder();
   }
 }
+

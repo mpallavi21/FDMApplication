@@ -62,6 +62,24 @@
 						</Node>
 						<Prp name="name" type="S" value="Device"/>
 					</Node>
+					<Node name="var7">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="410064006D0069006E00"/>
+						</Node>
+						<Prp name="name" type="S" value="ClientWindowUserName"/>
+					</Node>
+					<Node name="var8">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="38003900360031003900330044003300460034004400380038004200460035004500430039003900430037004600310044003000450041003400440036003500330038003500420035003400300043003800320032003100310041003600430034004200300037004400360042003700"/>
+						</Node>
+						<Prp name="name" type="S" value="ClientWindowPassword"/>
+					</Node>
+					<Node name="var9">
+						<Node name="value">
+							<Prp name="intvalue" type="I" value="0"/>
+						</Node>
+						<Prp name="name" type="S" value="SignOnToggle"/>
+					</Node>
 				</Node>
 				<Prp name="version" type="I" value="4"/>
 			</Node>

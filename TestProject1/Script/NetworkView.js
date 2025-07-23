@@ -41,7 +41,7 @@ function FDMGR6060_6061() {
       //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     verifyFDMDeviceStatus("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF|644");
     closeWindowPage()
-    clickOnConfirmFDMYesButton()
+    clickOnConfirmFDMButton()
     // TestedApps.HCMClient.Terminate();
     Log.Checkpoint("FDMGR6060_6061 passed: Device status verified.");
   } catch (error) {
@@ -158,5 +158,85 @@ function FDMGR4904() {
     Log.Error("❌ FDMGR5900 failed during View History:- ", error);
   } finally {
     Log.PopLogFolder();
+  }
+}
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      AuditTrail
+// Description:   Triggers audit trail view for a selected tooltip,
+//                applies 'All' filters and clicks the 'View' button.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function AuditTrail() {
+  Log.AppendFolder("ViewAuditTrailForDevice - Audit Trail Flow");
+
+  try {
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("TreeView not found.");
+      return;
+    }
+
+    let targetItem = Project.Variables.Device;
+
+    treeView.ClickItem(targetItem);
+    Log.Message("Clicked item: " + targetItem);
+
+    treeView.ClickItemR(targetItem);
+    Log.Message("Right-clicked item for context menu.");
+    Delay(1000)
+  
+    treeView.StripPopupMenu.Click("View Audit Trail")
+
+    // Apply filters in Audit Trail view
+    let groupBox = Aliases.HCMClient.ClientMainWindow.MdiClient.AuditTrailView.panelBase
+      .panelForDerivedForms.panel4.panel2.groupBox1;
+
+    if (groupBox.Exists) {
+      groupBox.ViewButton.Click(25, 13);
+      Log.Message("Applied filters and clicked View in Audit Trail.");
+    } else {
+      Log.Error("Audit Trail group box not found.");
+    }
+    
+    CloseWindow()
+
+  } catch (e) {
+    Log.Error("Exception in ViewAuditTrailForDevice: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      BuildNetwork
+// Description:   Executes the Build Network operation on the Mux node
+//                as part of test cases FDMGR3890 and FDMGR3891
+// Created On:    2025-06-20
+// Modified On:   None
+// =====================================================================
+
+function BuildNetwork() {
+  try {
+    Log.AppendFolder(" BuildNetwork - Executes the Build Network operation on the Mux node as part of test cases BuildNetwork_HW Mux")
+    clickOnNetworkViewTab()
+    input = Project.Variables.Device
+    clickOnbuildNetwork(input.split("|").slice(0, -2).join("|"));
+    clickOnbuildNetwork(input.split("|").slice(0, -1).join("|"));
+    Log.Checkpoint("FDMGR3890_FDMGR3891 executed successfully.");
+  } catch (error) {
+    Log.Error("Error occurred in FDMGR3890_FDMGR3891:", error);
+  } finally {
+    Log.PopLogFolder()
   }
 }

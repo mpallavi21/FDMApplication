@@ -417,15 +417,15 @@ function FDMDeviceStatus() {
 
 // =====================================================================
 // Author:        Bharath
-// Function:      ViewHistoryForMUXItem
-// Description:   Navigates to a specific MUX item in the tree view,
+// Function:      LaunchViewHistory
+// Description:   Navigates to a item in the tree view,
 //                opens its context menu, selects 'View History', and
 //                clicks the 'View' button in the history form.
 // Created On:    18-Jul-2025
 // Modified On:   18-Jul-2025
 // =====================================================================
 
-function ViewHistoryForMUXItem() {
+function LaunchViewHistory(Device) {
   Log.AppendFolder("ViewHistoryForMUXItem - View History Flow");
 
   try {
@@ -444,7 +444,7 @@ function ViewHistoryForMUXItem() {
     }
 
     // Right-click on the specific item and select 'View History'
-    treeView.ClickItemR("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644");
+    treeView.ClickItemR(Device);
     treeView.StripPopupMenu.Click("View History");
 
     // Click the 'View' button in the history form
@@ -459,6 +459,59 @@ function ViewHistoryForMUXItem() {
 
   } catch (e) {
     Log.Error("Exception occurred: " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      ViewAuditTrailForDevice
+// Description:   Triggers audit trail view for a selected tooltip,
+//                applies 'All' filters and clicks the 'View' button.
+// Created On:    21-Jul-2025
+// Modified On:   21-Jul-2025
+// =====================================================================
+
+function ViewAuditTrailForDevice() {
+  Log.AppendFolder("ViewAuditTrailForDevice - Audit Trail Flow");
+
+  try {
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("TreeView not found.");
+      return;
+    }
+
+    let targetItem = Project.Variables.Device;
+
+    treeView.ClickItem(targetItem);
+    Log.Message("Clicked item: " + targetItem);
+
+    treeView.ClickItemR(targetItem);
+    Log.Message("Right-clicked item for context menu.");
+    Delay(1000)
+  
+    treeView.StripPopupMenu.Click("View Audit Trail")
+
+    // Apply filters in Audit Trail view
+    let groupBox = Aliases.HCMClient.ClientMainWindow.MdiClient.AuditTrailView.panelBase
+      .panelForDerivedForms.panel4.panel2.groupBox1;
+
+    if (groupBox.Exists) {
+      groupBox.ViewButton.Click(25, 13);
+      Log.Message("Applied filters and clicked View in Audit Trail.");
+    } else {
+      Log.Error("Audit Trail group box not found.");
+    }
+    
+    CloseWindow()
+
+  } catch (e) {
+    Log.Error("Exception in ViewAuditTrailForDevice: " + e.message);
   } finally {
     Log.PopLogFolder();
   }

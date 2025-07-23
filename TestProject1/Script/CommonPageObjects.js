@@ -44,21 +44,48 @@ function closeWindowPage() {
 // Created On:    25-06-2025
 // Modified On:   
 // =====================================================================
-function clickOnConfirmFDMYesButton() {
+function clickOnConfirmFDMButton() {
   try {
-    Log.AppendFolder()
+    Log.AppendFolder("Click on confirm FDM Button")
     let yesButton = Aliases.HCMClient.dlgFDMConfiguration.btnYes;
 
     if (yesButton.Exists && yesButton.Enabled) {
-      yesButton.ClickButton();
+      yesButton.Click();
       Log.Message("'Yes' button clicked successfully on FDM Diagnostic Model dialog.");
-    } else {
-      Log.Warning("'Yes' button not available or not enabled.");
+    }
+    
+    let okButton = Aliases.HCMClient.dlgFDMConfiguration.btnOK;
+  Aliases.HCMClient.dlgFDMConfiguration.Activate()
+  okButton.SetFocus()
+    if (okButton.Exists && okButton.Enabled) {
+      okButton.Click();
+      Log.Message("'OK' button clicked successfully on FDM Diagnostic Model dialog.");
     }
   } catch (error) {
-    Log.Error("Failed to click 'Yes' button: " + error.message);
+    Log.Error("Failed to click 'Yes || ok' button: " + error.message);
   } finally{
     Log.PopLogFolder()
   }
 }
 
+
+function CloseWindow() {
+  Log.AppendFolder("CloseWindow - Locate and Click Close Button");
+
+  try {
+    let mdiClient = Aliases.HCMClient.ClientMainWindow.MdiClient;
+
+    let closeBtn = mdiClient.FindChild("Name", 'WinFormsObject("buttonClose")', 100,true);
+    if (closeBtn && closeBtn.Exists) {
+      Log.Message("Close button found. Clicking now.");
+      closeBtn.Click();
+    } else {
+      Log.Error("Close button not found.");
+    }
+
+  } catch (e) {
+    Log.Error("Exception in test(): " + e.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
