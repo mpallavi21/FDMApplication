@@ -51,3 +51,11 @@ function FDMGR11051() {
     Log.PopLogFolder()
   }
 }
+
+
+function Dashboard(){
+  path = Project.Variables.Device
+  let parts = path.split("|").filter(p => p.trim() !== "");
+  let firstName = parts.length > 0 ? parts[0] : "";
+  openDashboardFromTreeItem(firstName)
+}

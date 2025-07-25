@@ -17,27 +17,86 @@ function clickOnAttachApplication() {
 
     // Step 1: Click on 'Tools' menu using OCR
     OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-    Log.Message("🛠️ Clicked 'Tools' from the main menu.");
+    Log.Message("Clicked 'Tools' from the main menu.");
 
     // Step 2: Click on 'Applications' from the dropdown
     OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
-    Log.Message("📦 Selected 'Applications' from the Tools dropdown.");
+    Log.Message("Selected 'Applications' from the Tools dropdown.");
 
     // Step 3: Expand and attach application via keyboard
-    frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
-      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView
-      .tabConnected.treeView.Keys("[Right][Enter]");
-
-    Log.Message("✅ Application attached from the connected applications list.");
+    frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.Keys("[Right][Enter]");
+      
+    Log.Message("Application attached from the connected applications list.");
   } catch (error) {
-    Log.Error("❌ Failed to attach application: " + error.message);
+    Log.Error("Failed to attach application: " + error.message);
   } finally {
     Log.PopLogFolder();
   }
 }
 
+function testqq(){
+  clickMainAndSubMenuItem("Tools","System Documents")
+  }
+// =====================================================================
+// Author:        Bharath
+// Function:      clickMainAndSubMenuItem
+// Description:   Finds and clicks a specified main menu item, then locates
+//                and clicks the matching submenu item under it.
+// Created On:    23-Jul-2025
+// Modified On:   23-Jul-2025
+// =====================================================================
 
+function clickMainAndSubMenuItem(mainText, subText) {
+  Log.AppendFolder("clickMainAndSubMenuItem - Menu Navigation");
 
+  try {
+    let mainMenu = Aliases.HCMClient.ClientMainWindow.mainMenu;
+
+    if (!mainMenu.Exists || !mainMenu.Items) {
+      Log.Error("Main menu not found.");
+      return;
+    }
+
+    let mainMatched = false;
+    let subMatched = false;
+
+    // Loop through main menu items
+    for (let i = 0; i < mainMenu.Items.Count; i++) {
+      let mainItem = mainMenu.Items.Item_2(i);
+
+      if (normalizeMenuText(mainItem.Text.OleValue).includes(mainText.toLowerCase())) {
+        mainItem.DoClick();    // Open main item
+        Log.Message("Clicked main menu item: " + mainText);
+        mainMatched = true;
+
+        // Search sub-items under matched main item
+        for (let j = 0; j < mainItem.Items.Count; j++) {
+          let subItem = mainItem.Items.Item_2(j);
+
+          if (normalizeMenuText(subItem.Text.OleValue).includes(subText.toLowerCase())) {
+            subItem.DoClick_2();
+            Log.Message("Clicked sub-menu item: " + subText);
+            subMatched = true;
+            break;
+          }
+        }
+
+        break;
+      }
+    }
+
+    if (!mainMatched) {
+      Log.Warning("No main menu item matched: " + mainText);
+    } else if (!subMatched) {
+      Log.Warning("No sub-menu item matched under '" + mainText + "': " + subText);
+    }
+
+  } catch (error) {
+    Log.Error("Exception in clickMainAndSubMenuItem: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
 
 function test(){
   clickOnAttachApplication()
@@ -488,3 +547,20 @@ function DetachDocument() {
     Log.PopLogFolder();
   }
 }
+
+function Test1()
+{
+  let HCMClient = Aliases.HCMClient;
+  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
+  let subSmartControl = HCMClient.DropDownForm.SubSmartControl;
+  OCR.Recognize(subSmartControl).BlockByText("Other").Click();
+  OCR.Recognize(subSmartControl).BlockByText("Attach").Click();
+}
+
+function Test2()
+{
+  let HCMClient = Aliases.HCMClient;
+  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
+
+}
+

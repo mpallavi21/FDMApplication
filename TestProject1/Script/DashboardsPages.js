@@ -1,4 +1,4 @@
-﻿
+﻿//USEUNIT CommonPageObjects
 
 // =====================================================================
 // Author:        Bharath
@@ -126,4 +126,49 @@ function closeAlertMonitorView() {
 function Test1()
 {
   Aliases.HCMClient.AlertMonitorWindow.Shell.WindowButtonCommands.Click(154, 19);
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      openDashboardFromTreeItem
+// Description:   Opens Dashboard from specified tree view path, expands child views,
+//                activates main form, and closes the window.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function openDashboardFromTreeItem(treePath) {
+  Log.AppendFolder("openDashboardFromTreeItem - Navigate Tree & Open Dashboard");
+
+  try {
+    let frmHCMClientMain = Aliases.HCMClient.ClientMainWindow;
+    let treeView = frmHCMClientMain.panelLeftPanMain
+      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    // 🌲 Right-click the specified tree item and select 'Dashboard'
+    treeView.ClickItemR(`|${treePath}`);
+    Log.Message("Right-clicked tree item: " + treePath);
+
+    treeView.StripPopupMenu.Click("Dashboard");
+    Log.Message("Selected 'Dashboard' from context menu.");
+
+    // 🧩 Expand grid child views
+    let gridControl = frmHCMClientMain.MdiClient.Dashboard.panelBase
+      .panelForDerivedForms.panel1.tabControlDashboard.tabPageNetworkInfo.gridControlNetworkInfo;
+
+    gridControl.ExpandChildView(0);
+    gridControl.wChildView(0, 0).ExpandChildView(0);
+    Log.Message("Expanded grid child views for network info.");
+
+    // 🖥️ Activate window and close
+    frmHCMClientMain.Activate();
+    CloseWindow();
+    Log.Message("Dashboard window closed.");
+
+  } catch (error) {
+    Log.Error("Exception in openDashboardFromTreeItem: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
 }

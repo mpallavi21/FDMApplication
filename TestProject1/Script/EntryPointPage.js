@@ -566,3 +566,4 @@ function handleSaveHistoryCompletion() {
     Log.PopLogFolder();
   }
 }
+

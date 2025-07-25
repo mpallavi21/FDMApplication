@@ -125,3 +125,6 @@ function uploadPackageFile(folderPath, fileName) {
   }
 }
 
+function normalizeMenuText(text) {
+  return text.replace(/&/g, "").trim().toLowerCase();
+}

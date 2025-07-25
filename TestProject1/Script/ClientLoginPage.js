@@ -65,6 +65,24 @@ function launchFDMClient(Username,Password) {
     Log.Message("Here used single sign On")
     Project.Variables.SignOnToggle = cbUnchecked
   }
+  let dlg = Aliases.HCMClient.dlgFDMConfiguration;
+
+    if (dlg.Exists) {
+      let messageText = dlg.Window("Static", "*", 2).WndCaption
+
+      if (messageText.includes("Login Failed")) {
+        Log.Message("Login failure message detected: " + messageText);
+        dlg.btnOK.Click();
+        Aliases.HCMClient.ClientLogin.buttonCancel.Click()
+        Log.Message("Clicked OK button to dismiss login failure dialog.");
+        return false
+      } else {
+        Log.Message("Dialog exists but message is not 'Login Failed': " + messageText);
+      }
+
+    } else {
+      Log.Message("Login failure dialog not present.");
+    }           
   
   // Wait for main application window
   Log.Message("Waiting for main application window...");
@@ -74,6 +92,30 @@ function launchFDMClient(Username,Password) {
   aqUtils.Delay(1000);
   Log.PopLogFolder()
 }
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      handleLoginFailureDialog
+// Description:   Detects the FDM Configuration dialog and clicks OK if
+//                the login failure message is displayed.
+// Created On:    23-Jul-2025
+// Modified On:   23-Jul-2025
+// =====================================================================
+
+function handleLoginFailureDialog() {
+  Log.AppendFolder("handleLoginFailureDialog - Login Failure Check");
+
+  try {
+    
+
+  } catch (error) {
+    Log.Error("Exception in handleLoginFailureDialog: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
 
 
 function terminateFMD(){

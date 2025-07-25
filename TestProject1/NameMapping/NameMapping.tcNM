@@ -209,7 +209,7 @@
 											</Property>
 										</Properties>
 									</Child>
-									<Child Name="MdiClient" Key="{18F795DB-17E5-4C57-9BEA-3995EA24FD88}">
+									<Child Name="MdiClient" Key="{18F795DB-17E5-4C57-9BEA-3995EA24FD88}" ExtendedFind="True">
 										<Image FileName="-1570826737" Left="306" Top="80" Right="1448" Bottom="842" />
 										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
 										<Properties>
@@ -1115,6 +1115,75 @@
 													</Child>
 												</Children>
 											</Child>
+											<Child Name="Dashboard" Key="{F5D22AD3-BF29-43DA-BDF1-2C9E4DA0B443}">
+												<Image FileName="-457384622" Left="300" Top="83" Right="1918" Bottom="865" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="Dashboard" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="panelBase" Key="{DA7C2088-4D7B-429B-9340-8C1451A3B6DD}">
+														<Image FileName="-457384622" Left="300" Top="83" Right="1918" Bottom="865" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="panelBase" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="panelForDerivedForms" Key="{1F850910-3D0F-4161-9967-060834061608}">
+																<Image FileName="-457384622" Left="300" Top="107" Right="1918" Bottom="842" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="panelForDerivedForms" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="panel1" Key="{B09CE0B2-6214-4512-8B4C-13113D16DE3B}">
+																		<Image FileName="-457384622" Left="300" Top="107" Right="1918" Bottom="842" />
+																		<Properties>
+																			<Property Name="WinFormsControlName">
+																				<Value Value="panel1" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="tabControlDashboard" Key="{73578BCB-3213-4FD7-9260-2B2049975566}">
+																				<Image FileName="-457384622" Left="300" Top="107" Right="1918" Bottom="842" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="tabControlDashboard" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="tabPageNetworkInfo" Key="{A7864C84-B3FE-48FD-BF17-A3E707AE488A}">
+																						<Image FileName="-457384622" Left="301" Top="133" Right="1919" Bottom="843" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value Value="tabPageNetworkInfo" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="gridControlNetworkInfo" Key="{F047763E-D6F6-4A24-894D-D4CC2AB0E8F4}">
+																								<Image FileName="-457384622" Left="304" Top="136" Right="1916" Bottom="840" />
+																								<TypeInfo Item0="{0DD6B083-E427-4CC2-9C58-9C925DEBF9C9}" />
+																								<Properties>
+																									<Property Name="WinFormsControlName">
+																										<Value Value="gridControlNetworkInfo" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
 										</Children>
 									</Child>
 									<Child Name="panelLeftPanMain" Key="{FA193912-1A86-464B-829F-240737861C5D}">
@@ -1169,6 +1238,23 @@
 																				<Children>
 																					<Child Name="treeView" Key="{B55B650D-DF2F-469E-9DCF-D1781D5C5DC8}">
 																						<Image FileName="245977591" Left="0" Top="113" Right="250" Bottom="809" />
+																						<TypeInfo Item0="{B7F7919F-8E34-4891-BEB1-8F9A313D5054}" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value Value="treeView" />
+																							</Property>
+																						</Properties>
+																					</Child>
+																				</Children>
+																			</Child>
+																			<Child Name="tabPageOfflineTemplates" Key="{3212FF61-48BF-4800-86AF-FA5F6AC98624}">
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value Value="tabPageOfflineTemplates" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="treeView" Key="{A0C5F80C-E4D3-4FC3-A14F-8C3AB8BF2A85}">
 																						<TypeInfo Item0="{B7F7919F-8E34-4891-BEB1-8F9A313D5054}" />
 																						<Properties>
 																							<Property Name="WinFormsControlName">
@@ -2194,7 +2280,7 @@
 												<Value Value="Static" />
 											</Property>
 											<Property Name="WndCaption">
-												<Value Value="The selected view is already open." />
+												<Value Value="*" />
 											</Property>
 										</Properties>
 									</Child>
@@ -2532,6 +2618,19 @@
 							</Child>
 						</Child>
 					</Child>
+					<Child Name="Dashboard" Owner="{F5D22AD3-BF29-43DA-BDF1-2C9E4DA0B443}">
+						<Child Name="panelBase" Owner="{DA7C2088-4D7B-429B-9340-8C1451A3B6DD}">
+							<Child Name="panelForDerivedForms" Owner="{1F850910-3D0F-4161-9967-060834061608}">
+								<Child Name="panel1" Owner="{B09CE0B2-6214-4512-8B4C-13113D16DE3B}">
+									<Child Name="tabControlDashboard" Owner="{73578BCB-3213-4FD7-9260-2B2049975566}">
+										<Child Name="tabPageNetworkInfo" Owner="{A7864C84-B3FE-48FD-BF17-A3E707AE488A}">
+											<Child Name="gridControlNetworkInfo" Owner="{F047763E-D6F6-4A24-894D-D4CC2AB0E8F4}" />
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
 				</Child>
 				<Child Name="panelLeftPanMain" Owner="{FA193912-1A86-464B-829F-240737861C5D}">
 					<Child Name="tabControlLeftPanMain" Owner="{DB3A5AC5-23B7-4EC9-8B80-DF96821A1329}">
@@ -2540,6 +2639,9 @@
 								<Child Name="tabControlOfflineView" Owner="{E5AA6AAA-B883-433D-B6BC-0312A525C457}">
 									<Child Name="tabPageFaultModel" Owner="{75688BDE-954A-4721-ACEC-AA9FAE6E2765}">
 										<Child Name="treeView" Owner="{B55B650D-DF2F-469E-9DCF-D1781D5C5DC8}" />
+									</Child>
+									<Child Name="tabPageOfflineTemplates" Owner="{3212FF61-48BF-4800-86AF-FA5F6AC98624}">
+										<Child Name="treeView" Owner="{A0C5F80C-E4D3-4FC3-A14F-8C3AB8BF2A85}" />
 									</Child>
 								</Child>
 							</Child>

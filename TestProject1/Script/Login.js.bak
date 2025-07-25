@@ -16,8 +16,8 @@ function FDMGR3909() {
     launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     Log.Message("Terminating HCMClient...");
- //   TestedApps.HCMClient.Terminate();
-
+    // TestedApps.HCMClient.Terminate();
+    Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkMethodList
     Log.Checkpoint("FDMGR430 executed successfully.");
   } catch (error) {
     Log.Error("Error occurred in FDMGR430: ", error);
@@ -164,7 +164,7 @@ function ClientLoginSwitchFDMServer() {
 
   try {
     // 🔄 Switch FDM Server from toolbar to 'Localhost'
-    openFDMToolBarSwitchServer("Localhost");
+    openFDMToolBarSwitchServer(Project.Variables.ServerName);
     Log.Message("FDM Server switched to: Localhost");
 
     // 🔐 Click on Login button
@@ -228,6 +228,42 @@ function Client_LoginWindowUser() {
 
   } catch (error) {
     Log.Error("Error occurred while launching FDM Client: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      Client_LoginNonFDMUser
+// Description:   Attempts to launch FDM Client with non-FDM user credentials
+//                and verifies that login access is denied.
+// Created On:    22-Jul-2025
+// Modified On:   23-Jul-2025
+// =====================================================================
+
+function Client_LoginNonFDMUser() {
+  Log.AppendFolder("Client_LoginNonFDMUser - Negative Login Test");
+
+  try {
+    Log.Message("Launching FDM Client with non-FDM user credentials...");
+
+    launchFDMClient(Project.Variables.FDMNonUserName, Project.Variables.FDMNonUserPassword);
+    Log.Message("Launch attempt executed.");
+
+    let mainWindow = Aliases.HCMClient.ClientMainWindow;
+
+    // ❌ Login should not succeed
+    if (mainWindow.Exists && mainWindow.VisibleOnScreen) {
+      Log.Error("Unexpected login success: Non-FDM user was able to access the client.");
+    } else {
+      Log.Message("Login correctly blocked for non-FDM user: " + Project.Variables.FDMNonUserName);
+    }
+
+  } catch (error) {
+    Log.Message("Expected exception or denial. Login attempt failed for non-FDM user.");
+    Log.Error("Login failure captured: " + error.message);
   } finally {
     Log.PopLogFolder();
   }

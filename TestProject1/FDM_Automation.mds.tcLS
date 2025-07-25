@@ -38,6 +38,24 @@
 						</Node>
 						<Prp name="name" type="S" value="FDMClientPassword"/>
 					</Node>
+					<Node name="var10">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="4C004F00430041004C0048004F0053005400"/>
+						</Node>
+						<Prp name="name" type="S" value="ServerName"/>
+					</Node>
+					<Node name="var11">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="4200680061007200610074006800"/>
+						</Node>
+						<Prp name="name" type="S" value="FDMNonUserName"/>
+					</Node>
+					<Node name="var12">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="38003900360031003900330044003100460034004400380046003300460036004500430039004300320037003900320039004100460046004600420037004400380045003100420045003200370045004200340030003300310043003600430037003900350044004400370037003100"/>
+						</Node>
+						<Prp name="name" type="S" value="FDMNonUserPassword"/>
+					</Node>
 					<Node name="var2">
 						<Prp name="name" type="S" value="Var1"/>
 					</Node>

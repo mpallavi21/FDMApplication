@@ -164,3 +164,49 @@ function AddDD() {
     Log.PopLogFolder()
   }
 }
+
+// =====================================================================
+// Author:        Bharath
+// Function:      DeleteDD
+// Description:   Deletes a DD package for the device "3051 (2606)" under HART protocol
+//                by navigating the DD management section, selecting filters, deleting the entry,
+//                and terminating the client application.
+// Created On:    22-Jul-2025
+// Modified On:   22-Jul-2025
+// =====================================================================
+
+function DeleteDD() {
+  Log.AppendFolder("DeleteDD - Device Description Package Deletion");
+
+  try {
+    // Navigate to DD package section
+    openManageDDPackagesSection();
+    Log.Message("Opened Manage DD Packages section.");
+
+    // Select filters for deletion
+    selectProtocol("HART");
+    Log.Message("Protocol selected: HART");
+
+    selectManufacturer("Rosemount (26)");
+    Log.Message("Manufacturer selected: Rosemount (26)");
+
+    selectDeviceType("3051 (2606)");
+    Log.Message("Device type selected: 3051 (2606)");
+
+    // Delete the target DD package using revision numbers
+    findDDAndClickDeleteRow("3051 (2606)", "9", "6");
+    Log.Message("Requested DD deletion for 3051 (2606), Rev 9.6.");
+
+    // Close DD Package popup and terminate the client
+    clickManage_DDPackagePopUpCloseButton();
+    Log.Message("Closed DD Package popup.");
+
+    TestedApps.HCMClient.Terminate();
+    Log.Message("HCM Client terminated.");
+
+  } catch (error) {
+    Log.Error("Exception in DeleteDD: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}

@@ -18,7 +18,7 @@ function FDMGR11050() {
     closePlantAreaView();
 
    // TestedApps.HCMClient.Terminate();
-    Log.Message("Test 'FDMGR11050' executed successfully.");
+    Log.Checkpoint("Test 'FDMGR11050' executed successfully.");
   } catch (error) {
     Log.Error("Test 'FDMGR11050' encountered an error: " + error.message);
   } finally{
@@ -44,7 +44,7 @@ function FDMGR11051() {
     closeAlertMonitorView();
 
   //  TestedApps.HCMClient.Terminate();
-    Log.Message("Test 'FDMGR11051' executed successfully.");
+    Log.Checkpoint("Test 'FDMGR11051' executed successfully.");
   } catch (error) {
     Log.Error("Test 'FDMGR11051' encountered an error: " + error.message);
   } finally{
