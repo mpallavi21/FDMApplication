@@ -65,15 +65,24 @@ function launchFDMClient(Username,Password) {
     Log.Message("Here used single sign On")
     Project.Variables.SignOnToggle = cbUnchecked
   }
-  dlg = Aliases.HCMClient.dlgFDMConfiguration
-  if(dlg.Exists){
-    if(dlg.Static.includes("Login Failed")){
-      dlg.Window("Static", "*", 2)
-      Log.Message(dlg.Static)
-      dlg.btnOK.Click()
-    }
-  }
-                
+  let dlg = Aliases.HCMClient.dlgFDMConfiguration;
+
+    if (dlg.Visible) {
+      let messageText = dlg.Window("Static", "*", 2).WndCaption
+
+      if (messageText.includes("Login Failed")) {
+        Log.Message("Login failure message detected: " + messageText);
+        dlg.btnOK.Click();
+        Aliases.HCMClient.ClientLogin.buttonCancel.Click()
+        Log.Message("Clicked OK button to dismiss login failure dialog.");
+        return false
+      } else {
+        Log.Message("Dialog exists but message is not 'Login Failed': " + messageText);
+      }
+
+    } else {
+      Log.Message("Login failure dialog not present.");
+    }           
   
   // Wait for main application window
   Log.Message("Waiting for main application window...");
@@ -98,22 +107,7 @@ function handleLoginFailureDialog() {
   Log.AppendFolder("handleLoginFailureDialog - Login Failure Check");
 
   try {
-    let dlg = Aliases.HCMClient.dlgFDMConfiguration;
-
-    if (dlg.Exists) {
-      let messageText = dlg.Window("Static", "*", 2).WndCaption
-
-      if (messageText.includes("Login Failed")) {
-        Log.Message("Login failure message detected: " + messageText);
-        dlg.btnOK.Click();
-        Log.Message("Clicked OK button to dismiss login failure dialog.");
-      } else {
-        Log.Message("Dialog exists but message is not 'Login Failed': " + messageText);
-      }
-
-    } else {
-      Log.Message("Login failure dialog not present.");
-    }
+    
 
   } catch (error) {
     Log.Error("Exception in handleLoginFailureDialog: " + error.message);

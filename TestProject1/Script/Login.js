@@ -1,6 +1,7 @@
 ﻿//USEUNIT ClientLoginPage
 //USEUNIT ServerPage
 //USEUNIT SettingsPage
+//USEUNIT CommonPageObjects
 
 // =====================================================================
 // Author:        Bharath
@@ -122,7 +123,7 @@ function Client_LoginFDMSSO() {
     Log.Message("Launching FDM Client with Windows credentials...");
     
     // Attempt to launch directly if SSO is enabled
-    launchFDMClient(Project.Variables.FDMClientWindowUserName, Project.Variables.FDMClientWindowPassword);
+    launchFDMClient(Project.Variables.ClientWindowUserName, Project.Variables.ClientWindowPassword);
     Log.Message("FDM Client initial launch attempt completed.");
 
     if (Project.Variables.SignOnToggle == 1) {
@@ -133,7 +134,7 @@ function Client_LoginFDMSSO() {
       // Enable SSO, relaunch, then revert toggle to previous state
       Project.Variables.SignOnToggle = 1;
       enableDisableSingleSignOn(Project.Variables.SignOnToggle);
-      launchFDMClient(Project.Variables.FDMClientWindowUserName, Project.Variables.FDMClientWindowPassword);
+      launchFDMClient(Project.Variables.ClientWindowUserName, Project.Variables.ClientWindowPassword);
       Log.Message("Relaunched FDM Client with SSO temporarily enabled.");
 
       Project.Variables.SignOnToggle = 0;
@@ -163,6 +164,11 @@ function ClientLoginSwitchFDMServer() {
   Log.AppendFolder("ClientLoginSwitchFDMServer - Server Switch and Login Workflow");
 
   try {
+    
+    // Attempt to launch directly if SSO is enabled
+    launchFDMClient(Project.Variables.ClientWindowUserName, Project.Variables.ClientWindowPassword);
+    Log.Message("FDM Client initial launch attempt completed.");
+    
     // 🔄 Switch FDM Server from toolbar to 'Localhost'
     openFDMToolBarSwitchServer(Project.Variables.ServerName);
     Log.Message("FDM Server switched to: Localhost");
@@ -170,7 +176,9 @@ function ClientLoginSwitchFDMServer() {
     // 🔐 Click on Login button
     clickOnLoginBtn();
     Log.Message("Login button clicked successfully.");
-
+    clickOnLoginCancelBtn();
+    clickOnLoginCancelBtn();
+    clickOnConfirmFDMButton();
   } catch (error) {
     Log.Error("Error in ClientLoginSwitchFDMServer: " + error.message);
   } finally {
@@ -192,6 +200,10 @@ function ClientLoginSwitchServerCancel() {
   Log.AppendFolder("ClientLoginSwitchServerCancel - Switch Server & Cancel Login");
 
   try {
+    // Attempt to launch directly if SSO is enabled
+    launchFDMClient(Project.Variables.ClientWindowUserName, Project.Variables.ClientWindowPassword);
+    Log.Message("FDM Client initial launch attempt completed.");  
+  
     // 🔄 Switch the active FDM Server to 'Localhost'
     openFDMToolBarSwitchServer("Localhost");
     Log.Message("FDM Server switched to: Localhost");

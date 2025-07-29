@@ -201,8 +201,8 @@ function DeleteDD() {
     clickManage_DDPackagePopUpCloseButton();
     Log.Message("Closed DD Package popup.");
 
-    TestedApps.HCMClient.Terminate();
-    Log.Message("HCM Client terminated.");
+//    TestedApps.HCMClient.Terminate();
+//    Log.Message("HCM Client terminated.");
 
   } catch (error) {
     Log.Error("Exception in DeleteDD: " + error.message);

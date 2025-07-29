@@ -14,9 +14,12 @@ function openManageDDPackagesSection() {
     Log.AppendFolder("openManageDDPackagesSection - Navigates through the HCM Client UI to access the \n 'Manage DD/Packages' section via the 'Library' menu.")
     let HCMClient = Aliases.HCMClient;
     Log.Checkpoint("Navigating to 'Manage DD/Packages'...");
-
+    
+    Delay(1000)
     OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Library").Click();
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("*DD*").Click();
+    Delay(1000)
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("DD Packages").Click();
+    Delay(1000)
     
     let ManagePackagesWindow = HCMClient.ManagePackagesWindow;
     // Wait for the window to become visible (timeout: 10 seconds)
@@ -32,6 +35,7 @@ function openManageDDPackagesSection() {
   } finally{
     Log.PopLogFolder()
   }
+
 }
 
 
@@ -317,7 +321,7 @@ function selectProtocol(protocolName) {
     let comboBoxProtocol = managePackages.ComboboxProtocol;
 
     if (comboBoxProtocol.Exists && comboBoxProtocol.Enabled) {
-      selectComboBoxItemByName(comboBoxProtocol, protocolName);
+      selectComboBoxItemByNameDD(comboBoxProtocol, protocolName);
       Log.Message(`'${protocolName}' protocol selected successfully from the combo box.`);
     } else {
       Log.Warning("Protocol combobox is not available or not enabled.");
@@ -349,7 +353,7 @@ function selectManufacturer(manufacturerName) {
     let comboBoxManufacturer = managePackages.ComboboxManufacturer;
 
     if (comboBoxManufacturer.Exists && comboBoxManufacturer.Enabled) {
-      selectComboBoxItemByName(comboBoxManufacturer, manufacturerName);
+      selectComboBoxItemByNameDD(comboBoxManufacturer, manufacturerName);
       Log.Message(`'${manufacturerName}' selected successfully from the Manufacturer combobox.`);
     } else {
       Log.Warning("Manufacturer combobox is not available or not enabled.");
@@ -380,7 +384,7 @@ function selectDeviceType(deviceTypeName) {
     let comboBoxDeviceType = managePackages.ComboboxDeviceType;
 
     if (comboBoxDeviceType.Exists && comboBoxDeviceType.Enabled) {
-      selectComboBoxItemByName(comboBoxDeviceType, deviceTypeName);
+      selectComboBoxItemByNameDD(comboBoxDeviceType, deviceTypeName);
       Log.Message(`'${deviceTypeName}' selected successfully from the Device Type combobox.`);
     } else {
       Log.Warning("Device Type combobox is not available or not enabled.");

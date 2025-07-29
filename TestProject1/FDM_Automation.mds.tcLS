@@ -94,7 +94,7 @@
 					</Node>
 					<Node name="var9">
 						<Node name="value">
-							<Prp name="intvalue" type="I" value="0"/>
+							<Prp name="intvalue" type="I" value="1"/>
 						</Node>
 						<Prp name="name" type="S" value="SignOnToggle"/>
 					</Node>

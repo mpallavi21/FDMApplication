@@ -24,7 +24,7 @@ function clickOnAttachApplication() {
     Log.Message("Selected 'Applications' from the Tools dropdown.");
 
     // Step 3: Expand and attach application via keyboard
-      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Attach").Click();
+    frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.Keys("[Right][Enter]");
       
     Log.Message("Application attached from the connected applications list.");
   } catch (error) {
@@ -464,13 +464,8 @@ function DetachDocument() {
     }
 
     // === Step 2: Click 'Applications' from the dropdown ===
-    if (HCMClient.DropDownForm.SubSmartControl.Exists) {
-      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Document").Click();
-      Log.Message("Selected 'Document' from the Tools dropdown.");
-    } else {
-      Log.Error("Document option in dropdown not found.");
-      return;
-    }
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System").Click();
+    Log.Message("Selected 'Document' from the Tools dropdown.");
 
     // === Step 3: Navigate and detach from tree view ===
     let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
@@ -546,20 +541,7 @@ function DetachDocument() {
   } finally {
     Log.PopLogFolder();
   }
+  
 }
 
-function Test1()
-{
-  let HCMClient = Aliases.HCMClient;
-  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
-  let subSmartControl = HCMClient.DropDownForm.SubSmartControl;
-  OCR.Recognize(subSmartControl).BlockByText("Other").Click();
-  OCR.Recognize(subSmartControl).BlockByText("Attach").Click();
-}
 
-function Test2()
-{
-  let HCMClient = Aliases.HCMClient;
-  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
-
-}

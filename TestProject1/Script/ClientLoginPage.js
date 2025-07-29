@@ -65,8 +65,7 @@ function launchFDMClient(Username,Password) {
     Log.Message("Here used single sign On")
     Project.Variables.SignOnToggle = cbUnchecked
   }
-  let dlg = Aliases.HCMClient.dlgFDMConfiguration;
-
+  dlg = Aliases.HCMClient.dlgFDMConfiguration;
     if (dlg.Exists) {
       let messageText = dlg.Window("Static", "*", 2).WndCaption
 

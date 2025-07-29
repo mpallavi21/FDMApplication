@@ -464,13 +464,8 @@ function DetachDocument() {
     }
 
     // === Step 2: Click 'Applications' from the dropdown ===
-    if (HCMClient.DropDownForm.SubSmartControl.Exists) {
-      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Document").Click();
-      Log.Message("Selected 'Document' from the Tools dropdown.");
-    } else {
-      Log.Error("Document option in dropdown not found.");
-      return;
-    }
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System").Click();
+    Log.Message("Selected 'Document' from the Tools dropdown.");
 
     // === Step 3: Navigate and detach from tree view ===
     let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
@@ -546,21 +541,15 @@ function DetachDocument() {
   } finally {
     Log.PopLogFolder();
   }
+    
 }
 
-function Test1()
-{
+
+function test12(){
   let HCMClient = Aliases.HCMClient;
-  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
-  let subSmartControl = HCMClient.DropDownForm.SubSmartControl;
-  OCR.Recognize(subSmartControl).BlockByText("Other").Click();
-  OCR.Recognize(subSmartControl).BlockByText("Attach").Click();
-}
-
-function Test2()
-{
-  let HCMClient = Aliases.HCMClient;
-  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
+  let frmHCMClientMain = HCMClient.ClientMainWindow;
+  OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
+  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Documents").Click();
+  frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView.Keys("[Right][Down][Enter]");
 
 }
-

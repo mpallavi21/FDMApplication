@@ -116,12 +116,27 @@
 			<testItem name="AutomationTestCases" key="{A37583B2-726C-4BE7-BDAB-339085919FEF}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 				<testParameters />
 				<children>
-					<testItem name="ClientUI" key="{4CEF89F1-4CC8-47C0-8BBE-03BC5F639EF3}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_UI" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+					<testItem name="ClinetDisconnect" key="{D80EAD4C-BA47-4AF6-ACA5-D70264E267D2}" group="False" parallel="False" enabled="True" load="False" testMoniker="{F9CBE65E-B077-45D0-8350-07DFB9EA0D9E}ClientDisconnect" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
 					</testItem>
-					<testItem name="ClientLogin" key="{941738A4-94D7-4D73-88C1-CF007B4AB231}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_Login" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+					<testItem name="Start Stop Server" key="{AEE62A37-A19D-48BD-B85B-2CE6F2D524B8}" group="False" parallel="False" enabled="True" load="False" testMoniker="{F9CBE65E-B077-45D0-8350-07DFB9EA0D9E}ServerLoginFDMServiceStartStop" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Add Network" key="{DEC1F14F-FCF3-4386-A691-A4E478F3E996}" group="False" parallel="False" enabled="True" load="False" testMoniker="{F9CBE65E-B077-45D0-8350-07DFB9EA0D9E}AddNetwork" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Close server" key="{23875592-3AF3-4C47-8FD7-C48E2870FD6A}" group="False" parallel="False" enabled="True" load="False" testMoniker="{34C7636A-FB30-41E6-AA61-EE86AFD13E8B}TerminateServerMgmtTool" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="ClientUI" key="{4CEF89F1-4CC8-47C0-8BBE-03BC5F639EF3}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_UI" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
@@ -157,6 +172,56 @@
 						<children />
 					</testItem>
 					<testItem name="ClientLoginNonFDMGroupUser" key="{9492A8CF-4D31-4CCE-9FD9-953811ADA067}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_LoginNonFDMGroupUser" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="ClientLogin" key="{941738A4-94D7-4D73-88C1-CF007B4AB231}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_Login" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Add DD" key="{F047EA9E-33BB-42C7-85C3-266A2FD1362E}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}AddDD" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Delete DD" key="{3698A72A-A43A-4939-AF5B-E10F0E72DC3D}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}DeleteDD" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Build Network" key="{D3473997-4DC8-4757-9707-48BFBB4D250B}" group="False" parallel="False" enabled="True" load="False" testMoniker="{1A21B78C-9632-456C-9839-7469691A05C7}BuildNetwork" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Audit Trail" key="{C7833F8C-966E-4255-986F-0A27650824A2}" group="False" parallel="False" enabled="True" load="False" testMoniker="{1A21B78C-9632-456C-9839-7469691A05C7}AuditTrail" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Dashboard" key="{2AB787EE-B6B4-4EC4-8F0F-0FB54699DF78}" group="False" parallel="False" enabled="True" load="False" testMoniker="{0A0F84A6-4003-4414-A92A-A39DCBE51147}Dashboard" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Attach Detach App" key="{851B3E82-DF65-4D02-8241-93F4EE6340A8}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachApp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Attach Detach System Doc" key="{0375D025-DB2A-4475-B509-6B9112AD7070}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachSystemDocument" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Attach Detach Device Doc" key="{0EAAE8E1-1961-447B-BC9A-4DFB4B5682FF}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachDeviceDocumentation" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="Device Param" key="{3646A67A-BA1E-4FDC-8AAE-4F8404A92A06}" group="False" parallel="False" enabled="True" load="False" testMoniker="{97E52909-A24B-4733-A01C-6957541C13A7}DeviceParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
@@ -211,7 +276,7 @@
 		</data>
 	</variables>
 	<settings key="{202C71EC-4CB9-40A6-86B7-56A26A7A6D63}">
-		<settingsVersion value="15.75" />
+		<settingsVersion value="15.76" />
 		<setting name="AgOpenApp_ExtendedSilverlightObjectTree" type="1" value="False" />
 		<setting name="ApplicationHangingProcessFilterMode" type="6" rowIndex="4" colIndex="0">
 			<columns>
@@ -772,7 +837,7 @@
 				<row val0="Stop current item" val1="2" />
 			</data>
 		</setting>
-		<setting name="Playback_ErrHandling_ShowErrorDialog" type="1" value="True" />
+		<setting name="Playback_ErrHandling_ShowErrorDialog" type="1" value="False" />
 		<setting name="Playback_Log_AutosaveInterval" type="2" value="0" />
 		<setting name="Playback_Log_EventCount" type="2" value="0" />
 		<setting name="Playback_Log_PostImageOnError" type="1" value="True" />
@@ -790,14 +855,14 @@
 		<setting name="Playback_Runtime_AutoWaitTimeout" type="2" value="10000" />
 		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="50" />
 		<setting name="Playback_Runtime_DisableMouse" type="1" value="False" />
-		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="False" />
+		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="True" />
 		<setting name="Playback_Runtime_UseCaseSensitiveParameters" type="1" value="False" />
 		<setting name="Playback_StopOnError" type="1" value="False" />
 		<setting name="Playback_StopOnObjectRecognitionError" type="1" value="False" />
 		<setting name="Playback_StopOnWarning" type="1" value="False" />
 		<setting name="Playback_TestItemMaxReRunCount" type="2" value="1" />
 		<setting name="Playback_UnexpectedWndHandling_ClickOnFocusedControl" type="1" value="True" />
-		<setting name="Playback_UnexpectedWndHandling_IgnoreUnexpectedWindow" type="1" value="False" />
+		<setting name="Playback_UnexpectedWndHandling_IgnoreUnexpectedWindow" type="1" value="True" />
 		<setting name="Playback_UnexpectedWndHandling_PressEnter" type="1" value="True" />
 		<setting name="Playback_UnexpectedWndHandling_PressEsc" type="1" value="True" />
 		<setting name="Playback_UnexpectedWndHandling_SendCloseCommand" type="1" value="True" />

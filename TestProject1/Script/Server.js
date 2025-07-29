@@ -70,6 +70,53 @@ function FDMGR4303(){
   }
 }
 
+// =====================================================================
+// Author:        Bharath
+// Function:      AddNetwork
+// Description:   Configures and adds a new network interface of type 
+//                "RS-485 HART Multiplexer" with specified connection settings.
+// Created On:    23-Jul-2025
+// Modified On:   23-Jul-2025
+// =====================================================================
+
+function AddNetwork() {
+  Log.AppendFolder("AddNetwork - Verify Network Configuration");
+
+  try {
+    // Optional server launch step
+     launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+
+    clickAddNewNetworkButton();
+    Log.Message("Clicked 'Add New Network' button.");
+
+    // Configure network parameters
+    addNetworkConfiguration({
+      networkInterfaceName: "MUX",
+      networkType: "RS-485 HART Multiplexer",
+      rciServerName: "LOCALHOST",
+      comPort: "COM3",
+      baudRate: "9600"
+    });
+    Log.Message("Network configuration submitted.");
+
+    clickOnAddNetworkOkButton();
+    Log.Message("Confirmed network addition with OK button.");
+
+    submitAuditTrailReason("Add");
+    Log.Message("Submitted audit trail reason: Add.");
+
+    handleCustomMessageBox();
+    Log.Message("Handled custom message box confirmation.");
+    
+
+  } catch (error) {
+    Log.Error("Exception in AddNetwork: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
 
 // =====================================================================
 // Author:        Bharath
@@ -118,6 +165,10 @@ function ServerLoginFDMServiceStartStop() {
   Log.AppendFolder("ServerLoginFDMServiceStartStop - Restarting FDM Service");
 
   try {
+    
+      // Launch the FDM server using stored credentials
+    launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+    
     // Stop the FDM service
     toggleServerStartStop("Stop");
     Log.Message("FDM service stopped.");

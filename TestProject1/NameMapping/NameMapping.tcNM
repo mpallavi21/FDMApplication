@@ -1382,7 +1382,7 @@
 									</Child>
 								</Children>
 							</Child>
-							<Child Name="DropDownForm" Key="{8A68B566-FC4B-45EA-838F-DE951A36D30E}">
+							<Child Name="DropDownForm" Key="{8A68B566-FC4B-45EA-838F-DE951A36D30E}" ExtendedFind="True">
 								<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
 								<Properties>
 									<Property Name="WinFormsControlName">
@@ -1390,7 +1390,7 @@
 									</Property>
 								</Properties>
 								<Children>
-									<Child Name="SubSmartControl" Key="{54A97370-193E-4C6B-8A56-F55A499A0E34}">
+									<Child Name="SubSmartControl" Key="{54A97370-193E-4C6B-8A56-F55A499A0E34}" ExtendedFind="True">
 										<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
 										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
 										<Properties>
@@ -2079,7 +2079,7 @@
 									</Child>
 								</Children>
 							</Child>
-							<Child Name="ConfirmationWindow" Key="{92E62F8C-BBA4-4BEA-89C1-7451BCF45877}" ExtendedFind="True">
+							<Child Name="ConfirmationWindow" Key="{92E62F8C-BBA4-4BEA-89C1-7451BCF45877}">
 								<Image FileName="-1164986622" Left="0" Top="0" Right="500" Bottom="255" />
 								<Properties>
 									<Property Name="RootVisual.Name">
@@ -2239,7 +2239,7 @@
 									</Child>
 								</Children>
 							</Child>
-							<Child Name="dlgFDMConfiguration" Key="{9BA2BDFF-DEB4-4235-B703-8D949812F560}" ExtendedFind="True">
+							<Child Name="dlgFDMConfiguration" Key="{9BA2BDFF-DEB4-4235-B703-8D949812F560}">
 								<Image FileName="-2093679470" Left="0" Top="0" Right="348" Bottom="159" />
 								<TypeInfo Item0="{96463CC8-508B-4F58-B594-16FCBC008462}" />
 								<Properties>

@@ -1,5 +1,27 @@
 ﻿//USEUNIT GenericMethods
 
+
+// ===============================================================
+// Function:     TerminateServerMgmtTool
+// Description:  Terminates ServerMgmtTool process if it exists.
+// Created By:   Bharath
+// Modified On:  25-Jul-2025
+// ===============================================================
+
+function TerminateServerMgmtTool() {
+  const processName = "ServerMgmtTool";
+  const process = Sys.WaitProcess(processName, 5000);
+
+  if (process.Exists) {
+    Log.Message(processName + " process found. Terminating...");
+    Aliases.ServerMgmtTool.ServerManagerMainForm.Close();
+    Log.Message(processName + " process terminated successfully.");
+  } else {
+    Log.Message(processName + " process not running. No action required.");
+  }
+  
+}
+
 // =====================================================================
 // Author:        Bharath
 // Function:      launchFDMServer

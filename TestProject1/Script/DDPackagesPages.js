@@ -14,9 +14,12 @@ function openManageDDPackagesSection() {
     Log.AppendFolder("openManageDDPackagesSection - Navigates through the HCM Client UI to access the \n 'Manage DD/Packages' section via the 'Library' menu.")
     let HCMClient = Aliases.HCMClient;
     Log.Checkpoint("Navigating to 'Manage DD/Packages'...");
-
+    
+    Delay(1000)
     OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Library").Click();
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("*DD*").Click();
+    Delay(1000)
+    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("DD/Packages").Click();
+    Delay(1000)
     
     let ManagePackagesWindow = HCMClient.ManagePackagesWindow;
     // Wait for the window to become visible (timeout: 10 seconds)
@@ -32,6 +35,7 @@ function openManageDDPackagesSection() {
   } finally{
     Log.PopLogFolder()
   }
+
 }
 
 
