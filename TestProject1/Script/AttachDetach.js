@@ -60,7 +60,7 @@ function AttachDetachSystemDocument() {
     
     
     // Step 4: Detach system document
-    DetachDocument();
+    DetachSystemDocument();
     Log.Message("Initiated detachment of system document.");
 
   } catch (error) {

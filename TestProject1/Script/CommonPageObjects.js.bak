@@ -55,9 +55,8 @@ function clickOnConfirmFDMButton() {
     }
     
     let okButton = Aliases.HCMClient.dlgFDMConfiguration.btnOK;
-  Aliases.HCMClient.dlgFDMConfiguration.Activate()
-  okButton.SetFocus()
     if (okButton.Exists && okButton.Enabled) {
+      okButton.SetFocus()
       okButton.Click();
       Log.Message("'OK' button clicked successfully on FDM Diagnostic Model dialog.");
     }

@@ -120,6 +120,8 @@ function clickOnbuildNetwork(nodePath) {
     } else {
       Log.Message("Confirmation dialog or Yes button not available.");
     }
+    
+    Delay(60000)
 
     Log.Checkpoint(`'Build Network' successfully initiated on: ${nodePath}`);
   } catch (error) {
@@ -464,55 +466,3 @@ function LaunchViewHistory(Device) {
   }
 }
 
-// =====================================================================
-// Author:        Bharath
-// Function:      ViewAuditTrailForDevice
-// Description:   Triggers audit trail view for a selected tooltip,
-//                applies 'All' filters and clicks the 'View' button.
-// Created On:    21-Jul-2025
-// Modified On:   21-Jul-2025
-// =====================================================================
-
-function ViewAuditTrailForDevice() {
-  Log.AppendFolder("ViewAuditTrailForDevice - Audit Trail Flow");
-
-  try {
-    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
-      .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
-      .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
-
-    if (!treeView.Exists) {
-      Log.Error("TreeView not found.");
-      return;
-    }
-
-    let targetItem = Project.Variables.Device;
-
-    treeView.ClickItem(targetItem);
-    Log.Message("Clicked item: " + targetItem);
-
-    treeView.ClickItemR(targetItem);
-    Log.Message("Right-clicked item for context menu.");
-    Delay(1000)
-  
-    treeView.StripPopupMenu.Click("View Audit Trail")
-
-    // Apply filters in Audit Trail view
-    let groupBox = Aliases.HCMClient.ClientMainWindow.MdiClient.AuditTrailView.panelBase
-      .panelForDerivedForms.panel4.panel2.groupBox1;
-
-    if (groupBox.Exists) {
-      groupBox.ViewButton.Click(25, 13);
-      Log.Message("Applied filters and clicked View in Audit Trail.");
-    } else {
-      Log.Error("Audit Trail group box not found.");
-    }
-    
-    CloseWindow()
-
-  } catch (e) {
-    Log.Error("Exception in ViewAuditTrailForDevice: " + e.message);
-  } finally {
-    Log.PopLogFolder();
-  }
-}

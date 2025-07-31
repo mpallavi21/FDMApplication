@@ -64,3 +64,34 @@ function DeviceParam() {
   
 }
 
+// =====================================================================
+// Author:        Bharath
+// Function:      DeviceStateView
+// Description:   Clicks on specified device, waits for load, and retrieves its state info.
+// Created On:    31-Jul-2025
+// Modified On:   31-Jul-2025
+// =====================================================================
+
+function DeviceStateView() {
+  Log.AppendFolder("test - Device Selection and State Capture");
+
+  try {
+    // Step 1: Select device from variable
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Clicked on device: " + Project.Variables.Device);
+
+    // Step 2: Delay to allow device to load
+    Delay(1000, "Waiting for device UI to load");
+
+    // Step 3: Collect and log device state information
+    DeviceStateInformation();
+    Log.Message("Device state information retrieved.");
+    
+    CloseWindow()
+    clickOnConfirmFDMButton()
+  } catch (error) {
+    Log.Error("Error in test function: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}

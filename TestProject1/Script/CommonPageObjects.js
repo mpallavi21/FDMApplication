@@ -88,3 +88,4 @@ function CloseWindow() {
     Log.PopLogFolder();
   }
 }
+

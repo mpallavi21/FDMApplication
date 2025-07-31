@@ -22,7 +22,7 @@ function EnterClientPassword(Password){
 // Created On:    2025-06-20
 // Modified On:   None
 // =====================================================================
-function launchFDMClient(Username,Password) {
+function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password = Project.Variables.FDMClientPassword) {
   Log.AppendFolder("launchFDMClient - Launches the FDM Client using specified credentials")
   Log.Checkpoint("Launching FDM Client...");
   
@@ -44,7 +44,7 @@ function launchFDMClient(Username,Password) {
   Log.Message("Server set to: " + "LocalHost");
   
   clickOnLoginBtn()
-  
+  Delay(10000)
   let ClientLogin = Aliases.HCMClient.ClientLogin
   ClientLogin.WaitProperty("Exists", true, 5000);
   

@@ -7,7 +7,7 @@
 			<child name="Login" key="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}" path="Login.js" />
 			<child name="Settings" key="{DC00E493-0C09-42D2-ACDA-962639CB4007}" path="Settings.js" />
 			<child name="NetworkView" key="{1A21B78C-9632-456C-9839-7469691A05C7}" path="NetworkView.js" />
-			<child name="DDPackage" key="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}" path="DDPackage.js" />
+			<child name="Library" key="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}" path="Library.js" />
 			<child name="Dashboards" key="{0A0F84A6-4003-4414-A92A-A39DCBE51147}" path="Dashboards.js" />
 			<child name="Diagnostics" key="{DA867140-59E0-4278-BE87-7794B6C5B2D0}" path="Diagnostics.js" />
 			<child name="AttachDetach" key="{E1EE5395-0974-4961-9F8C-20525112C64C}" path="AttachDetach.js" />
@@ -19,7 +19,6 @@
 			<child name="ClientLoginPage" key="{F10C44FB-FBF6-4962-96EA-9B1AD67537C3}" path="ClientLoginPage.js" />
 			<child name="SettingsPage" key="{0036C79D-E837-4CD1-9F8F-FEBC714D0CD5}" path="SettingsPage.js" />
 			<child name="NetworkTreeViewPage" key="{848AFEB1-3381-4A41-973D-4FDF47E51B9A}" path="NetworkTreeViewPage.js" />
-			<child name="DDPackagesPages" key="{1155894C-4AED-4AFF-9921-022470F0A874}" path="DDPackagesPages.js" />
 			<child name="DashboardsPages" key="{855D43E7-B825-4FED-BE6D-DEB2E1DB1CDC}" path="DashboardsPages.js" />
 			<child name="DiagnosticsPages" key="{B39AB636-A7E8-4921-BFD8-643411D9059F}" path="DiagnosticsPages.js" />
 			<child name="CommonPageObjects" key="{27CAF051-0C3C-4D7D-BF1B-C8D15D3F9822}" path="CommonPageObjects.js" />
@@ -29,6 +28,7 @@
 			<child name="EntryPointPage" key="{F3D80030-6CB3-4354-A344-2F3EEC6ABAE2}" path="EntryPointPage.js" />
 			<child name="DrFDMPages" key="{65907531-82C6-406D-A1E6-BABA530BE25B}" path="DrFDMPages.js" />
 			<child name="menubar" key="{07A070C2-428D-4E37-9CF7-AC49FFED6410}" path="menubar.js" />
+			<child name="LibraryPages" key="{ABE296D1-3BF4-4F93-B686-6843DDA1A6DA}" path="LibraryPages.js" />
 		</folder>
 	</children>
 </Root>

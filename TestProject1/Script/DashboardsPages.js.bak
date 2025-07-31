@@ -13,7 +13,7 @@ function clickOnPlantAreaView() {
 
     // Navigate to View > Plant Area View
     OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("View").Click();
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Plant Area View").Click();
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Plant Area View").Click();
     Log.Message("Clicked 'View > Plant Area View'.");
 
     // Wait until the shell title matches the expected view
@@ -73,7 +73,7 @@ function clickOnAlertMonitoringDashboard() {
 
     // Navigate: View > Alert Monitoring Dashboard
     OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("View").Click();
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Alert Monitoring Dashboard").Click();
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Alert Monitoring Dashboard").Click();
     Log.Message("Clicked 'View > Alert Monitoring Dashboard'.");
 
     // Wait for the Alert Monitor shell to appear

@@ -218,7 +218,8 @@ function handleCustomMessageBox() {
   Log.AppendFolder("handleCustomMessageBox - Custom Message Dialog");
 
   try {
-    let dialog = Aliases.ServerMgmtTool.FindChild("Name", 'WinFormsObject("CustomMessageBox")', 100, true);
+    Delay(1000)
+    let dialog = Aliases.ServerMgmtTool.WinFormsObject("CustomMessageBox")
     if (!dialog.Exists) throw new Error("CustomMessageBox not found.");
 
     let messagePanel = dialog.FindChild("Name", 'WinFormsObject("m_panel4")', 100, true);

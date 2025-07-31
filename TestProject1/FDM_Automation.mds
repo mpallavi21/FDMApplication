@@ -6,6 +6,7 @@
 		<child name="KeywordTests" key="{F68E93CD-4853-4EED-B8BB-4055255FA338}" type="Keyword Testing" typeId="{9576DAFD-0ADD-41A8-9897-C72F150AF6BB}" pluginName="Keyword Testing" path="KeywordTests\KeywordTests.tcKDT" />
 		<child name="TestedApps" key="{F8C230F7-01F9-4239-A04C-A14763A9CDF0}" type="Tested Applications" typeId="{90D101C8-80C7-48D4-9055-2E451B9BCD75}" pluginName="" path="TestedApps\TestedApps.tcTAs" />
 		<child name="Stores" key="{4B31D913-2068-445A-94FF-7ECA499BC378}" type="Stores" typeId="{5238AF17-5FE2-48FF-8BCC-9803A975A4F4}" pluginName="Stores" path="Stores\Stores.tcStores" />
+		<child name="Events" key="{95176FA0-36D6-4F09-8D22-205CC1FAF6E4}" type="Events" typeId="{E7ABA87F-E873-4452-9921-6F4BAAEB2BCC}" pluginName="" path="Events\Events.tcAX" />
 	</children>
 	<config language="{90F89436-9452-4F95-9882-6B5210079F13}" />
 	<testItems key="{95CD6572-322A-4909-B4E7-06687BE8A90B}" version="14">
@@ -188,7 +189,7 @@
 					</testItem>
 					<testItem name="ClientLogin" key="{941738A4-94D7-4D73-88C1-CF007B4AB231}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}Client_Login" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
-						<environments activeCloud="SWT" />
+						<environments activeCloud="LocalHeadlessBrowser" />
 						<children />
 					</testItem>
 					<testItem name="Add DD" key="{F047EA9E-33BB-42C7-85C3-266A2FD1362E}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}AddDD" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
@@ -242,6 +243,11 @@
 						<children />
 					</testItem>
 					<testItem name="DrFDMOnFDMServer" key="{9BB71206-D717-44B9-B96F-D8AE029BD94E}" group="False" parallel="False" enabled="True" load="False" testMoniker="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}DrFDMOnFDMServer" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="UpdateDTMLibrary" key="{5CD8AB4D-857C-4F2F-9E62-E079FE063ACD}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}UpdateDTMLibrary" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
@@ -473,7 +479,7 @@
 			</data>
 		</setting>
 		<setting name="JavaOpenApp_DoNotRecognizeChildSWTAsParent" type="1" value="False" />
-		<setting name="KeyPressingDelay" type="2" value="0" />
+		<setting name="KeyPressingDelay" type="2" value="100" />
 		<setting name="LoadTestAPIKey" type="5" value="" />
 		<setting name="LoadTestAPIKeyLogin" type="5" value="&lt;A&gt;Login to LoadNinja&lt;/A&gt; to get your API key." />
 		<setting name="LoadTestAPIKeySales" type="5" value="Want to know more &lt;A&gt;Contact Sales&lt;/A&gt;." />
@@ -862,7 +868,7 @@
 		<setting name="Playback_Log_EventCount" type="2" value="0" />
 		<setting name="Playback_Log_PostImageOnError" type="1" value="False" />
 		<setting name="Playback_Log_SuggestMoveSelector" type="1" value="True" />
-		<setting name="Playback_ObjectSearchStrategy" type="6" rowIndex="0" colIndex="0">
+		<setting name="Playback_ObjectSearchStrategy" type="6" rowIndex="1" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>
@@ -871,9 +877,9 @@
 				<row val0="Breadth-first" />
 			</data>
 		</setting>
-		<setting name="Playback_OverlappingWindow_IgnoreOverlappingWindow" type="1" value="False" />
+		<setting name="Playback_OverlappingWindow_IgnoreOverlappingWindow" type="1" value="True" />
 		<setting name="Playback_Runtime_AutoWaitTimeout" type="2" value="10000" />
-		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="50" />
+		<setting name="Playback_Runtime_DelayBetweenEvents" type="2" value="500" />
 		<setting name="Playback_Runtime_DisableMouse" type="1" value="False" />
 		<setting name="Playback_Runtime_MinimizeBeforePlayback" type="1" value="True" />
 		<setting name="Playback_Runtime_UseCaseSensitiveParameters" type="1" value="False" />
@@ -882,7 +888,7 @@
 		<setting name="Playback_StopOnWarning" type="1" value="False" />
 		<setting name="Playback_TestItemMaxReRunCount" type="2" value="1" />
 		<setting name="Playback_UnexpectedWndHandling_ClickOnFocusedControl" type="1" value="True" />
-		<setting name="Playback_UnexpectedWndHandling_IgnoreUnexpectedWindow" type="1" value="True" />
+		<setting name="Playback_UnexpectedWndHandling_IgnoreUnexpectedWindow" type="1" value="False" />
 		<setting name="Playback_UnexpectedWndHandling_PressEnter" type="1" value="True" />
 		<setting name="Playback_UnexpectedWndHandling_PressEsc" type="1" value="True" />
 		<setting name="Playback_UnexpectedWndHandling_SendCloseCommand" type="1" value="True" />
@@ -907,7 +913,7 @@
 			<data />
 		</setting>
 		<setting name="Visualizer_AutoUpdate" type="1" value="False" />
-		<setting name="Visualizer_AutoUpdateMode" type="6" rowIndex="0" colIndex="0">
+		<setting name="Visualizer_AutoUpdateMode" type="6" rowIndex="1" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>
@@ -917,7 +923,7 @@
 			</data>
 		</setting>
 		<setting name="Visualizer_BindToSCC" type="1" value="True" />
-		<setting name="Visualizer_CaptureStyle" type="6" rowIndex="1" colIndex="0">
+		<setting name="Visualizer_CaptureStyle" type="6" rowIndex="0" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>
@@ -928,7 +934,7 @@
 		</setting>
 		<setting name="Visualizer_DeleteAll" type="1" value="True" />
 		<setting name="Visualizer_ParallelPlaybackCapture" type="1" value="False" />
-		<setting name="Visualizer_PlaybackCaptureProperties" type="1" value="False" />
+		<setting name="Visualizer_PlaybackCaptureProperties" type="1" value="True" />
 		<setting name="Visualizer_PlaybackCollectMode" type="6" rowIndex="1" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
@@ -939,7 +945,7 @@
 			</data>
 		</setting>
 		<setting name="Visualizer_RecordingCaptureProperties" type="1" value="False" />
-		<setting name="Visualizer_RecordingCollectMode" type="6" rowIndex="1" colIndex="0">
+		<setting name="Visualizer_RecordingCollectMode" type="6" rowIndex="0" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>

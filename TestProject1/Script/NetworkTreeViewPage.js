@@ -120,6 +120,8 @@ function clickOnbuildNetwork(nodePath) {
     } else {
       Log.Message("Confirmation dialog or Yes button not available.");
     }
+    
+    Delay(60000,"Waiting to build the nework")
 
     Log.Checkpoint(`'Build Network' successfully initiated on: ${nodePath}`);
   } catch (error) {

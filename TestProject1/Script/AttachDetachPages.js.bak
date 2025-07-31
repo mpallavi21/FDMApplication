@@ -1,5 +1,6 @@
 ﻿//USEUNIT GenericMethods
 //USEUNIT CommonPageObjects
+//USEUNIT menubar
 
 // =====================================================================
 // Author:        Bharath
@@ -209,7 +210,7 @@ function DetachApplication() {
   }
 }
 
-function clickOnAttachDocument() {
+function clickOnDeviceAttachDocument() {
   Log.AppendFolder("clickOnAttachDocument - Initiating Document Attachment");
 
   try {
@@ -313,60 +314,6 @@ function DetachDocumentFromResourceDlg() {
 }
 
 
-// =====================================================================
-// Author:        Bharath
-// Function:      clickOnSystemDocument
-// Description:   Navigates to the 'Tools' menu using OCR, selects 'Document',
-//                and attaches the application via tree view interactions.
-// Created On:    21-Jul-2025
-// Modified On:   21-Jul-2025
-// =====================================================================
-
-function clickOnSystemDocument() {
-  Log.AppendFolder("clickOnSystemDocument - System Document via Menu");
-
-  try {
-    let HCMClient = Aliases.HCMClient;
-    let frmHCMClientMain = HCMClient.ClientMainWindow;
-
-    // Step 1: Click on 'Tools' menu using OCR
-    frmHCMClientMain.mainMenu.Items
-    let toolsBlock = OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools");
-    if (toolsBlock) {
-      toolsBlock.Click();
-      Log.Message("🛠️ Clicked 'Tools' from the main menu.");
-    } else {
-      Log.Error("'Tools' menu option not found via OCR.");
-      return;
-    }
-
-    // Step 2: Click on 'Document' from the dropdown
-    let documentBlock = OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Document");
-    if (documentBlock) {
-      documentBlock.Click();
-      Log.Message("📦 Selected 'Document' from the Tools dropdown.");
-    } else {
-      Log.Error("'Document' option not found in dropdown via OCR.");
-      return;
-    }
-
-    // Step 3: Expand and attach application via keyboard
-    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
-      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
-
-    if (treeView.Exists) {
-      treeView.Keys("[Right][Enter]");
-      Log.Message("✅ Application attached from the connected applications list.");
-    } else {
-      Log.Error("Tree view for connected applications not found.");
-    }
-
-  } catch (error) {
-    Log.Error("❌ Failed to attach application: " + error.message);
-  } finally {
-    Log.PopLogFolder();
-  }
-}
 
 
 // =====================================================================
@@ -377,11 +324,11 @@ function clickOnSystemDocument() {
 // Created On:    27-June-2025
 // Modified On:   [Updated with robust waits and checks]
 // =====================================================================
-function DetachDocument() {
+function DetachSystemDocument() {
   try {
     Log.AppendFolder("DetachDocument - Navigates through the Document menu using OCR to detach\n a connected Document node from the tree view.")
     let HCMClient = Aliases.HCMClient;
-    clickOnDetachDocument()
+    clickOnSystemDetachDocument()
     
     var dlgFDM = Aliases.HCMClient.dlgFDM;
     var dlgFDMConfiguration = Aliases.HCMClient.dlgFDMConfiguration
@@ -448,41 +395,3 @@ function DetachDocument() {
 }
 
 
-// =====================================================================
-// Author:        Bharath
-// Function:      clickOnDetachDocument
-// Description:   Navigates through the 'Tools' menu via OCR and clicks the 
-//                'Detach Document' option from the dropdown, followed by 
-//                executing a tree view keyboard sequence.
-// Created On:    25-Jul-2025
-// Modified On:   25-Jul-2025
-// =====================================================================
-
-function clickOnDetachDocument() {
-  Log.AppendFolder("clickOnDetachDocument - Detach Document Workflow");
-
-  try {
-    let HCMClient = Aliases.HCMClient;
-    let frmHCMClientMain = HCMClient.ClientMainWindow;
-
-    // 🧭 Use OCR to click 'Tools' on the main menu
-  OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-  Log.Message("Clicked 'Tools' menu using OCR.");
-    Delay(2000);
-
-    // 📥 Click on the Detach Document option inside dropdown
-  HCMClient.DropDownForm.SubSmartControl.Click(86, 207);
-  Log.Message("Clicked Detach Document menu option.");
-    Delay(1200);
-
-    // ⌨️ Execute tree view navigation keys
-  frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView.Keys("[Right][Down][Enter]");
-  Log.Message("Navigated tree view using keyboard input.");
-
-  } catch (error) {
-    Log.Error("Exception in clickOnDetachDocument: " + error.message);
-  } finally {
-    Log.PopLogFolder();
-  }
- 
-}

@@ -199,7 +199,8 @@ function AuditTrail() {
     // Apply filters in Audit Trail view
     let groupBox = Aliases.HCMClient.ClientMainWindow.MdiClient.AuditTrailView.panelBase
       .panelForDerivedForms.panel4.panel2.groupBox1;
-
+    
+    Delay(1000)
     if (groupBox.Exists) {
       groupBox.ViewButton.Click(25, 13);
       Log.Message("Applied filters and clicked View in Audit Trail.");

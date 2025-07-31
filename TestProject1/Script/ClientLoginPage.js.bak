@@ -22,7 +22,7 @@ function EnterClientPassword(Password){
 // Created On:    2025-06-20
 // Modified On:   None
 // =====================================================================
-function launchFDMClient(Username,Password) {
+function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password = Project.Variables.FDMClientPassword) {
   Log.AppendFolder("launchFDMClient - Launches the FDM Client using specified credentials")
   Log.Checkpoint("Launching FDM Client...");
   
@@ -44,7 +44,7 @@ function launchFDMClient(Username,Password) {
   Log.Message("Server set to: " + "LocalHost");
   
   clickOnLoginBtn()
-  
+  Delay(10000)
   let ClientLogin = Aliases.HCMClient.ClientLogin
   ClientLogin.WaitProperty("Exists", true, 5000);
   
@@ -119,13 +119,13 @@ function handleLoginFailureDialog() {
 
 // =====================================================================
 // Author:        Bharath
-// Function:      terminateFMD
+// Function:      terminateFMDClient
 // Description:   Terminates the HCMClient process via Sys.Process.
 // Created On:    30-Jul-2025
 // Modified On:   30-Jul-2025
 // =====================================================================
 
-function terminateFMD() {
+function terminateFMDClient() {
   Log.AppendFolder("terminateFMD - Terminate HCMClient via Sys.Process");
 
   try {

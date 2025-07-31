@@ -2420,6 +2420,34 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="ManageDtmLibrary" Key="{9E51F263-418E-45C6-A29E-F00F44491348}">
+								<Image FileName="-1779108837" Left="0" Top="0" Right="1278" Bottom="798" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="ManageDtmLibrary" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="btnUpdate" Key="{8B38D7D9-1963-4D3A-9615-4378F37A963C}">
+										<Image FileName="-1779108837" Left="269" Top="645" Right="365" Bottom="674" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="btnUpdate" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="CancelBtn" Key="{EA2FCDFF-F5E4-43E8-8255-FDA978EC2DF7}">
+										<Image FileName="-1354070446" Left="740" Top="727" Right="836" Bottom="755" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="CancelBtn" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ServerMgmtTool" Key="{76854944-2403-43C4-974D-965705263715}">
@@ -2520,6 +2548,23 @@
 								<Properties>
 									<Property Name="WinFormsControlName">
 										<Value Value="FinalForm" />
+									</Property>
+								</Properties>
+							</Child>
+						</Children>
+					</Child>
+					<Child Name="explorer" Key="{C90B0939-4501-4233-89DF-AEF017FFFA39}">
+						<Properties>
+							<Property Name="ProcessName">
+								<Value Value="explorer" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="wndTaskListThumbnailWnd" Key="{054EF975-5922-4A49-AA40-B4A6629B090C}">
+								<TypeInfo Item0="{054CFFBD-FCBF-4B3F-83DE-34DE99B8A7FF}" />
+								<Properties>
+									<Property Name="WndClass">
+										<Value Value="TaskListThumbnailWnd" />
 									</Property>
 								</Properties>
 							</Child>
@@ -2826,6 +2871,10 @@
 			<Child Name="DropDownForm" Owner="{4E589906-D579-47F9-A733-0B3EC7518A6C}">
 				<Child Name="SubSmartControl" Owner="{CBDEEFC8-D2BA-4420-90B3-7AC984E56815}" />
 			</Child>
+			<Child Name="ManageDtmLibrary" Owner="{9E51F263-418E-45C6-A29E-F00F44491348}">
+				<Child Name="btnUpdate" Owner="{8B38D7D9-1963-4D3A-9615-4378F37A963C}" />
+				<Child Name="CancelBtn" Owner="{EA2FCDFF-F5E4-43E8-8255-FDA978EC2DF7}" />
+			</Child>
 		</Child>
 		<Child Name="ServerMgmtTool" Owner="{76854944-2403-43C4-974D-965705263715}">
 			<Child Name="LoginForm" Owner="{C7E1F0B4-EB87-4A30-AADD-6BBD4A943AA1}">
@@ -2842,6 +2891,9 @@
 		<Child Name="Dr_FDCM" Owner="{E772D36D-9869-49AC-94F5-0FD04B155AE8}">
 			<Child Name="Form1" Owner="{86A5D2AA-944E-4C07-B7B5-023C2388952B}" />
 			<Child Name="FinalForm" Owner="{5DAED76B-07CA-4026-85D4-3574AD8C96D9}" />
+		</Child>
+		<Child Name="explorer" Owner="{C90B0939-4501-4233-89DF-AEF017FFFA39}">
+			<Child Name="wndTaskListThumbnailWnd" Owner="{054EF975-5922-4A49-AA40-B4A6629B090C}" />
 		</Child>
 	</LogicalNodes>
 </Root>

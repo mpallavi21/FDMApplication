@@ -324,7 +324,7 @@ function DetachDocumentFromResourceDlg() {
 // Created On:    27-June-2025
 // Modified On:   [Updated with robust waits and checks]
 // =====================================================================
-function DetachDocument() {
+function DetachSystemDocument() {
   try {
     Log.AppendFolder("DetachDocument - Navigates through the Document menu using OCR to detach\n a connected Document node from the tree view.")
     let HCMClient = Aliases.HCMClient;

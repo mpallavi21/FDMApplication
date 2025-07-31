@@ -1,4 +1,5 @@
 ﻿//USEUNIT AttachDetachPages
+//USEUNIT menubar
 
 // =====================================================================
 // Author:        Bharath
@@ -46,7 +47,7 @@ function AttachDetachSystemDocument() {
 
   try {
     // Step 1: Navigate via menu and select system document
-    clickOnSystemDocument();
+    clickOnSystemAttachDocument()
     Log.Message("Navigated to system document attachment workflow.");
 
     // Step 2: Upload document
@@ -56,7 +57,8 @@ function AttachDetachSystemDocument() {
     // Step 3: Confirm attachment
     clickOnConfirmFDMButton();
     Log.Message("Confirmed attachment in FDM dialog.");
-
+    
+    
     // Step 4: Detach system document
     DetachDocument();
     Log.Message("Initiated detachment of system document.");
@@ -84,7 +86,7 @@ function AttachDetachDeviceDocumentation() {
 
   try {
     // Step 1: Attach document
-    clickOnAttachDocument();
+    clickOnDeviceAttachDocument();
 
     // Step 2: Upload package file
     uploadPackageFile(Project.Path + "Stores\\Files", "0906.fm8");
