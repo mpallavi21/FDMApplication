@@ -117,9 +117,34 @@ function handleLoginFailureDialog() {
 
 
 
-function terminateFMD(){
-  TestedApps.HCMClient.Terminate()
+// =====================================================================
+// Author:        Bharath
+// Function:      terminateFMDClient
+// Description:   Terminates the HCMClient process via Sys.Process.
+// Created On:    30-Jul-2025
+// Modified On:   30-Jul-2025
+// =====================================================================
+
+function terminateFMDClient() {
+  Log.AppendFolder("terminateFMD - Terminate HCMClient via Sys.Process");
+
+  try {
+    var hcmProcess = Sys.Process("HCMClient");
+
+    if (hcmProcess.Exists) {
+      Log.Message("HCMClient process found. Attempting to terminate...");
+      hcmProcess.Terminate();
+      Log.Message("HCMClient process terminated.");
+    } else {
+      Log.Warning("HCMClient process not found.");
+    }
+  } catch (error) {
+    Log.Error("Exception during HCMClient termination: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
 }
+
 
 function openFDMToolBarSwitchServer(serverName) {
   Log.AppendFolder("openFDMToolBarSwithcServer - Opens the FDM toolbar Switch server menu using OCR clicks")
@@ -129,7 +154,7 @@ function openFDMToolBarSwitchServer(serverName) {
     let mainMenu = HCMClient.ClientMainWindow.mainMenu
     OCR.Recognize(mainMenu).BlockByText("FDM").Click();
     Log.Message("Clicked on 'FDM' menu item.");
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Switch").Click();
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Switch").Click();
     Log.Message("Clicked on 'Switch' option.");
     
     // Select server from dropdown

@@ -15,13 +15,18 @@ function openFDMToolBarSettings() {
   try {
     OCR.Recognize(mainMenu).BlockByText("FDM").Click();
     Log.Message("Clicked on 'FDM' menu item.");
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Settings").Click();
+    HCMClient.WinFormsObject("ContextMenuStrip", "Manage DD/Package")
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Settings").Click();
     Log.Message("Clicked on 'Settings' option.");
   } catch (error) {
     Log.Error("Failed to open FDM toolbar settings.", error);
   } finally{
     Log.PopLogFolder()
   }
+  let HCMClient = Aliases.HCMClient;
+  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
+  Delay(1547);
+  OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Documents").Click();
 }
 
 // =====================================================================
@@ -72,7 +77,43 @@ function cancelFDMSettings() {
     Log.PopLogFolder()
   }
 }
+// =====================================================================
+// Author:        Bharath
+// Function:      clickOnDetachDocument
+// Description:   Navigates through the 'Tools' menu via OCR and clicks the 
+//                'Detach Document' option from the dropdown, followed by 
+//                executing a tree view keyboard sequence.
+// Created On:    25-Jul-2025
+// Modified On:   25-Jul-2025
+// =====================================================================
 
+function clickOnDetachDocument() {
+  Log.AppendFolder("clickOnDetachDocument - Detach Document Workflow");
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+
+    // 🧭 Use OCR to click 'Tools' on the main menu
+  OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
+  Log.Message("Clicked 'Tools' menu using OCR.");
+    Delay(2000);
+
+    // 📥 Click on the Detach Document option inside dropdown
+  HCMClient.DropDownForm.SubSmartControl.Click(86, 207);
+  Log.Message("Clicked Detach Document menu option.");
+    Delay(1200);
+
+    // ⌨️ Execute tree view navigation keys
+  frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView.Keys("[Right][Down][Enter]");
+  Log.Message("Navigated tree view using keyboard input.");
+
+  } catch (error) {
+    Log.Error("Exception in clickOnDetachDocument: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
 
 // =====================================================================
 // Author:        Bharath
@@ -141,7 +182,9 @@ function DisableSSO() {
   enableDisableSingleSignOn(0);
 }
 
-
+function SSO(){
+  enableDisableSingleSignOn(Project.Variables.SignOnToggle);
+}
 
 
 // =====================================================================

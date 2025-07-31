@@ -218,7 +218,8 @@ function handleCustomMessageBox() {
   Log.AppendFolder("handleCustomMessageBox - Custom Message Dialog");
 
   try {
-    let dialog = Aliases.ServerMgmtTool.FindChild("Name", 'WinFormsObject("CustomMessageBox")', 100, true);
+    Delay(1000)
+    let dialog = Aliases.ServerMgmtTool.WinFormsObject("CustomMessageBox")
     if (!dialog.Exists) throw new Error("CustomMessageBox not found.");
 
     let messagePanel = dialog.FindChild("Name", 'WinFormsObject("m_panel4")', 100, true);
@@ -244,8 +245,8 @@ function handleCustomMessageBox() {
     // Check OK button
     if (okButton && okButton.Exists && okButton.Enabled) {
       let okText = aqString.ToLower(okButton.Text);
-      if (okText === "ok") {
-        okButton.ClickButton();
+      if (okText == "ok") {
+        okButton.Click();
         Log.Message("✅ OK button clicked.");
         clicked = true;
       }
@@ -255,7 +256,7 @@ function handleCustomMessageBox() {
     if (!clicked && yesButton && yesButton.Exists && yesButton.Enabled) {
       let yesText = aqString.ToLower(yesButton.Text);
       if (yesText === "yes") {
-        yesButton.ClickButton();
+        yesButton.Click();
         Log.Message("✅ YES button clicked.");
         clicked = true;
       }
@@ -296,7 +297,7 @@ function clickAddNewNetworkButton() {
 
     let btnAddNew = nwConfigPanel.FindChild("Name", 'WinFormsObject("m_btnNew")', 100, true);
     if (btnAddNew.Exists && btnAddNew.Enabled) {
-      btnAddNew.ClickButton();
+      btnAddNew.Click();
       Log.Message("✅ 'Add New' button clicked.");
     } else {
       Log.Error("❌ 'Add New' button not found or not enabled.");
@@ -381,7 +382,7 @@ function clickDeleteNetworkButton() {
 
     let btnDelete = nwPanel.FindChild("Name", 'WinFormsObject("m_btnDelete")', 100, true);
     if (btnDelete.Exists && btnDelete.Enabled) {
-      btnDelete.ClickButton();
+      btnDelete.Click();
       Log.Message("✅ 'Delete' button clicked.");
     } else {
       Log.Error("❌ 'Delete' button not found or not enabled.");
@@ -419,7 +420,7 @@ function toggleServerStartStop(action, timeoutMs) {
 
     if (actionLower === "stop") {
       if (statusText === "Server is currently STARTED") {
-        startStopBtn.ClickButton();
+        startStopBtn.Click();
         Log.Message("🛑 Clicked to STOP the server...");
         submitAuditTrailReason(actionLower)
         handleCustomMessageBox()
@@ -435,7 +436,7 @@ function toggleServerStartStop(action, timeoutMs) {
 
     } else if (actionLower === "start") {
       if (statusText === "Server is currently STOPPED") {
-        startStopBtn.ClickButton();
+        startStopBtn.Click();
         Log.Message("🚀 Clicked to START the server...");
         submitAuditTrailReason(actionLower)
         handleCustomMessageBox()
@@ -491,7 +492,7 @@ function updateLicense(licensePath) {
         toggleServerStartStop("stop");
 
         if (!browseBtn.Exists || !browseBtn.Enabled) throw new Error("Browse button not available after stop.");
-        browseBtn.ClickButton();
+        browseBtn.Click();
       }
     }
 
@@ -505,7 +506,7 @@ function updateLicense(licensePath) {
 
     let openBtn = fileDialog.FindChild("WndCaption", "&Open", 100, true);
     if (!openBtn.Exists || !openBtn.Enabled) throw new Error("Open button not found.");
-    openBtn.ClickButton();
+    openBtn.Click();
 
     submitAuditTrailReason("adding license");
 
@@ -553,7 +554,7 @@ function clickMainPanelButton(buttonType) {
 
     let button = flowPanel.FindChild("Name", buttonMap[key], 100, true);
     if (button.Exists && button.Enabled) {
-      button.ClickButton();
+      button.Click();
       Log.Message("✅ Clicked button: " + buttonType);
     } else {
       Log.Error("❌ Button '" + buttonType + "' not found or not enabled.");

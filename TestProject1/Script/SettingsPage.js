@@ -15,13 +15,18 @@ function openFDMToolBarSettings() {
   try {
     OCR.Recognize(mainMenu).BlockByText("FDM").Click();
     Log.Message("Clicked on 'FDM' menu item.");
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Settings").Click();
+    HCMClient.WinFormsObject("ContextMenuStrip", "Manage DD/Package")
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Settings").Click();
     Log.Message("Clicked on 'Settings' option.");
   } catch (error) {
     Log.Error("Failed to open FDM toolbar settings.", error);
   } finally{
     Log.PopLogFolder()
   }
+  let HCMClient = Aliases.HCMClient;
+  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
+  Delay(1547);
+  OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Documents").Click();
 }
 
 // =====================================================================

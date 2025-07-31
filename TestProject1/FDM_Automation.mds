@@ -66,7 +66,7 @@
 							</testItem>
 						</children>
 					</testItem>
-					<testItem name="DDPackage" key="{F2983B6B-156D-4293-A8F1-57785D2EA295}" group="True" parallel="False" enabled="False" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+					<testItem name="DDPackage" key="{F2983B6B-156D-4293-A8F1-57785D2EA295}" group="True" parallel="False" enabled="True" load="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<children>
 							<testItem name="FDMGR4723" key="{DD5D8DA7-B190-4ADB-BB09-4C8ACDCE6B35}" group="False" parallel="False" enabled="True" load="False" testMoniker="{5C59B5FF-B978-4229-A7C1-419B45BB87A5}FDMGR4723" count="1" timeout="0" stopOnError="3" stopOnException="0" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
@@ -132,6 +132,16 @@
 						<children />
 					</testItem>
 					<testItem name="Close server" key="{23875592-3AF3-4C47-8FD7-C48E2870FD6A}" group="False" parallel="False" enabled="True" load="False" testMoniker="{34C7636A-FB30-41E6-AA61-EE86AFD13E8B}TerminateServerMgmtTool" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="stopDRFDM" key="{29A16EEE-F2AF-4192-B7C4-6B5CD1E52FC0}" group="False" parallel="False" enabled="True" load="False" testMoniker="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}stopDRFDM" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="startDRFDM" key="{E4A54384-CC2C-4179-856F-A47142619525}" group="False" parallel="False" enabled="True" load="False" testMoniker="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}startDRFDM" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
@@ -206,6 +216,11 @@
 						<environments activeCloud="SWT" />
 						<children />
 					</testItem>
+					<testItem name="Attach Detach Device Doc" key="{0EAAE8E1-1961-447B-BC9A-4DFB4B5682FF}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachDeviceDocumentation" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
 					<testItem name="Attach Detach App" key="{851B3E82-DF65-4D02-8241-93F4EE6340A8}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachApp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
@@ -216,12 +231,17 @@
 						<environments activeCloud="SWT" />
 						<children />
 					</testItem>
-					<testItem name="Attach Detach Device Doc" key="{0EAAE8E1-1961-447B-BC9A-4DFB4B5682FF}" group="False" parallel="False" enabled="True" load="False" testMoniker="{E1EE5395-0974-4961-9F8C-20525112C64C}AttachDetachDeviceDocumentation" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+					<testItem name="Device Param" key="{3646A67A-BA1E-4FDC-8AAE-4F8404A92A06}" group="False" parallel="False" enabled="True" load="False" testMoniker="{97E52909-A24B-4733-A01C-6957541C13A7}DeviceParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
 					</testItem>
-					<testItem name="Device Param" key="{3646A67A-BA1E-4FDC-8AAE-4F8404A92A06}" group="False" parallel="False" enabled="True" load="False" testMoniker="{97E52909-A24B-4733-A01C-6957541C13A7}DeviceParam" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+					<testItem name="DrFDMOnFDMClient" key="{C52508D5-A98E-474D-BA92-70230201831D}" group="False" parallel="False" enabled="True" load="False" testMoniker="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}DrFDMOnFDMClient" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
+						<testParameters />
+						<environments activeCloud="SWT" />
+						<children />
+					</testItem>
+					<testItem name="DrFDMOnFDMServer" key="{9BB71206-D717-44B9-B96F-D8AE029BD94E}" group="False" parallel="False" enabled="True" load="False" testMoniker="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}DrFDMOnFDMServer" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True" lnID="{00000000-0000-0000-0000-000000000000}">
 						<testParameters />
 						<environments activeCloud="SWT" />
 						<children />
@@ -339,7 +359,7 @@
 				<row val0="Multi-threaded apartment" />
 			</data>
 		</setting>
-		<setting name="CLRBridge_PreferredArchitecture" type="6" rowIndex="1" colIndex="0">
+		<setting name="CLRBridge_PreferredArchitecture" type="6" rowIndex="2" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>
@@ -387,7 +407,7 @@
 			</data>
 		</setting>
 		<setting name="General_ProjectLogLocation" type="5" value="Log" />
-		<setting name="General_RepaintWindowBeforeCapturingImage" type="1" value="True" />
+		<setting name="General_RepaintWindowBeforeCapturingImage" type="1" value="False" />
 		<setting name="General_UnitsEncoding" type="6" rowIndex="1" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
@@ -585,22 +605,22 @@
 				<column type="5" enabled="True" />
 			</columns>
 			<data>
-				<row val0="NativeSlObject" />
-				<row val0="NativeWebObject" />
 				<row val0="NativeVBObject" />
 				<row val0="NativeDelphiObject" />
 				<row val0="NativeTextObject" />
 				<row val0="NativeJavaObject" />
-				<row val0="NativeChromeObject" />
 				<row val0="NativeClrObject" />
 				<row val0="NativeCPPObject" />
-				<row val0="NativeFirefoxObject" />
 				<row val0="NativeJavaFXObject" />
 				<row val0="NativeSAPObject" />
 				<row val0="NativeQtObject" />
-				<row val0="NativeWebDriverObject" />
 				<row val0="NativeUIAObject" />
 				<row val0="NativeMSAA" />
+				<row val0="NativeSlObject" />
+				<row val0="NativeWebObject" />
+				<row val0="NativeChromeObject" />
+				<row val0="NativeFirefoxObject" />
+				<row val0="NativeWebDriverObject" />
 			</data>
 		</setting>
 		<setting name="OpenApps_ProcessFilter_ProcessFilterMode" type="6" rowIndex="0" colIndex="0">
@@ -620,7 +640,7 @@
 			</columns>
 			<data />
 		</setting>
-		<setting name="OpenApps_UIA_ListOfAcceptedWindows" type="6" rowIndex="2" colIndex="1">
+		<setting name="OpenApps_UIA_ListOfAcceptedWindows" type="6" rowIndex="0" colIndex="1">
 			<columns>
 				<column type="1" enabled="True" />
 				<column type="5" enabled="True" />
@@ -840,9 +860,9 @@
 		<setting name="Playback_ErrHandling_ShowErrorDialog" type="1" value="False" />
 		<setting name="Playback_Log_AutosaveInterval" type="2" value="0" />
 		<setting name="Playback_Log_EventCount" type="2" value="0" />
-		<setting name="Playback_Log_PostImageOnError" type="1" value="True" />
+		<setting name="Playback_Log_PostImageOnError" type="1" value="False" />
 		<setting name="Playback_Log_SuggestMoveSelector" type="1" value="True" />
-		<setting name="Playback_ObjectSearchStrategy" type="6" rowIndex="1" colIndex="0">
+		<setting name="Playback_ObjectSearchStrategy" type="6" rowIndex="0" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>
@@ -879,7 +899,7 @@
 			</columns>
 			<data />
 		</setting>
-		<setting name="TextRecognizer_AcceptedWindows" type="6" rowIndex="-1" colIndex="1">
+		<setting name="TextRecognizer_AcceptedWindows" type="6" rowIndex="-1" colIndex="0">
 			<columns>
 				<column type="1" enabled="True" />
 				<column type="5" enabled="True" />
@@ -897,7 +917,7 @@
 			</data>
 		</setting>
 		<setting name="Visualizer_BindToSCC" type="1" value="True" />
-		<setting name="Visualizer_CaptureStyle" type="6" rowIndex="0" colIndex="0">
+		<setting name="Visualizer_CaptureStyle" type="6" rowIndex="1" colIndex="0">
 			<columns>
 				<column type="5" enabled="True" />
 			</columns>

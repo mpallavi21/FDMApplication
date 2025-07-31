@@ -201,7 +201,6 @@
 								</Properties>
 								<Children>
 									<Child Name="mainMenu" Key="{A28B42CD-33D1-4955-A0B7-E73496C26BED}">
-										<Image FileName="681648099" Left="0" Top="23" Right="1440" Bottom="46" />
 										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
 										<Properties>
 											<Property Name="WinFormsControlName">
@@ -387,7 +386,6 @@
 																																								</Properties>
 																																								<Children>
 																																									<Child Name="FDMDeviceStatusGrid" Key="{7AC5F0F7-FC50-4F7C-BA1D-B04C53B867A4}">
-																																										<Image FileName="-135871885" Left="1136" Top="141" Right="1437" Bottom="291" />
 																																										<TypeInfo Item0="{4ADAFFD5-A2E2-4233-A1D0-0FAE3C7BDEDB}" />
 																																										<Properties>
 																																											<Property Name="ClrFullClassName">
@@ -1195,7 +1193,6 @@
 										</Properties>
 										<Children>
 											<Child Name="tabControlLeftPanMain" Key="{DB3A5AC5-23B7-4EC9-8B80-DF96821A1329}">
-												<Image FileName="1918027603" Left="0" Top="88" Right="270" Bottom="834" />
 												<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
 												<Properties>
 													<Property Name="WinFormsControlName">
@@ -1220,7 +1217,6 @@
 																</Properties>
 																<Children>
 																	<Child Name="tabControlOfflineView" Key="{E5AA6AAA-B883-433D-B6BC-0312A525C457}">
-																		<Image FileName="132382616" Left="0" Top="88" Right="270" Bottom="809" />
 																		<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
 																		<Properties>
 																			<Property Name="WinFormsControlName">
@@ -1379,28 +1375,6 @@
 												</Children>
 											</Child>
 										</Children>
-									</Child>
-								</Children>
-							</Child>
-							<Child Name="DropDownForm" Key="{8A68B566-FC4B-45EA-838F-DE951A36D30E}" ExtendedFind="True">
-								<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
-								<Properties>
-									<Property Name="WinFormsControlName">
-										<Value Value="DropDownForm" />
-									</Property>
-								</Properties>
-								<Children>
-									<Child Name="SubSmartControl" Key="{54A97370-193E-4C6B-8A56-F55A499A0E34}" ExtendedFind="True">
-										<Image FileName="-165735831" Left="0" Top="0" Right="122" Bottom="75" />
-										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
-										<Properties>
-											<Property Name="ClrFullClassName">
-												<Value Value="Xceed.SmartUI.SubSmartControl" />
-											</Property>
-											<Property Name="WndCaption">
-												<Value Value="" />
-											</Property>
-										</Properties>
 									</Child>
 								</Children>
 							</Child>
@@ -2284,6 +2258,18 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="btnCancel" Key="{550E455D-E0AC-45CC-84B6-EE7CF67D2C86}">
+										<Image FileName="-1087140318" Left="761" Top="543" Right="871" Bottom="576" />
+										<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+										<Properties>
+											<Property Name="WndClass">
+												<Value Value="Button" />
+											</Property>
+											<Property Name="WndCaption">
+												<Value Value="Cancel" />
+											</Property>
+										</Properties>
+									</Child>
 								</Children>
 							</Child>
 							<Child Name="ApplicationSelectionDlg" Key="{B00665A4-53DF-483F-B6D6-9212051002DB}">
@@ -2324,7 +2310,7 @@
 									</Child>
 								</Children>
 							</Child>
-							<Child Name="ResourceSelectionDlg" Key="{9F28FFEC-89C2-454F-8D12-C18C9EDF8AA1}">
+							<Child Name="ResourceSelectionDlg" Key="{9F28FFEC-89C2-454F-8D12-C18C9EDF8AA1}" ExtendedFind="True">
 								<Image FileName="1947382706" Left="0" Top="0" Right="330" Bottom="270" />
 								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
 								<Properties>
@@ -2416,6 +2402,24 @@
 									</Child>
 								</Children>
 							</Child>
+							<Child Name="DropDownForm" Key="{4E589906-D579-47F9-A733-0B3EC7518A6C}">
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="DropDownForm" />
+									</Property>
+								</Properties>
+								<Children>
+									<Child Name="SubSmartControl" Key="{CBDEEFC8-D2BA-4420-90B3-7AC984E56815}">
+										<TypeInfo Item0="{4537BA1C-E76A-45F5-BC56-66A27E0A9881}" />
+										<Properties>
+											<Property Name="ClrFullClassName">
+												<Value Value="Xceed.SmartUI.SubSmartControl" />
+											</Property>
+										</Properties>
+									</Child>
+								</Children>
+							</Child>
 						</Children>
 					</Child>
 					<Child Name="ServerMgmtTool" Key="{76854944-2403-43C4-974D-965705263715}">
@@ -2488,6 +2492,34 @@
 								<Properties>
 									<Property Name="WinFormsControlName">
 										<Value Value="ServerManagerMainForm" />
+									</Property>
+								</Properties>
+							</Child>
+						</Children>
+					</Child>
+					<Child Name="Dr_FDCM" Key="{E772D36D-9869-49AC-94F5-0FD04B155AE8}">
+						<TypeInfo Item0="{948E027C-C7C4-495F-AA83-26CAC8DC6532}" />
+						<Properties>
+							<Property Name="ProcessName">
+								<Value Value="Dr.FDCM" />
+							</Property>
+						</Properties>
+						<Children>
+							<Child Name="Form1" Key="{86A5D2AA-944E-4C07-B7B5-023C2388952B}">
+								<Image FileName="1593110107" Left="0" Top="0" Right="588" Bottom="476" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="Form1" />
+									</Property>
+								</Properties>
+							</Child>
+							<Child Name="FinalForm" Key="{5DAED76B-07CA-4026-85D4-3574AD8C96D9}">
+								<Image FileName="1387456073" Left="0" Top="0" Right="564" Bottom="384" />
+								<TypeInfo Item0="{2988DE69-8BC8-408A-827A-B06B0CCAF03F}" />
+								<Properties>
+									<Property Name="WinFormsControlName">
+										<Value Value="FinalForm" />
 									</Property>
 								</Properties>
 							</Child>
@@ -2667,9 +2699,6 @@
 					</Child>
 				</Child>
 			</Child>
-			<Child Name="DropDownForm" Owner="{8A68B566-FC4B-45EA-838F-DE951A36D30E}">
-				<Child Name="SubSmartControl" Owner="{54A97370-193E-4C6B-8A56-F55A499A0E34}" />
-			</Child>
 			<Child Name="SettingsForm" Owner="{2F7258EB-6558-4F54-864D-4890A55AD2E7}">
 				<Child Name="tabControl1" Owner="{39463FEA-5844-4865-A04A-FBEE51063DAC}">
 					<Child Name="tabPageHealthSettings" Owner="{09A71404-EC4B-4D90-8FA3-B70A35C12083}">
@@ -2775,6 +2804,7 @@
 				<Child Name="btnOK" Owner="{E8A85CB5-4CC5-4673-8444-C4A0BAC3AA1F}" />
 				<Child Name="btnYes" Owner="{A91344A7-7F13-434B-93F4-229DCDB5E661}" />
 				<Child Name="Static" Owner="{35758544-A3C5-41EB-9F6F-893EAC0B5518}" />
+				<Child Name="btnCancel" Owner="{550E455D-E0AC-45CC-84B6-EE7CF67D2C86}" />
 			</Child>
 			<Child Name="ApplicationSelectionDlg" Owner="{B00665A4-53DF-483F-B6D6-9212051002DB}">
 				<Child Name="buttonBrowse" Owner="{1937F1A7-D1ED-484C-81B9-894BD4D810F8}" />
@@ -2793,6 +2823,9 @@
 					<Child Name="btn_Close" Owner="{E6DAA3D1-3560-456A-810A-FD4CE97723AB}" />
 				</Child>
 			</Child>
+			<Child Name="DropDownForm" Owner="{4E589906-D579-47F9-A733-0B3EC7518A6C}">
+				<Child Name="SubSmartControl" Owner="{CBDEEFC8-D2BA-4420-90B3-7AC984E56815}" />
+			</Child>
 		</Child>
 		<Child Name="ServerMgmtTool" Owner="{76854944-2403-43C4-974D-965705263715}">
 			<Child Name="LoginForm" Owner="{C7E1F0B4-EB87-4A30-AADD-6BBD4A943AA1}">
@@ -2805,6 +2838,10 @@
 				<Child Name="m_btnLogin" Owner="{873501C3-A87F-4A18-8D70-6A85574F8522}" />
 			</Child>
 			<Child Name="ServerManagerMainForm" Owner="{AB0C5D2A-A328-406F-96C3-CEF61A906C72}" />
+		</Child>
+		<Child Name="Dr_FDCM" Owner="{E772D36D-9869-49AC-94F5-0FD04B155AE8}">
+			<Child Name="Form1" Owner="{86A5D2AA-944E-4C07-B7B5-023C2388952B}" />
+			<Child Name="FinalForm" Owner="{5DAED76B-07CA-4026-85D4-3574AD8C96D9}" />
 		</Child>
 	</LogicalNodes>
 </Root>

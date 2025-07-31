@@ -130,13 +130,13 @@ function FDMGR4790() {
 
 
 // =====================================================================
-// Author:        Bharath
+// Author:        BharathAddDD
 // Function:      AddDD()
 // Description:  Add the DD file
 // Created On:    23-June-2025
 // Modified On:   
 // =====================================================================
-function AddDD() {
+function () {
   try {
     Log.AppendFolder("FDMGR4779 - Test case to validate add DD User interface")
     // Launch the FDM Client with credentials
@@ -201,8 +201,8 @@ function DeleteDD() {
     clickManage_DDPackagePopUpCloseButton();
     Log.Message("Closed DD Package popup.");
 
-    TestedApps.HCMClient.Terminate();
-    Log.Message("HCM Client terminated.");
+//    TestedApps.HCMClient.Terminate();
+//    Log.Message("HCM Client terminated.");
 
   } catch (error) {
     Log.Error("Exception in DeleteDD: " + error.message);

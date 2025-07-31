@@ -13,6 +13,7 @@
 			<child name="AttachDetach" key="{E1EE5395-0974-4961-9F8C-20525112C64C}" path="AttachDetach.js" />
 			<child name="Server" key="{F9CBE65E-B077-45D0-8350-07DFB9EA0D9E}" path="Server.js" />
 			<child name="EntryPoint" key="{97E52909-A24B-4733-A01C-6957541C13A7}" path="EntryPoint.js" />
+			<child name="DrFDM" key="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}" path="DrFDM.js" />
 		</folder>
 		<folder name="PageObjects&amp;Methods">
 			<child name="ClientLoginPage" key="{F10C44FB-FBF6-4962-96EA-9B1AD67537C3}" path="ClientLoginPage.js" />
@@ -26,6 +27,8 @@
 			<child name="AttachDetachPages" key="{E1A9EA1E-D87B-4E7E-A225-0261F309B84E}" path="AttachDetachPages.js" />
 			<child name="ServerPage" key="{34C7636A-FB30-41E6-AA61-EE86AFD13E8B}" path="ServerPage.js" />
 			<child name="EntryPointPage" key="{F3D80030-6CB3-4354-A344-2F3EEC6ABAE2}" path="EntryPointPage.js" />
+			<child name="DrFDMPages" key="{65907531-82C6-406D-A1E6-BABA530BE25B}" path="DrFDMPages.js" />
+			<child name="menubar" key="{07A070C2-428D-4E37-9CF7-AC49FFED6410}" path="menubar.js" />
 		</folder>
 	</children>
 </Root>

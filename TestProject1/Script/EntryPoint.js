@@ -42,26 +42,25 @@ function DeviceParam() {
     // 🖱️ Click on the specified device
     clickOnDevice(Project.Variables.Device);
     Log.Message("Clicked on device: " + Project.Variables.Device);
-
-    let adornerDecorator = Aliases.HCMClient.ClientMainWindow.MdiClient
-      .EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator;
-
-    // ✅ Validate key hyperlink labels
+    Delay(1000)
+    let adornerDecorator = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator;
+    aqObject.CheckProperty(adornerDecorator.HyperlinkAdvancedConfiguration, "WPFControlText", cmpEqual, "Advanced Configuration");
+    aqObject.CheckProperty(adornerDecorator.HyperlinkFdmDeviceStatus, "WPFControlText", cmpEqual, "FDM Device Status");
+    aqObject.CheckProperty(adornerDecorator.HyperlinkFdmDeviceProperties, "WPFControlText", cmpEqual, "FDM Device properties");
+    aqObject.CheckProperty(adornerDecorator.HyperlinkMethodList, "WPFControlText", cmpEqual, "Method List");
     aqObject.CheckProperty(adornerDecorator.HyperlinkSaveHistoryRecord, "WPFControlText", cmpEqual, "Save History Record");
     aqObject.CheckProperty(adornerDecorator.HyperlinkSaveAsOfflineTemplate, "WPFControlText", cmpEqual, "Save as Offline Template");
     aqObject.CheckProperty(adornerDecorator.HyperlinkExport, "WPFControlText", cmpEqual, "Export");
     aqObject.CheckProperty(adornerDecorator.HyperlinkPrint, "WPFControlText", cmpEqual, "Print");
     aqObject.CheckProperty(adornerDecorator.HyperlinkNotifications, "WPFControlText", cmpEqual, "Notifications");
-    aqObject.CheckProperty(adornerDecorator.HyperlinkNotifications, "WPFControlText", cmpEqual, "Advanced Configuration");
-    aqObject.CheckProperty(adornerDecorator.HyperlinkNotifications, "WPFControlText", cmpEqual, "FDM Device Status");
-    aqObject.CheckProperty(adornerDecorator.HyperlinkNotifications, "WPFControlText", cmpEqual, "FDM Device properties");
-    Log.Message("All device hyperlinks validated successfully.");
     CloseWindow()
+    clickOnConfirmFDMButton()
 
   } catch (error) {
     Log.Error("Exception in DeviceParam: " + error.message);
   } finally {
     Log.PopLogFolder();
   }
+  
 }
 

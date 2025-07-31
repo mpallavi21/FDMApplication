@@ -231,19 +231,12 @@ function BuildNetwork() {
     Log.AppendFolder(" BuildNetwork - Executes the Build Network operation on the Mux node as part of test cases BuildNetwork_HW Mux")
     clickOnNetworkViewTab()
     input = Project.Variables.Device
-    let updatedPath = input.split("|").slice(0, -1).join("|");
-    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux");
-    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF");
+    clickOnbuildNetwork(input.split("|").slice(0, -2).join("|"));
+    clickOnbuildNetwork(input.split("|").slice(0, -1).join("|"));
     Log.Checkpoint("FDMGR3890_FDMGR3891 executed successfully.");
   } catch (error) {
     Log.Error("Error occurred in FDMGR3890_FDMGR3891:", error);
   } finally {
     Log.PopLogFolder()
   }
-}
-
-
-function test(){
-  input = Project.Variables.Device
-    let updatedPath = input.split("|").slice(0, -3).join("|");
 }

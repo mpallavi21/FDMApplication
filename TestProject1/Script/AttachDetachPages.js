@@ -1,5 +1,6 @@
 ﻿//USEUNIT GenericMethods
 //USEUNIT CommonPageObjects
+//USEUNIT menubar
 
 // =====================================================================
 // Author:        Bharath
@@ -20,7 +21,7 @@ function clickOnAttachApplication() {
     Log.Message("Clicked 'Tools' from the main menu.");
 
     // Step 2: Click on 'Applications' from the dropdown
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
+    OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
     Log.Message("Selected 'Applications' from the Tools dropdown.");
 
     // Step 3: Expand and attach application via keyboard
@@ -34,69 +35,6 @@ function clickOnAttachApplication() {
   }
 }
 
-function testqq(){
-  clickMainAndSubMenuItem("Tools","System Documents")
-  }
-// =====================================================================
-// Author:        Bharath
-// Function:      clickMainAndSubMenuItem
-// Description:   Finds and clicks a specified main menu item, then locates
-//                and clicks the matching submenu item under it.
-// Created On:    23-Jul-2025
-// Modified On:   23-Jul-2025
-// =====================================================================
-
-function clickMainAndSubMenuItem(mainText, subText) {
-  Log.AppendFolder("clickMainAndSubMenuItem - Menu Navigation");
-
-  try {
-    let mainMenu = Aliases.HCMClient.ClientMainWindow.mainMenu;
-
-    if (!mainMenu.Exists || !mainMenu.Items) {
-      Log.Error("Main menu not found.");
-      return;
-    }
-
-    let mainMatched = false;
-    let subMatched = false;
-
-    // Loop through main menu items
-    for (let i = 0; i < mainMenu.Items.Count; i++) {
-      let mainItem = mainMenu.Items.Item_2(i);
-
-      if (normalizeMenuText(mainItem.Text.OleValue).includes(mainText.toLowerCase())) {
-        mainItem.DoClick();    // Open main item
-        Log.Message("Clicked main menu item: " + mainText);
-        mainMatched = true;
-
-        // Search sub-items under matched main item
-        for (let j = 0; j < mainItem.Items.Count; j++) {
-          let subItem = mainItem.Items.Item_2(j);
-
-          if (normalizeMenuText(subItem.Text.OleValue).includes(subText.toLowerCase())) {
-            subItem.DoClick_2();
-            Log.Message("Clicked sub-menu item: " + subText);
-            subMatched = true;
-            break;
-          }
-        }
-
-        break;
-      }
-    }
-
-    if (!mainMatched) {
-      Log.Warning("No main menu item matched: " + mainText);
-    } else if (!subMatched) {
-      Log.Warning("No sub-menu item matched under '" + mainText + "': " + subText);
-    }
-
-  } catch (error) {
-    Log.Error("Exception in clickMainAndSubMenuItem: " + error.message);
-  } finally {
-    Log.PopLogFolder();
-  }
-}
 
 function test(){
   clickOnAttachApplication()
@@ -188,8 +126,8 @@ function DetachApplication() {
     }
 
     // === Step 2: Click 'Applications' from the dropdown ===
-    if (HCMClient.DropDownForm.SubSmartControl.Exists) {
-      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
+    if (Aliases.HCMClient.DropDownForm.SubSmartControl.Exists) {
+      OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
       Log.Message("Selected 'Applications' from the Tools dropdown.");
     } else {
       Log.Error("Applications option in dropdown not found.");
@@ -272,10 +210,12 @@ function DetachApplication() {
   }
 }
 
-function clickOnAttachDocument() {
+function clickOnDeviceAttachDocument() {
   Log.AppendFolder("clickOnAttachDocument - Initiating Document Attachment");
 
   try {
+    Delay(1000)
+    Aliases.HCMClient.ClientMainWindow.panelLeftPanMain.Click()
     let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
       .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
       .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
@@ -284,9 +224,9 @@ function clickOnAttachDocument() {
       Log.Error("TreeView not found.");
       return;
     }
-
+    
     let targetItem = Project.Variables.Device;
-
+    treeView.Refresh()
     treeView.ClickItem(targetItem);
     Log.Message("Clicked item: " + targetItem);
 
@@ -354,22 +294,11 @@ function DetachDocumentFromResourceDlg() {
   Log.AppendFolder("DetachDocumentFromResourceDlg - Detaching Document Flow");
 
   try {
+    Delay(1000)
     let resourceSelectionDlg = Aliases.HCMClient.ResourceSelectionDlg;
-
-    if (!resourceSelectionDlg.Exists) {
-      Log.Error("Resource Selection Dialog not found.");
-      return;
-    }
-
-    // Validate dialog text
-    let expectedText = "Select the documents to be detached";
-    if (aqObject.CheckProperty(resourceSelectionDlg.label_Details, "Text", cmpEqual, expectedText)) {
-      Log.Message("Verified dialog label text: " + expectedText);
-    } else {
-      Log.Error("Dialog label text mismatch.");
-      return;
-    }
-
+    
+    if(resourceSelectionDlg.Exists)
+    resourceSelectionDlg.SetFocus()
     // Click on the grid and confirm detachment
     resourceSelectionDlg.fpSpread1.Click(226, 31);
     Log.Message("Clicked document entry in grid.");
@@ -385,59 +314,6 @@ function DetachDocumentFromResourceDlg() {
 }
 
 
-// =====================================================================
-// Author:        Bharath
-// Function:      clickOnSystemDocument
-// Description:   Navigates to the 'Tools' menu using OCR, selects 'Document',
-//                and attaches the application via tree view interactions.
-// Created On:    21-Jul-2025
-// Modified On:   21-Jul-2025
-// =====================================================================
-
-function clickOnSystemDocument() {
-  Log.AppendFolder("clickOnSystemDocument - System Document via Menu");
-
-  try {
-    let HCMClient = Aliases.HCMClient;
-    let frmHCMClientMain = HCMClient.ClientMainWindow;
-
-    // Step 1: Click on 'Tools' menu using OCR
-    let toolsBlock = OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools");
-    if (toolsBlock) {
-      toolsBlock.Click();
-      Log.Message("🛠️ Clicked 'Tools' from the main menu.");
-    } else {
-      Log.Error("'Tools' menu option not found via OCR.");
-      return;
-    }
-
-    // Step 2: Click on 'Document' from the dropdown
-    let documentBlock = OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Document");
-    if (documentBlock) {
-      documentBlock.Click();
-      Log.Message("📦 Selected 'Document' from the Tools dropdown.");
-    } else {
-      Log.Error("'Document' option not found in dropdown via OCR.");
-      return;
-    }
-
-    // Step 3: Expand and attach application via keyboard
-    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
-      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
-
-    if (treeView.Exists) {
-      treeView.Keys("[Right][Enter]");
-      Log.Message("✅ Application attached from the connected applications list.");
-    } else {
-      Log.Error("Tree view for connected applications not found.");
-    }
-
-  } catch (error) {
-    Log.Error("❌ Failed to attach application: " + error.message);
-  } finally {
-    Log.PopLogFolder();
-  }
-}
 
 
 // =====================================================================
@@ -452,32 +328,7 @@ function DetachDocument() {
   try {
     Log.AppendFolder("DetachDocument - Navigates through the Document menu using OCR to detach\n a connected Document node from the tree view.")
     let HCMClient = Aliases.HCMClient;
-    let frmHCMClientMain = HCMClient.ClientMainWindow;
-
-    // === Step 1: Click 'Tools' using OCR ===
-    if (frmHCMClientMain.mainMenu.Exists) {
-      OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-      Log.Message("Clicked 'Tools' from the main menu.");
-    } else {
-      Log.Error("Main menu not found.");
-      return;
-    }
-
-    // === Step 2: Click 'Applications' from the dropdown ===
-    OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System").Click();
-    Log.Message("Selected 'Document' from the Tools dropdown.");
-
-    // === Step 3: Navigate and detach from tree view ===
-    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
-      .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
-
-    if (treeView.Exists) {
-      treeView.Keys("[Right][Down][Enter]");
-      Log.Message("Detached Document from the connected applications list.");
-    } else {
-      Log.Error("Connected Document tree view not found.");
-      return;
-    }
+    clickOnSystemDetachDocument()
     
     var dlgFDM = Aliases.HCMClient.dlgFDM;
     var dlgFDMConfiguration = Aliases.HCMClient.dlgFDMConfiguration
@@ -540,16 +391,7 @@ function DetachDocument() {
     Log.Error("Failed to detach application: " + error.message);
   } finally {
     Log.PopLogFolder();
-  }
-    
+  } 
 }
 
 
-function test12(){
-  let HCMClient = Aliases.HCMClient;
-  let frmHCMClientMain = HCMClient.ClientMainWindow;
-  OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Documents").Click();
-  frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView.Keys("[Right][Down][Enter]");
-
-}

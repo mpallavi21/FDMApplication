@@ -147,7 +147,7 @@ function openDashboardFromTreeItem(treePath) {
       .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
 
     // 🌲 Right-click the specified tree item and select 'Dashboard'
-    treeView.ClickItemR(treePath);
+    treeView.ClickItemR(`|${treePath}`);
     Log.Message("Right-clicked tree item: " + treePath);
 
     treeView.StripPopupMenu.Click("Dashboard");
