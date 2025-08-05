@@ -466,3 +466,63 @@ function LaunchViewHistory(Device) {
   }
 }
 
+// =====================================================================
+// Author:        Bharath
+// Function:      rightClickOnDevice
+// Description:   Navigates to the FDM device in tree view and performs right-click.
+// Created On:    31-Jul-2025
+// Modified On:   31-Jul-2025
+// =====================================================================
+
+function rightClickOnDevice(devicePath) {
+  Log.AppendFolder("rightClickOnDevice - Navigate and Right Click on Device");
+
+  try {
+    // Step 1: Navigate to treeView using FindChild from root
+    let mainWindow = Aliases.HCMClient.ClientMainWindow;
+    let tabPageOnlineView = mainWindow.FindChild("Name", "WinFormsObject(\"tabPageOnlineView\")", 100, true);
+    let tabControlOnlineView = tabPageOnlineView.FindChild("Name", "WinFormsObject(\"tabControlOnlineView\")", 100, true);
+    let networkTab = tabControlOnlineView.FindChild("Name", "WinFormsObject(\"tabConnected\")", 100, true);
+    let treeView = networkTab.FindChild("Name", "WinFormsObject(\"treeView\")", 100, true);
+
+    // Step 2: Perform right-click on the specified device path
+    Log.Message(`Right-clicking FDM device node: ${devicePath}`);
+    treeView.ClickItemR(devicePath);
+
+  } catch (error) {
+    Log.Error("Error in rightClickOnDevice: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      clickOnCompareConfig
+// Description:   Right-clicks on the FDM device and selects 'Compare Configuration'
+// Created On:    31-Jul-2025
+// Modified On:   31-Jul-2025
+// =====================================================================
+
+function clickOnCompareConfig() {
+  Log.AppendFolder("clickOnCompareConfig - Right Click and Compare Configuration");
+
+  try {
+    // Step 1: Right-click the device in the tree
+    rightClickOnDevice(Project.Variables.Device);
+
+    Delay(1000)
+   
+    Log.Message("Clicking 'Compare Configuration' in the context menu");
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+    treeView.StripPopupMenu.Click("Compare Configuration");
+  } catch (error) {
+    Log.Error("Error in clickOnCompareConfig: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+  
+}
+
+

@@ -14,7 +14,7 @@ function FDMGR4044()
 {
  try {
    Log.AppendFolder("FDMGR4044 - Verify that user can select FDM settings")
- // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
   openFDMToolBarSettings();
   closeFDMSettings();
  // TestedApps.HCMClient.Terminate();

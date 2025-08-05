@@ -2,7 +2,9 @@
 <Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
 	<children>
 		<folder name="TestCase">
-			<folder name="Offline" />
+			<folder name="Offline">
+				<child name="OfflineConfiguration" key="{0F870013-8B1D-4FFB-9BC6-E6639FF76CAD}" path="OfflineConfiguration.js" />
+			</folder>
 			<folder name="Online" />
 			<child name="Login" key="{5BC9B77F-53E0-4B6E-9F29-A7E8F475C5FF}" path="Login.js" />
 			<child name="Settings" key="{DC00E493-0C09-42D2-ACDA-962639CB4007}" path="Settings.js" />
@@ -14,6 +16,8 @@
 			<child name="Server" key="{F9CBE65E-B077-45D0-8350-07DFB9EA0D9E}" path="Server.js" />
 			<child name="EntryPoint" key="{97E52909-A24B-4733-A01C-6957541C13A7}" path="EntryPoint.js" />
 			<child name="DrFDM" key="{B98D2DBA-5D09-40EB-B2EC-2428273C62CB}" path="DrFDM.js" />
+			<child name="ImportAndExport" key="{C3C52B01-F554-4C32-85EB-F69AB4949045}" path="ImportAndExport.js" />
+			<child name="DeviceStateView" key="{483B6817-0DCC-4D74-902C-82331463E33A}" path="DeviceStateView.js" />
 		</folder>
 		<folder name="PageObjects&amp;Methods">
 			<child name="ClientLoginPage" key="{F10C44FB-FBF6-4962-96EA-9B1AD67537C3}" path="ClientLoginPage.js" />
@@ -29,6 +33,9 @@
 			<child name="DrFDMPages" key="{65907531-82C6-406D-A1E6-BABA530BE25B}" path="DrFDMPages.js" />
 			<child name="menubar" key="{07A070C2-428D-4E37-9CF7-AC49FFED6410}" path="menubar.js" />
 			<child name="LibraryPages" key="{ABE296D1-3BF4-4F93-B686-6843DDA1A6DA}" path="LibraryPages.js" />
+			<child name="ImportAndExportPages" key="{50057B05-7249-40DA-9531-726F64D63A1D}" path="ImportAndExportPages.js" />
+			<child name="DeviceStateViewPage" key="{F12FE253-116D-4657-ABAE-C57F98AE5CD5}" path="DeviceStateViewPage.js" />
+			<child name="OfflineViewPages" key="{D1E321DD-5016-40BB-A90D-0A3598B09A2F}" path="OfflineViewPages.js" />
 		</folder>
 	</children>
 </Root>

@@ -14,6 +14,7 @@
 function FDMGR3890_FDMGR3891() {
   try {
     Log.AppendFolder(" FDMGR3890_FDMGR3891 - Executes the Build Network operation on the Mux node as part of test cases FDMGR3890 and FDMGR3891")
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     clickOnNetworkViewTab()
     clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux");
     clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF");
@@ -241,3 +242,81 @@ function BuildNetwork() {
     Log.PopLogFolder()
   }
 }
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      Device_Explicit_Lock
+// Description:   Locks a device, attempts configuration, handles warning, unlocks, and retries configuration.
+// Created On:    04-Aug-2025
+// Modified On:   
+// =====================================================================
+
+function Device_Explicit_Lock() {
+  Log.AppendFolder("Device_Explicit_Lock");
+
+  try {
+    
+    launchFDMClient(Project.Variables.FDMClientUserName,Project.Variables.FDMClientPassword)
+    
+    // Step 1: Open Network View
+    clickOnNetworkViewTab();
+
+    // Step 2: Access the tree view
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+                     .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                     .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("❌ TreeView not found.");
+      return;
+    }
+
+    // Step 3: Lock the device
+    let targetItem = Project.Variables.Device;
+    treeView.ClickItem(targetItem);
+    Log.Message("🔒 Clicking item: " + targetItem);
+
+    treeView.ClickItemR(targetItem);
+    Delay(1000);
+    treeView.StripPopupMenu.Click("Lock");
+
+    // Step 4: Attempt configuration (locked state)
+    let lockedItemPath = "|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644";
+    treeView.ClickItemR(lockedItemPath);
+    treeView.StripPopupMenu.Click("Configure with|DTM (Online)");
+
+    // Step 5: Handle warning dialog
+    Delay(2000)
+    let HCMClient = Aliases.HCMClient;
+    HCMClient.dlgFDMConfiguration.btnOK.ClickButton();
+
+    // Step 6: Unlock and retry configuration
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+    treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain
+                .tabPageOnlineView.panelOnlineView.panelTabControlOnlineView
+                .tabControlOnlineView.tabConnected.treeView;
+
+    treeView.ClickItemR(lockedItemPath);
+    treeView.StripPopupMenu.Click("Unlock");
+    treeView.ClickItemR(lockedItemPath);
+    treeView.StripPopupMenu.Click("Configure with|DTM (Online)");
+
+    // Step 7: Confirm successful configuration
+    let hostPanel = frmHCMClientMain.MdiClient.DtmForm.panelBase;
+    aqObject.CheckProperty(hostPanel.panelForDerivedForms.DTMTabView.panelConfiguration.tabControl1,
+      "Enabled", cmpEqual, true);
+    hostPanel.panelFullTop.panelTitle.buttonClose.Click(11, 9);
+
+    // Step 8: Accept confirmation dialog
+    HCMClient.dlgFDMConfiguration.btnYes.ClickButton();
+
+    Log.Checkpoint("✅ Device successfully unlocked and configured with DTM.");
+
+  } catch (error) {
+    Log.Error("❌ Error in Device_Explicit_Lock: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+

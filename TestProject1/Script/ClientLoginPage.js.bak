@@ -40,13 +40,13 @@ function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password
   Log.Message("Setting server...");
   let server = Aliases.HCMClient.ClientLogin.FdmServerNameField
   let ServerDDbox = server.TextFieldArea
+  ServerDDbox.SetFocus()
   ServerDDbox.SetText("LocalHost");
   Log.Message("Server set to: " + "LocalHost");
-  
   clickOnLoginBtn()
-  Delay(10000)
+  Delay(1500)
   let ClientLogin = Aliases.HCMClient.ClientLogin
-  ClientLogin.WaitProperty("Exists", true, 5000);
+  ClientLogin.WaitProperty("Exists", true, 120000);
   
   if(ClientLogin.Exists){
     // Set Username
@@ -85,7 +85,7 @@ function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password
   
   // Wait for main application window
   Log.Message("Waiting for main application window...");
-  mainWindow = HCMClient.FindChild("WinFormsControlName", "frmHCMClientMain", 50, true);
+  mainWindow = HCMClient.ClientMainWindow;
   mainWindow.WaitProperty("Exists", true, 50000);
   Log.Checkpoint("FDM Client launched and main window detected.");
   aqUtils.Delay(1000);

@@ -128,3 +128,38 @@ function uploadPackageFile(folderPath, fileName) {
 function normalizeMenuText(text) {
   return text.replace(/&/g, "").trim().toLowerCase();
 }
+
+function test(){
+  CheckIfFileExists("C:\\ProgramData\\Honeywell\\FDM\\Client\\Export\\Device Tags\\DeviceTags_0.XML")
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      CheckIfFileExists
+// Description:   Checks whether a specific file exists in Windows Explorer path.
+// Created On:    01-Aug-2025
+// Modified On:   01-Aug-2025
+// =====================================================================
+
+function CheckIfFileExists(filePath) {
+  Log.AppendFolder("CheckIfFileExists");
+
+  try {
+    // Use TestComplete's built-in aqFileSystem to check file existence
+    if (aqFileSystem.Exists(filePath)) {
+      Log.Checkpoint("File exists: " + filePath);
+      return true;
+    } else {
+      Log.Error("File not found: " + filePath);
+      return false;
+    }
+
+  } catch (error) {
+    Log.Error("Error in CheckIfFileExists: " + error.message);
+    return false;
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+

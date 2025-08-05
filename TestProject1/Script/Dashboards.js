@@ -12,7 +12,7 @@
 function FDMGR11050() {
   try {
     Log.AppendFolder("FDMGR11050 - Validate to Launch PAV Dashboard")
-    //launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     clickOnPlantAreaView();
     closePlantAreaView();
@@ -38,7 +38,7 @@ function FDMGR11050() {
 function FDMGR11051() {
   try {
     Log.AppendFolder("FDMGR11051 - Validate to Launch Alert Monitoring Dashboard")
-  //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     clickOnAlertMonitoringDashboard();
     closeAlertMonitorView();

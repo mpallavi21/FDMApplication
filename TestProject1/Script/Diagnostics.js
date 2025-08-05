@@ -14,7 +14,7 @@
 function FDMGR7504() {
   try {
     Log.AppendFolder("FDMGR7504 - [Testcase to Validate Daignostic model Tab in FDM View")
-   // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     navigateToOfflineDiagnostics();
 
@@ -64,7 +64,7 @@ function FDMGR7505() {
 function FDMGR4279() {
   try {
     Log.AppendFolder("FDMGR4279 - verify that offline configuration can be saved for FF devices")
-  //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     navigateToOfflineDiagnostics();
     createDiagnosticModel("|FF");
