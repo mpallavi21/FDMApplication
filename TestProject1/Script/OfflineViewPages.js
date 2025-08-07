@@ -234,10 +234,11 @@ function EnterOfflineDeviceConfigurationDetails() {
 
     customTextBox.Click(70, 18);
     customTextBox.Keys("field");
-
+    
     // 💾 Trigger Save Preview
     panel2.ActionControlView.HwndSource_AdornerDecorator.AdornerDecorator.ButtonPreviewSave.ClickButton();
-
+    
+    Project.Variable.OfflineDDSaveFileName = panel.OfflineReviewDialogElementHost.ehReviewDialog.HwndSource_AdornerDecorator.AdornerDecorator.txtConfigurationName.wText
     // ✅ Validate Save Confirmation
     adornerDecorator = panel.OfflineReviewDialogElementHost.ehReviewDialog.HwndSource_AdornerDecorator.AdornerDecorator;
     let rectangle = adornerDecorator.Rectangle;
@@ -361,6 +362,7 @@ function CreateOfflineDTMConfig() {
     hostPanel.panelFullTop.panelTitle.buttonSaveAs.Click(13, 8);
     let saveFileDlg = HCMClient.SaveFileDlg;
     DtmName = "DTM" + aqDateTime.Now()/1000
+    Project.Variables.OfflineDTMSavedFileName = DtmName
     saveFileDlg.textBoxFileName.TextBoxArea.SetText(DtmName);
     OCR.Recognize(saveFileDlg.buttonOK).BlockByText("OK").Click();
     Log.Message("Configuration saved as 'DTM' via OCR-assisted click.");
@@ -371,6 +373,36 @@ function CreateOfflineDTMConfig() {
 
   } catch (error) {
     Log.Error("Error in CreateOfflineDTMConfig: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      OpenDeviceLibrary
+// Description:   Uses OCR to locate and click the "Device" label in Offline View.
+// =====================================================================
+function OpenDeviceLibrary() {
+  Log.AppendFolder("OpenDeviceLibrary");
+
+  try {
+    let offlineViewPanel = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+                            .tabControlLeftPanMain.tabPageOfflineView.panelOfflineView
+                            .tabControlOfflineView;
+
+    let deviceBlock = OCR.Recognize(offlineViewPanel).BlockByText("Device*");
+
+    if (deviceBlock !== null) {
+      deviceBlock.Click();
+      Log.Message('"Device" label clicked successfully using OCR.');
+    } else {
+      Log.Warning('OCR could not locate the "Device" label.');
+    }
+
+  } catch (error) {
+    Log.Error("Error in OpenDeviceLibrary: " + error.message);
   } finally {
     Log.PopLogFolder();
   }

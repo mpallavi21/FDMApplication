@@ -1,11 +1,13 @@
 ﻿//USEUNIT EntryPointPage
 //USEUNIT NetworkTreeViewPage
 //USEUNIT GenericMethods
+//USEUNIT DeviceStateViewPage
 
 function FDMGR4876_4877(){
   Log.AppendFolder("FDMGR4876_4877 - Save History")
   try{
-  
+  ClickOnlineViewTab()
+  clickOnNetworkViewTab()
   clickOnDevice(Project.Variables.Device);
   clickSaveHistoryHyperlink()
   input = Project.Variables.Device
@@ -14,6 +16,8 @@ function FDMGR4876_4877(){
   fillSaveHistoryPopup(lastValue + aqDateTime.Now()/1000)
   handleFdmConfigurationPopup()
   handleSaveHistoryCompletion()
+  closeWindowPage()
+  clickOnConfirmFDMButton()
   }
   
   catch(error){

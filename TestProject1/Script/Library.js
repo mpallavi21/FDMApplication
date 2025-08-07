@@ -12,7 +12,7 @@ function FDMGR4779() {
   try {
     Log.AppendFolder("FDMGR4779 - Test case to validate add DD User interface")
     // Launch the FDM Client with credentials
-    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    //launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
 
     // Navigate and perform DD Package addition
     openManageDDPackagesSection();

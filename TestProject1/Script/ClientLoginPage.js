@@ -46,7 +46,7 @@ function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password
   clickOnLoginBtn()
   Delay(1500)
   let ClientLogin = Aliases.HCMClient.ClientLogin
-  ClientLogin.WaitProperty("Exists", true, 120000);
+  ClientLogin.WaitProperty("Exists", true, 180000);
   
   if(ClientLogin.Exists){
     // Set Username

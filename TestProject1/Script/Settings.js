@@ -14,7 +14,7 @@ function FDMGR4044()
 {
  try {
    Log.AppendFolder("FDMGR4044 - Verify that user can select FDM settings")
-  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+  //launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
   openFDMToolBarSettings();
   closeFDMSettings();
  // TestedApps.HCMClient.Terminate();
@@ -25,4 +25,92 @@ function FDMGR4044()
    Log.PopLogFolder()
  }
 }
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMSettings_AuditTrail
+// Description:   Navigates to Audit Trail settings, toggles time mode, and applies changes.
+// Created On:    06-Aug-2025
+// =====================================================================
+function FDMSettings_AuditTrail15800() {
+  Log.AppendFolder("FDMSettings_AuditTrail15800");
+
+  try {
+    // 🛠 Open FDM Settings toolbar
+    openFDMToolBarSettings();
+    Log.Message("FDM Settings opened.");
+
+    let settingsForm = Aliases.HCMClient.SettingsForm;
+    let tabControl = settingsForm.tabControl1;
+
+    // 📂 Navigate to Audit Trail tab
+    tabControl.ClickTab("Audit Trail");
+    Log.Message("Switched to Audit Trail tab.");
+
+    let groupBox = tabControl.tabPageAuditTrail.groupBoxTimeSettings;
+    let winButton = settingsForm.buttonApply;
+
+    // 🌐 Switch to UTC and apply
+    groupBox.radioButtonUTC.ClickButton();
+    OCR.Recognize(winButton).BlockByText("Apply").Click();
+    Log.Message("UTC time mode applied.");
+
+    // 🕒 Switch to Local and apply
+    groupBox.radioButtonLocal.ClickButton();
+    OCR.Recognize(winButton).BlockByText("Apply").Click();
+    Log.Message("Local time mode applied.");
+
+    // ❎ Close settings
+    closeFDMSettings();
+    Log.Message("FDM Settings closed.");
+
+  } catch (error) {
+    Log.Error("Error in FDMSettings_AuditTrail: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMSettings_AuditTrailAction15803
+// Description:   Toggles Audit Trail action checkbox in FDM Settings.
+// Created On:    06-Aug-2025
+// =====================================================================
+function FDMSettings_AuditTrailAction15803() {
+  Log.AppendFolder("FDMSettings_AuditTrailAction15803");
+
+  try {
+    // 🛠 Open FDM Settings toolbar
+    openFDMToolBarSettings();
+    Log.Message("FDM Settings opened.");
+
+    let settingsForm = Aliases.HCMClient.SettingsForm;
+    let tabControl = settingsForm.tabControl1;
+
+    // 📂 Navigate to Audit Trail tab
+    tabControl.ClickTab("Audit Trail");
+    Log.Message("Switched to Audit Trail tab.");
+
+    // ✅ Toggle Audit Trail Actions checkbox
+    let auditActionsGroup = tabControl.tabPageAuditTrail.gbAuditTrailActions;
+    auditActionsGroup.checkBoxAll.wState = cbUnchecked;
+    Log.Message("Audit Trail 'All' checkbox unchecked.");
+    
+    auditActionsGroup.checkBoxAll.wState = cbChecked;
+    Log.Message("Audit Trail 'All' checkbox checked.");
+
+
+    // ❎ Close settings
+    closeFDMSettings();
+    Log.Message("FDM Settings closed.");
+
+  } catch (error) {
+    Log.Error("Error in FDMSettings_AuditTrailAction15803: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
 

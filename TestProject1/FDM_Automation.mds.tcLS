@@ -56,6 +56,18 @@
 						</Node>
 						<Prp name="name" type="S" value="FDMNonUserPassword"/>
 					</Node>
+					<Node name="var13">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="440054004D003100370035003400340035003600330031003900"/>
+						</Node>
+						<Prp name="name" type="S" value="OfflineDTMSavedFileName"/>
+					</Node>
+					<Node name="var14">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="4F00460046004C0049004E0045005F003000300032003600320036003100380030003900300032005F003100"/>
+						</Node>
+						<Prp name="name" type="S" value="OfflineDDSaveFileName"/>
+					</Node>
 					<Node name="var2">
 						<Prp name="name" type="S" value="Var1"/>
 					</Node>

@@ -15,7 +15,6 @@ function openFDMToolBarSettings() {
   try {
     OCR.Recognize(mainMenu).BlockByText("FDM").Click();
     Log.Message("Clicked on 'FDM' menu item.");
-    HCMClient.WinFormsObject("ContextMenuStrip", "Manage DD/Package")
     OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Settings").Click();
     Log.Message("Clicked on 'Settings' option.");
   } catch (error) {
@@ -23,10 +22,6 @@ function openFDMToolBarSettings() {
   } finally{
     Log.PopLogFolder()
   }
-  let HCMClient = Aliases.HCMClient;
-  OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Tools").Click();
-  Delay(1547);
-  OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Documents").Click();
 }
 
 // =====================================================================
@@ -200,3 +195,5 @@ function enableDisableSingleSignOn(desiredState) {
     Log.PopLogFolder();
   }
 }
+
+

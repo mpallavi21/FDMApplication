@@ -30,18 +30,19 @@ function FDMGR4302(){
   try{
   Log.AppendFolder("FDMGR4302 - AddNetwork (Verify that the network configuration is successful for different types of networks")
  // launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+  DeleteNetwork()
   clickAddNewNetworkButton()
   addNetworkConfiguration({
-  networkInterfaceName: "MUX",
-  networkType: "RS-485 HART Multiplexer",
-  rciServerName: "LOCALHOST",
-  comPort: "COM3",
-  baudRate: "9600",
-});
+    networkInterfaceName: "MUX",
+    networkType: "RS-485 HART Multiplexer",
+    rciServerName: "LOCALHOST",
+    comPort: "COM3",
+    baudRate: "9600",
+  })
   clickOnAddNetworkOkButton()
   submitAuditTrailReason("Add")
   handleCustomMessageBox()
-   } catch (error) {
+  } catch (error) {
     Log.Error("Error occurred in FDMGR ", error.message);
   } finally {
     Log.PopLogFolder()
@@ -167,7 +168,7 @@ function ServerLoginFDMServiceStartStop() {
   try {
     
       // Launch the FDM server using stored credentials
-    launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+   // launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
     
     // Stop the FDM service
     toggleServerStartStop("Stop");

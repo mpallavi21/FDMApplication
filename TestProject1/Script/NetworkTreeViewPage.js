@@ -526,3 +526,20 @@ function clickOnCompareConfig() {
 }
 
 
+function waitForDeviceLoad(timeout = 600000) {
+  let statusBar = Aliases.HCMClient.ClientMainWindow.MdiClient.statusBarDevice;
+  if (!statusBar.Exists) return false;
+
+  let statusItem = statusBar.Items.Item_2(1);
+  let startTime = new Date().getTime();
+  Delay(1000);
+
+  while (aqString.Trim(statusItem.Text) !== "Device loaded successfully") {
+    Delay(500);
+    if (new Date().getTime() - startTime > timeout) {
+      Log.Error("⏳ Timeout: Device load still in progress.");
+      return false;
+    }
+  }
+  return true;
+}

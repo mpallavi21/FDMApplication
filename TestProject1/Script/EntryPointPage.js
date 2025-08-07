@@ -212,10 +212,7 @@ function clickSaveHistoryHyperlink() {
   Log.AppendFolder("clickSaveHistoryHyperlink");
 
   try {
-    let hyperlink = Aliases.HCMClient.ClientMainWindow
-      .MdiClient.EntryPointTabPage.EntryPointsTabPage
-      .HwndSource_AdornerDecorator.AdornerDecorator
-      .HyperlinkSaveHistoryRecord;
+    let hyperlink = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkSaveHistoryRecord;
 
     if (hyperlink.Exists && hyperlink.Enabled) {
       hyperlink.Click();

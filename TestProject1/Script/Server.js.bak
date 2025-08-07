@@ -108,7 +108,6 @@ function AddNetwork() {
     handleCustomMessageBox();
     Log.Message("Handled custom message box confirmation.");
     
-    clickOnConfirmFDMButton()
 
   } catch (error) {
     Log.Error("Exception in AddNetwork: " + error.message);

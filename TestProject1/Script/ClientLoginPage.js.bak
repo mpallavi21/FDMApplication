@@ -86,7 +86,7 @@ function launchFDMClient(Username = Project.Variables.FDMClientUserName,Password
   // Wait for main application window
   Log.Message("Waiting for main application window...");
   mainWindow = HCMClient.ClientMainWindow;
-  mainWindow.WaitProperty("Exists", true, 50000);
+  mainWindow.WaitProperty("Exists", true, 120000);
   Log.Checkpoint("FDM Client launched and main window detected.");
   aqUtils.Delay(1000);
   Log.PopLogFolder()

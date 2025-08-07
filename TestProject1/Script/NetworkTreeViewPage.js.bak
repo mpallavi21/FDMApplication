@@ -512,19 +512,17 @@ function clickOnCompareConfig() {
     // Step 1: Right-click the device in the tree
     rightClickOnDevice(Project.Variables.Device);
 
-    // Step 2: Navigate again to treeView to access context menu
-    let mainWindow = Aliases.HCMClient.ClientMainWindow;
-    let treeView = mainWindow.FindChild("Name", "WinFormsObject(\"treeView\")", 100, true);
     Delay(1000)
-    // Step 3: Click 'Compare Configuration' in the popup menu
+   
     Log.Message("Clicking 'Compare Configuration' in the context menu");
-    treeView.StripPopupMenu.Click("Compare Configuration",1000);
-
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+    treeView.StripPopupMenu.Click("Compare Configuration");
   } catch (error) {
     Log.Error("Error in clickOnCompareConfig: " + error.message);
   } finally {
     Log.PopLogFolder();
   }
+  
 }
 
 

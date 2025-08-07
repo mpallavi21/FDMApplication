@@ -4,5 +4,8 @@
 		<child name="treeView" key="{B34C9E23-D02D-4E48-9EF3-3A30C0BF6881}">
 			<data signature="{1FD256C1-604C-48A1-9990-9A9329139EC4}" version="15.0" caption="treeView" ID="{B34C9E23-D02D-4E48-9EF3-3A30C0BF6881}" FileName="Regions\treeView.png" Update="False" />
 		</child>
+		<child name="tabControlOfflineViewDD_DTM" key="{CE35CA8C-2239-4DB3-A574-FE1EC38B576C}">
+			<data signature="{1FD256C1-604C-48A1-9990-9A9329139EC4}" version="15.0" caption="tabControlOfflineViewDD_DTM" ID="{CE35CA8C-2239-4DB3-A574-FE1EC38B576C}" FileName="Regions\tabControlOfflineViewDD_DTM.png" Update="False" />
+		</child>
 	</children>
 </Root>

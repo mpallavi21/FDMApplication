@@ -1,6 +1,9 @@
 ﻿//USEUNIT NetworkTreeViewPage
 //USEUNIT ClientLoginPage
 //USEUNIT CommonPageObjects
+//USEUNIT DeviceStateViewPage
+//USEUNIT EntryPointPage
+//USEUNIT GenericMethods
 
 // =====================================================================
 // Author:        Bharath
@@ -14,7 +17,7 @@
 function FDMGR3890_FDMGR3891() {
   try {
     Log.AppendFolder(" FDMGR3890_FDMGR3891 - Executes the Build Network operation on the Mux node as part of test cases FDMGR3890 and FDMGR3891")
-    launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+   // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     clickOnNetworkViewTab()
     clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux");
     clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF");
@@ -40,7 +43,7 @@ function FDMGR6060_6061() {
   try {
     Log.AppendFolder("FDMGR6060_6061 - Verifies the FDM device under Mux shows")
       //  launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
-    verifyFDMDeviceStatus("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF|644");
+    verifyFDMDeviceStatus(Project.Variables.Device);
     closeWindowPage()
     clickOnConfirmFDMButton()
     // TestedApps.HCMClient.Terminate();
@@ -67,8 +70,11 @@ function FDMGR5956_5957() {
     clickOnDevice(`${Project.Variables.Device}`);
     let adornerDecorator = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator;
     aqObject.CheckProperty(adornerDecorator.HyperlinkFdmDeviceProperties, "WPFControlText", cmpEqual, "FDM Device properties");
+    closeWindowPage()
+    clickOnConfirmFDMButton()
     // TestedApps.HCMClient.Terminate();
     Log.Checkpoint("FDMGR6060_6061 passed: Device status verified.");
+    
   } catch (error) {
     Log.Error("FDMGR6060_6061 failed during device status verification:", error);
   } finally{
@@ -94,7 +100,7 @@ function FDMGR5899() {
   try {
     Log.AppendFolder("FDMGR5899 - Verify Quick View Launch and Log Device Info");
 
-    const devicePath = "|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644";
+    const devicePath = Project.Variables.Device;
 
     // Step 1: Verify Quick View launches for the device
     verifyQuickViewLaunch(devicePath);
@@ -258,6 +264,7 @@ function Device_Explicit_Lock() {
   try {
     
     launchFDMClient(Project.Variables.FDMClientUserName,Project.Variables.FDMClientPassword)
+    ClickOnlineViewTab()
     
     // Step 1: Open Network View
     clickOnNetworkViewTab();
@@ -319,4 +326,80 @@ function Device_Explicit_Lock() {
     Log.PopLogFolder();
   }
 }
+
+// =====================================================================
+// Author:        Bharath
+// Function:      ELCON_History_readall15876
+// Description:   Reads and saves device history using DD and DTM configuration paths.
+// Created On:    06-Aug-2025
+// =====================================================================
+function ELCON_History_readall15876() {
+  Log.AppendFolder("ELCON_History_readall15876");
+
+  try {
+    // 🔐 Launch FDM client
+ //   launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
+    Log.Message("FDM Client launched.");
+
+    // 🌐 Navigate to Online and Network View tabs
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+
+    // 🌲 Access device tree
+    let treeView = Aliases.HCMClient.ClientMainWindow.panelLeftPanMain
+                    .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                    .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    if (!treeView.Exists) {
+      Log.Error("❌ TreeView not found.");
+      return;
+    }
+
+    // 📌 Right-click device and configure with DD/Package
+    let ItemPath = Project.Variables.Device;
+    treeView.ClickItemR(ItemPath);
+    treeView.StripPopupMenu.Click("Configure with|DD/Package");
+    
+    //Wait for Device load
+    waitForDeviceLoad()
+  
+    // 💾 Save history using DD path
+    clickSaveHistoryHyperlink();
+    let input = Project.Variables.Device;
+    let parts = input.split("|");
+    let lastValue = parts[parts.length - 1];
+    fillSaveHistoryPopup(lastValue + aqDateTime.Now() / 1000);
+    handleFdmConfigurationPopup();
+    handleSaveHistoryCompletion();
+    closeWindowPage();
+    clickOnConfirmFDMButton();
+
+    // 🔁 Repeat for DTM (Online) configuration
+    treeView.ClickItemR(ItemPath);
+    treeView.StripPopupMenu.Click("Configure with|DTM (Online)");
+
+    let HCMClient = Aliases.HCMClient;
+    let panel = HCMClient.ClientMainWindow.MdiClient.DtmForm.panelBase
+                  .panelForDerivedForms.DTMTabView.panelConfiguration
+                  .tabControl1.TabPage.panelDtmStartup;
+
+    aqObject.CheckProperty(panel, "Exists", cmpEqual, true);
+    panel.panel1.SaveAsHistoryLink.ClickLink(0);
+
+    fillSaveHistoryPopup(lastValue + aqDateTime.Now() / 1000);
+    handleFdmConfigurationPopup();
+
+    // ❎ Final cleanup
+    CloseWindow();
+    clickOnConfirmFDMButton();
+
+    Log.Message("History saved successfully using both DD and DTM paths.");
+
+  } catch (error) {
+    Log.Error("Error in ELCON_History_readall15876: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
 

@@ -613,7 +613,6 @@
 																</Children>
 															</Child>
 															<Child Name="statusBarDevice" Key="{6BFE0418-788A-4C51-8168-E95914CAB040}">
-																<Image FileName="-221111397" Left="300" Top="979" Right="1918" Bottom="1002" />
 																<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
 																<Properties>
 																	<Property Name="WinFormsControlName">
@@ -1267,6 +1266,54 @@
 																								<Value Value="tabControl1" />
 																							</Property>
 																						</Properties>
+																						<Children>
+																							<Child Name="TabPage" Key="{73751B5E-6B5D-4728-B5DA-A85C36503C1E}">
+																								<Image FileName="-1115662831" Left="300" Top="119" Right="1918" Bottom="989" />
+																								<Properties>
+																									<Property Name="ClrFullClassName">
+																										<Value Value="Crownwood.Magic.Controls.TabPage" />
+																									</Property>
+																									<Property Name="WndCaption">
+																										<Value Value="" />
+																									</Property>
+																									<Property Name="Index">
+																										<Value Value="4" Type="0" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="panelDtmStartup" Key="{474F5419-EA64-47DF-9413-A5E1F42E6D3F}">
+																										<Image FileName="-1115662831" Left="300" Top="119" Right="1918" Bottom="989" />
+																										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+																										<Properties>
+																											<Property Name="WinFormsControlName">
+																												<Value Value="panelDtmStartup" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="panel1" Key="{1B1D0620-1F34-47E6-8162-0AA5B9C02D95}">
+																												<Image FileName="-198933306" Left="612" Top="183" Right="852" Bottom="471" />
+																												<Properties>
+																													<Property Name="WinFormsControlName">
+																														<Value Value="panel1" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="SaveAsHistoryLink" Key="{C4D7A720-0519-43B8-A9A6-DE534D70DF6F}">
+																														<Image FileName="-1924545318" Left="628" Top="223" Right="746" Bottom="242" />
+																														<TypeInfo Item0="{9E59296C-1F9C-401A-A278-4BB3B737DC37}" />
+																														<Properties>
+																															<Property Name="WinFormsControlName">
+																																<Value Value="SaveAsHistoryLink" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
 																					</Child>
 																				</Children>
 																			</Child>
@@ -2100,6 +2147,15 @@
 																															</Property>
 																														</Properties>
 																													</Child>
+																													<Child Name="txtConfigurationName" Key="{BF1F5D1B-65FA-4D6F-B2D9-79085824FA2E}" ExtendedFind="True">
+																														<Image FileName="-457582492" Left="1072" Top="703" Right="1323" Bottom="732" />
+																														<TypeInfo Item0="{DAB0B5BD-EFD2-47AF-92C1-89CD577B3AD7}" />
+																														<Properties>
+																															<Property Name="WPFControlName">
+																																<Value Value="txtConfigurationName" />
+																															</Property>
+																														</Properties>
+																													</Child>
 																												</Children>
 																											</Child>
 																											<Child Name="Grid2" Key="{768663B8-644E-4227-A3D0-47823E17BB16}" ExtendedFind="True">
@@ -2646,6 +2702,63 @@
 													</Child>
 												</Children>
 											</Child>
+											<Child Name="tabPageAuditTrail" Key="{0A89F5CD-8405-4D85-9FFF-D6FE816373A2}">
+												<Image FileName="301656124" Left="14" Top="60" Right="469" Bottom="648" />
+												<Properties>
+													<Property Name="WinFormsControlName">
+														<Value Value="tabPageAuditTrail" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="groupBoxTimeSettings" Key="{C41D5C42-AD51-41BB-ADD5-46CF3D469763}">
+														<Image FileName="301656124" Left="29" Top="76" Right="453" Bottom="156" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="groupBoxTimeSettings" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="radioButtonUTC" Key="{0ECA3CC7-409D-4B9A-B922-4325B54FD1A5}">
+																<Image FileName="301656124" Left="45" Top="99" Right="301" Bottom="116" />
+																<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="radioButtonUTC" />
+																	</Property>
+																</Properties>
+															</Child>
+															<Child Name="radioButtonLocal" Key="{0195A67A-15FC-4AD8-B5F2-B93D8FE57D8F}">
+																<Image FileName="-878078776" Left="45" Top="124" Right="301" Bottom="140" />
+																<TypeInfo Item0="{6BC88984-1C54-4EAB-8DC1-0C2BC49932EA}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="radioButtonLocal" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+													<Child Name="gbAuditTrailActions" Key="{8CA251D7-BF7A-4852-B7BB-AAA597B32474}">
+														<Image FileName="9193829" Left="30" Top="164" Right="454" Bottom="598" />
+														<Properties>
+															<Property Name="WinFormsControlName">
+																<Value Value="gbAuditTrailActions" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="checkBoxAll" Key="{6880B7E6-4AD1-4396-88A0-7348E7E72AD1}">
+																<Image FileName="9193829" Left="46" Top="186" Right="174" Bottom="202" />
+																<TypeInfo Item0="{9A2AF5CD-3C1E-4347-B6ED-AD8C93613A9B}" />
+																<Properties>
+																	<Property Name="WinFormsControlName">
+																		<Value Value="checkBoxAll" />
+																	</Property>
+																</Properties>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
 										</Children>
 									</Child>
 									<Child Name="buttonOK" Key="{7B4C5948-C957-4A8C-A4E6-52FED19397D8}">
@@ -2654,6 +2767,15 @@
 										<Properties>
 											<Property Name="WinFormsControlName">
 												<Value Value="buttonOK" />
+											</Property>
+										</Properties>
+									</Child>
+									<Child Name="buttonApply" Key="{05EE46B5-DC85-4832-BFBC-448F6072EFCF}">
+										<Image FileName="-870972256" Left="401" Top="700" Right="473" Bottom="724" />
+										<TypeInfo Item0="{B02AB776-1EFE-4964-9EBF-AD8C909FA8C1}" />
+										<Properties>
+											<Property Name="WinFormsControlName">
+												<Value Value="buttonApply" />
 											</Property>
 										</Properties>
 									</Child>
@@ -4447,7 +4569,15 @@
 							<Child Name="panelForDerivedForms" Owner="{7F64CAE4-0406-4F79-A7B4-A7424E246A9C}">
 								<Child Name="DTMTabView" Owner="{955D70D2-7AA5-497A-B342-D937804ABE34}">
 									<Child Name="panelConfiguration" Owner="{981353AA-A2DE-4931-A040-AC89EFD746ED}">
-										<Child Name="tabControl1" Owner="{0093D8F0-84B7-4DF7-BFE8-242A68ED60BF}" />
+										<Child Name="tabControl1" Owner="{0093D8F0-84B7-4DF7-BFE8-242A68ED60BF}">
+											<Child Name="TabPage" Owner="{73751B5E-6B5D-4728-B5DA-A85C36503C1E}">
+												<Child Name="panelDtmStartup" Owner="{474F5419-EA64-47DF-9413-A5E1F42E6D3F}">
+													<Child Name="panel1" Owner="{1B1D0620-1F34-47E6-8162-0AA5B9C02D95}">
+														<Child Name="SaveAsHistoryLink" Owner="{C4D7A720-0519-43B8-A9A6-DE534D70DF6F}" />
+													</Child>
+												</Child>
+											</Child>
+										</Child>
 									</Child>
 									<Child Name="panelOfflineConfig" Owner="{6B9BDC30-BFF1-49D3-BF3D-6E5BA9164C7A}">
 										<Child Name="groupBoxTemplate" Owner="{6C0036D7-9EEB-42EB-8C92-70F14D4DDA6C}">
@@ -4550,6 +4680,7 @@
 													<Child Name="Rectangle" Owner="{E464C65E-5631-418A-A327-ADC4861A8C4A}" />
 													<Child Name="TextblockConfigurationSavedSuccessfully" Owner="{418674F5-DDF6-4F38-8F01-BF9E692B3D64}" />
 													<Child Name="Rectangle2" Owner="{29C892CC-6828-4B5C-8B3E-12477411018B}" />
+													<Child Name="txtConfigurationName" Owner="{BF1F5D1B-65FA-4D6F-B2D9-79085824FA2E}" />
 												</Child>
 											</Child>
 										</Child>
@@ -4643,8 +4774,18 @@
 							<Child Name="checkBoxSignOn" Owner="{FA8940EB-D76B-4FF8-81E4-2EC591038623}" />
 						</Child>
 					</Child>
+					<Child Name="tabPageAuditTrail" Owner="{0A89F5CD-8405-4D85-9FFF-D6FE816373A2}">
+						<Child Name="groupBoxTimeSettings" Owner="{C41D5C42-AD51-41BB-ADD5-46CF3D469763}">
+							<Child Name="radioButtonUTC" Owner="{0ECA3CC7-409D-4B9A-B922-4325B54FD1A5}" />
+							<Child Name="radioButtonLocal" Owner="{0195A67A-15FC-4AD8-B5F2-B93D8FE57D8F}" />
+						</Child>
+						<Child Name="gbAuditTrailActions" Owner="{8CA251D7-BF7A-4852-B7BB-AAA597B32474}">
+							<Child Name="checkBoxAll" Owner="{6880B7E6-4AD1-4396-88A0-7348E7E72AD1}" />
+						</Child>
+					</Child>
 				</Child>
 				<Child Name="buttonOK" Owner="{7B4C5948-C957-4A8C-A4E6-52FED19397D8}" />
+				<Child Name="buttonApply" Owner="{05EE46B5-DC85-4832-BFBC-448F6072EFCF}" />
 			</Child>
 			<Child Name="dlgRebuildNetwork" Owner="{3B05714C-CBFB-4227-A8F2-0442FF4E8C28}">
 				<Child Name="btnYes" Owner="{EC2EFB9E-7CEB-47E7-A1C0-182D03ABA100}" />
