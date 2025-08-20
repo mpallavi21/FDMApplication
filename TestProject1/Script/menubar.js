@@ -1,12 +1,15 @@
 ﻿//USEUNIT CommonPageObjects
-
+//USEUNIT ClientLoginPage
+//USEUNIT GenericMethods
+//USEUNIT OfflineViewPages
+//USEUNIT NetworkTreeViewPage
 
 function clickOnSystemAttachDocument()
 {
   let HCMClient = Aliases.HCMClient;
   let frmHCMClientMain = HCMClient.ClientMainWindow;
   OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System").Click();
+  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System Documents").Click();
   frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.Keys("[Right][Enter]");
 }
 
@@ -15,9 +18,14 @@ function clickOnSystemDetachDocument()
 {
   let HCMClient = Aliases.HCMClient;
   let frmHCMClientMain = HCMClient.ClientMainWindow;
+  let panel = frmHCMClientMain.panelLeftPanMain;
+  let vlabel = panel.Panel.Label;
+  vlabel.Click(7, 8);
   OCR.Recognize(frmHCMClientMain.mainMenu).BlockByText("Tools").Click();
-  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System").Click();
-  frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.Keys("[Right][Down][Enter]");
+  OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("System",100)
+  panel.tabControlLeftPanMain.tabPageOnlineView.panelOnlineView.panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView.Keys("[Right][Down][Enter]");
+  frmHCMClientMain.Activate();
+  vlabel.Click(10, 396);
 }
 
 
@@ -74,3 +82,81 @@ function navigateAndUpdateDTMLibrary() {
  
 
 }
+
+
+
+  
+// =====================================================================
+// Author:        Bharath
+// Function:      FDM_Help15778
+// Description:   Opens the Help menu via OCR, validates the Help window, and closes it.
+// Created On:    06-Aug-2025
+// =====================================================================
+function FDM_Help15778() {
+  Log.AppendFolder("FDM_Help");
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+
+    // 📖 Click on Help menu using OCR
+    OCR.Recognize(HCMClient.ClientMainWindow.mainMenu).BlockByText("Help").Click();
+    Log.Message("Help menu clicked.");
+
+    // 📂 Click on submenu item
+    HCMClient.DropDownForm.SubSmartControl.Click(53, 22);
+    Log.Message("Help submenu item clicked.");
+
+    // ✅ Validate Help window is enabled
+    aqObject.CheckProperty(HCMClient.wndHHParent, "Enabled", cmpEqual, true);
+    Log.Message("Help window is enabled and visible.");
+
+    // ❎ Close Help window
+    HCMClient.wndHHParent.Close();
+    Log.Message("Help window closed.");
+
+  } catch (error) {
+    Log.Error("Error in FDM_Help: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      FDM_Help_DevicePage15779
+// Description:   Opens Help from the device page and verifies the Help window.
+// Created On:    06-Aug-2025
+// =====================================================================
+function FDM_Help_DevicePage15779() {
+  Log.AppendFolder("FDM_Help_DevicePage15779");
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+
+    // 📌 Click on the target device
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Clicked on device: " + Project.Variables.Device);
+
+    // 📖 Click on Help button from device page
+    HCMClient.ClientMainWindow.MdiClient.panelFullTop.panelTitle.btnUserHelp.Click(9, 10);
+    Log.Message("Device page Help button clicked.");
+
+    // ✅ Validate Help window is enabled
+    let wndHHParent = HCMClient.wndHHParent;
+    aqObject.CheckProperty(wndHHParent, "Enabled", cmpEqual, true);
+    Log.Message("Help window is enabled and visible.");
+
+    // ❎ Close Help window
+    wndHHParent.Close();
+    Log.Message("Help window closed.");
+    
+    CloseWindow()
+    clickOnConfirmFDMButton()
+
+  } catch (error) {
+    Log.Error("Error in FDM_Help_DevicePage15779: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+

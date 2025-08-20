@@ -89,8 +89,8 @@ function AttachDetachDeviceDocumentation() {
     clickOnDeviceAttachDocument();
 
     // Step 2: Upload package file
-    uploadPackageFile(Project.Path + "Stores\\Files", "0906.fm8");
-    Log.Message("Uploaded document: 0906.fm8");
+    uploadPackageFile(Project.Path + "Stores\\Files", "0906.sym");
+    Log.Message("Uploaded document: 0906.sym");
 
     // Step 3: Confirm attachment
     clickOnConfirmFDMButton();

@@ -71,6 +71,10 @@ function FDMGR4303(){
   }
 }
 
+function test(){
+    
+}
+
 // =====================================================================
 // Author:        Bharath
 // Function:      AddNetwork
@@ -85,7 +89,7 @@ function AddNetwork() {
 
   try {
     // Optional server launch step
-     launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
+    // launchFDMServer(Project.Variables.FDMServerUserName, Project.Variables.FDMServerPassword);
 
     clickAddNewNetworkButton();
     Log.Message("Clicked 'Add New Network' button.");
@@ -108,6 +112,12 @@ function AddNetwork() {
 
     handleCustomMessageBox();
     Log.Message("Handled custom message box confirmation.");
+    
+    if(Aliases.HCMClient.dlgFDMConfiguration.Exists){
+      Aliases.HCMClient.dlgFDMConfiguration.Activate()
+      Aliases.HCMClient.dlgFDMConfiguration.SetFocus()
+      Aliases.HCMClient.dlgFDMConfiguration.btnOK.Click()
+    }
     
 
   } catch (error) {

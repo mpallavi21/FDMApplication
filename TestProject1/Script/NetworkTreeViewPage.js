@@ -200,7 +200,7 @@ function verifyFDMDeviceStatus(devicePath) {
     treeView.DblClickItem(devicePath);
 
     // Step 2: Handle any potential modal dialog interruption
-    let dlgFDM = Aliases.HCMClient.dlgFDM;
+    let dlgFDM = Aliases.HCMClient.dlgFDMConfiguration;
     if (dlgFDM.Exists && dlgFDM.VisibleOnScreen) {
       let okBtn = dlgFDM.FindChild("WndCaption", "OK", 50, true);
       if (okBtn && okBtn.Enabled) {
@@ -210,7 +210,7 @@ function verifyFDMDeviceStatus(devicePath) {
     }
 
     // Step 3: Access FDM Device Status Grid via FindChild
-    let statusGrid = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.FDMDeviceStatusGrid
+    let statusGrid = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.FDMDeviceStatusText
 
     if (!statusGrid) {
       Log.Warning("FDMDeviceStatusGrid not found. OCR cannot proceed.");
@@ -288,7 +288,7 @@ function clickOnDevice(devicePath) {
     treeView.DblClickItem(devicePath);
 
     // Step 2: Handle any potential modal dialog interruption
-    let dlgFDM = Aliases.HCMClient.dlgFDM;
+    let dlgFDM = Aliases.HCMClient.dlgFDMConfiguration;
     if (dlgFDM.Exists && dlgFDM.VisibleOnScreen) {
       let okBtn = dlgFDM.FindChild("WndCaption", "OK", 50, true);
       if (okBtn && okBtn.Enabled) {
@@ -542,4 +542,63 @@ function waitForDeviceLoad(timeout = 600000) {
     }
   }
   return true;
+}
+
+function test(){
+  FindValueInDescriptionColumn("Client is going on bike")
+}
+// =====================================================================
+// Author:        Bharath
+// Function:      FindValueInDescriptionColumn
+// Description:   Searches for a specific value in the 'Description' column of the Audit Trail datagrid.
+// Created On:    12-Aug-2025
+// Modified On:   12-Aug-2025
+// =====================================================================
+
+function FindValueInDescriptionColumn(targetValue) {
+  Log.AppendFolder("FindValueInDescriptionColumn - Target: " + targetValue);
+
+  try {
+    let grid = Aliases.HCMClient.ClientMainWindow.MdiClient
+                .AuditTrailView.panelBase.panelForDerivedForms.panel4.panel2
+                .WinFormsObject("panel3").WinFormsObject("datagridAuditTrail");
+
+    let colCount = grid.wColumnCount;
+    let descriptionColIndex = -1;
+
+    // 🔍 Identify the 'Description' column index
+    for (let c = 0; c < colCount; c++) {
+      let header = grid.wColumn(c);
+      if (aqString.Compare(header, "Description", false) === 0) {
+        descriptionColIndex = c;
+        Log.Message("Found 'Description' column at index: " + c);
+        break;
+      }
+    }
+
+    if (descriptionColIndex === -1) {
+      Log.Error("'Description' column not found.");
+      return false;
+    }
+
+    let rowCount = grid.wRowCount;
+    for (let r = 0; r < rowCount; r++) {
+      let cellValue = grid.wValue(r, descriptionColIndex);
+
+      if (aqString.Compare(cellValue, targetValue, false) === 0) {
+        Log.Checkpoint("Match found at row " + (r+1));
+        return true;
+      }
+    }
+
+    Log.Error("No match found for value: " + targetValue);
+    return false;
+
+  } catch (error) {
+    Log.Error("Error during search: " + error.message);
+    return false;
+
+  } finally {
+    Log.PopLogFolder();
+  }
 }

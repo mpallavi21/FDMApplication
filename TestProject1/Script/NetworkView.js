@@ -19,8 +19,8 @@ function FDMGR3890_FDMGR3891() {
     Log.AppendFolder(" FDMGR3890_FDMGR3891 - Executes the Build Network operation on the Mux node as part of test cases FDMGR3890 and FDMGR3891")
    // launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
     clickOnNetworkViewTab()
-    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux");
-    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|Mux|SFT_PNF");
+    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX");
+    clickOnbuildNetwork("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF");
     Log.Checkpoint("FDMGR3890_FDMGR3891 executed successfully.");
   } catch (error) {
     Log.Error("Error occurred in FDMGR3890_FDMGR3891:", error);
@@ -237,6 +237,7 @@ function AuditTrail() {
 function BuildNetwork() {
   try {
     Log.AppendFolder(" BuildNetwork - Executes the Build Network operation on the Mux node as part of test cases BuildNetwork_HW Mux")
+    ClickOnlineViewTab()
     clickOnNetworkViewTab()
     input = Project.Variables.Device
     clickOnbuildNetwork(input.split("|").slice(0, -2).join("|"));
@@ -263,7 +264,7 @@ function Device_Explicit_Lock() {
 
   try {
     
-    launchFDMClient(Project.Variables.FDMClientUserName,Project.Variables.FDMClientPassword)
+    //launchFDMClient(Project.Variables.FDMClientUserName,Project.Variables.FDMClientPassword)
     ClickOnlineViewTab()
     
     // Step 1: Open Network View
@@ -289,7 +290,7 @@ function Device_Explicit_Lock() {
     treeView.StripPopupMenu.Click("Lock");
 
     // Step 4: Attempt configuration (locked state)
-    let lockedItemPath = "|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644";
+    let lockedItemPath = Project.Variables.Device;
     treeView.ClickItemR(lockedItemPath);
     treeView.StripPopupMenu.Click("Configure with|DTM (Online)");
 
@@ -402,4 +403,535 @@ function ELCON_History_readall15876() {
   }
 }
 
+
+// =====================================================================
+// Author:        Bharath
+// Function:      History_Hart_DTM_DeviceMux15848
+// Description:   Saves device history and verifies its presence in the history viewer.
+// Created On:    12-Aug-2025
+// Modified On:   12-Aug-2025
+// =====================================================================
+
+function History_Hart_DTM_DeviceMux15848() {
+  Log.AppendFolder("History_Hart_DTM_DeviceMux15848");
+
+  try {
+    // === Step 1: Navigate to device view ===
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+    clickOnDevice(Project.Variables.Device);
+
+    // === Step 2: Save device history ===
+    clickSaveHistoryHyperlink();
+
+    let input = Project.Variables.Device;
+    let parts = input.split("|");
+    let lastValue = parts[parts.length - 1];
+    let SaveName = lastValue + "_" + Math.floor(aqDateTime.Now() / 1000);  // Timestamp for uniqueness
+
+    fillSaveHistoryPopup(SaveName);
+    handleFdmConfigurationPopup();
+    handleSaveHistoryCompletion();
+
+    // === Step 3: Confirm and close dialogs ===
+    CloseWindow();
+    clickOnConfirmFDMButton();
+
+    // === Step 4: Open history viewer for the device ===
+    let frmHCMClientMain = Aliases.HCMClient.ClientMainWindow;
+    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain.tabPageOnlineView
+                    .panelOnlineView.panelTabControlOnlineView.tabControlOnlineView
+                    .tabConnected.treeView;
+
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("View History");
+
+    // === Step 5: Select saved history entry and view ===
+    let panel = frmHCMClientMain.MdiClient.HistoryFrom.panelBase.panelForDerivedForms;
+    let adornerDecorator = panel.panel1.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+
+    adornerDecorator.cmb_HistoryName.ClickItem(`*${SaveName}*`);
+    adornerDecorator.btn_View.ClickButton();
+
+    // === Step 6: Verify history screen loaded ===
+    let historyScreen = panel.pnlHistoryConfig.MagicTabControlEx.TabPage.CDeviceScreen
+                          .m_pnlDeviceScreen.TabControl.TabPage.ElementHost
+                          .HwndSource_AdornerDecorator.AdornerDecorator.ScrollViewer;
+
+    aqObject.CheckProperty(historyScreen, "Exists", cmpEqual, true);
+
+    // === Step 7: Final cleanup ===
+    CloseWindow();
+
+  } catch (error) {
+    Log.Error("Error in History_Hart_DTM_DeviceMux15848: " + error.message);
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      LoadHARTDevice15796
+// Description:   Loads HART device using DD/Package, DTM (Online), and DTM (Offline) configurations.
+// Created On:    12-Aug-2025
+// Modified On:   12-Aug-2025
+// =====================================================================
+
+function LoadHARTDevice15796() {
+  Log.AppendFolder("LoadHARTDevice15796");
+
+  try {
+    // === Step 1: Navigate to Online View and Network View ===
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+
+    let HCMClient = Aliases.HCMClient;
+    let treeView = HCMClient.ClientMainWindow.panelLeftPanMain.tabControlLeftPanMain
+                    .tabPageOnlineView.panelOnlineView.panelTabControlOnlineView
+                    .tabControlOnlineView.tabConnected.treeView;
+
+    // === Step 2: Configure with DD/Package ===
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Configure with|DD/Package");
+
+    aqObject.CheckProperty(
+      NameMapping.Sys.HCMClient.ClientMainWindow.MdiClient.CDeviceHomePage.panelBase.panelForDerivedForms.Panel
+        .MagicTabControlEx.EntryPointTabPage.CDeviceScreen.m_pnlDeviceScreen.TabControl.EntryPointsTabPage
+        .ElementHost.HwndSource_AdornerDecorator.AdornerDecorator.ScrollViewer,
+      "Enabled", cmpEqual, true
+    );
+
+    CloseWindow();
+    clickOnConfirmFDMButton();
+
+    // === Step 3: Configure with DTM (Online) ===
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Configure with|DTM (Online)");
+
+    let manualDtmSelector = HCMClient.ManualDtmSelector;
+    aqObject.CheckProperty(manualDtmSelector, "Enabled", cmpEqual, true);
+
+    let winButton = manualDtmSelector.panel1.btnCancel;
+    OCR.Recognize(winButton).BlockByText("Cancel").Click();
+
+    // === Step 4: Configure with DTM (Offline) ===
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Configure with|DTM (Offline)");
+
+    aqObject.CheckProperty(manualDtmSelector, "Enabled", cmpEqual, true);
+    OCR.Recognize(winButton).BlockByText("Cancel").Click();
+
+  } catch (error) {
+    Log.Error("Error in LoadHARTDevice15796: " + error.message);
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      LogUserAction15798
+// Description:   Automates the process of logging a user action in the Audit Trail,
+//                dynamically generates a unique description using the device name and timestamp,
+//                and verifies the entry in the Audit Trail grid.
+// Created On:    12-Aug-2025
+// Modified On:   12-Aug-2025
+// =====================================================================
+function LogUserAction15798() {
+  Log.AppendFolder("LogUserAction15798");
+
+  try {
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+    
+    let HCMClient = Aliases.HCMClient;
+    let treeView = HCMClient.ClientMainWindow.panelLeftPanMain
+                    .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                    .panelTabControlOnlineView.tabControlOnlineView
+                    .tabConnected.treeView;
+
+    // 🌲 Right-click and log user action
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Log User Action");
+    
+    let AuditDescription = "User able to enter the text in description field " + Math.floor(aqDateTime.Now() / 1000);
+
+    // 📝 Fill in Description and Reason
+    let auditTrailUserAction = HCMClient.AuditTrailUserAction;
+    auditTrailUserAction.DescriptionTextBox.TextBoxArea.Keys(AuditDescription);
+
+    let reasonBox = auditTrailUserAction.ReasonTextBox.TextBoxArea;
+    reasonBox.Click(39, 32);
+    reasonBox.Keys("Log User Action");
+
+    // ✅ Confirm action
+    OCR.Recognize(auditTrailUserAction.OKButton).BlockByText("OK").Click();
+
+    // 🔍 View Audit Trail and verify entry
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("View Audit Trail");
+
+    let isLogged = FindValueInDescriptionColumn(AuditDescription);
+    Log.Message("Audit entry verification: " + isLogged);
+
+    // 🧹 Cleanup
+    CloseWindow();
+
+  } catch (error) {
+    Log.Error("Error in LogUserAction15798: " + error.message);
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      MuxConfig_MTL15961
+// Description:   Configures MUX device, updates text field, and sends review.
+// Created On:    13-Aug-2025
+// =====================================================================
+function MuxConfig_MTL15961() {
+  Log.AppendFolder("MuxConfig_MTL15961");
+
+  try {
+    // 🌐 Navigate to Online View and build network
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+    BuildNetwork();
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Device selected: " + Project.Variables.Device);
+
+    let HCMClient = Aliases.HCMClient;
+    let tabPage = HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage;
+
+    // 🔍 Open FDM Device Properties
+    tabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkFdmDeviceProperties.Click();
+    Log.Message("FDM Device Properties opened.");
+
+    let adornerDecorator = tabPage.FDM_Device_Properties.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+    let scrollViewer = adornerDecorator.ScrollViewer;
+
+    // 📝 Scroll to top and update text field
+    scrollViewer.VScroll.Pos = 0;
+    let textBox = scrollViewer.TextBox;
+    textBox.Click(121, 16);
+    let timestamp = Math.floor(aqDateTime.Now() / 1000);
+    textBox.SetText(`No Data available ${timestamp}`);
+    Log.Message("Text field updated with timestamp: " + timestamp);
+
+    // 📤 Submit review
+    adornerDecorator.ButtonReviewSend.ClickButton();
+    let previewDialog = HCMClient.HwndSource_PreviewDialog.PreviewDialog;
+    previewDialog.btn_Send.ClickButton();
+    previewDialog.Rectangle.Click(6, 14);
+    Log.Message("Review submitted.");
+
+    // ❎ Close window and confirm
+    CloseWindow();
+    clickOnConfirmFDMButton();
+    Log.Message("Window closed and confirmation clicked.");
+
+  } catch (error) {
+    Log.Error("Error in MuxConfig_MTL15961: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      muxconfig_pnf15962
+// Description:   Configures MUX device, updates text field, and sends review.
+// Created On:    13-Aug-2025
+// =====================================================================
+function muxconfig_pnf15962() {
+  Log.AppendFolder("muxconfig_pnf15962");
+
+  try {
+    // 🌐 Navigate to Online View and build network
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+    BuildNetwork();
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Device selected: " + Project.Variables.Device);
+
+    let HCMClient = Aliases.HCMClient;
+    let tabPage = HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage;
+
+    // 🔍 Open FDM Device Properties
+    tabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkFdmDeviceProperties.Click();
+    Log.Message("FDM Device Properties opened.");
+
+    let adornerDecorator = tabPage.FDM_Device_Properties.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+    let scrollViewer = adornerDecorator.ScrollViewer;
+
+    // 📝 Scroll to top and update text field
+    scrollViewer.VScroll.Pos = 0;
+    let textBox = scrollViewer.TextBox;
+    textBox.Click(121, 16);
+    let timestamp = Math.floor(aqDateTime.Now() / 1000);
+    textBox.SetText(`No Data available ${timestamp}`);
+    Log.Message("Text field updated with timestamp: " + timestamp);
+
+    // 📤 Submit review
+    adornerDecorator.ButtonReviewSend.ClickButton();
+    let previewDialog = HCMClient.HwndSource_PreviewDialog.PreviewDialog;
+    previewDialog.btn_Send.ClickButton();
+    previewDialog.Rectangle.Click(6, 14);
+    Log.Message("Review submitted.");
+
+    // ❎ Close window and confirm
+    CloseWindow();
+    clickOnConfirmFDMButton();
+    Log.Message("Window closed and confirmation clicked.");
+
+  } catch (error) {
+    Log.Error("Error in muxconfig_pnf15962 " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      muxconfig_stahl15963
+// Description:   Configures MUX device, updates text field, and sends review.
+// Created On:    13-Aug-2025
+// =====================================================================
+function muxconfig_stahl15963() {
+  Log.AppendFolder("muxconfig_stahl15963");
+
+  try {
+    // 🌐 Navigate to Online View and build network
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+    BuildNetwork();
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Device selected: " + Project.Variables.Device);
+
+    let HCMClient = Aliases.HCMClient;
+    let tabPage = HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage;
+
+    // 🔍 Open FDM Device Properties
+    tabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkFdmDeviceProperties.Click();
+    Log.Message("FDM Device Properties opened.");
+
+    let adornerDecorator = tabPage.FDM_Device_Properties.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+    let scrollViewer = adornerDecorator.ScrollViewer;
+
+    // 📝 Scroll to top and update text field
+    scrollViewer.VScroll.Pos = 0;
+    let textBox = scrollViewer.TextBox;
+    textBox.Click(121, 16);
+    let timestamp = Math.floor(aqDateTime.Now() / 1000);
+    textBox.SetText(`No Data available ${timestamp}`);
+    Log.Message("Text field updated with timestamp: " + timestamp);
+
+    // 📤 Submit review
+    adornerDecorator.ButtonReviewSend.ClickButton();
+    let previewDialog = HCMClient.HwndSource_PreviewDialog.PreviewDialog;
+    previewDialog.btn_Send.ClickButton();
+    previewDialog.Rectangle.Click(6, 14);
+    Log.Message("Review submitted.");
+
+    // ❎ Close window and confirm
+    CloseWindow();
+    clickOnConfirmFDMButton();
+    Log.Message("Window closed and confirmation clicked.");
+
+  } catch (error) {
+    Log.Error("Error in muxconfig_stahl15963 " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      OfflineConfig_HARTDDdevice_EPKSNW15785
+// Description:   Creates and overwrites HART DD offline configuration template from history.
+// Created On:    14-Aug-2025
+// =====================================================================
+function OfflineConfig_HARTDDdevice_EPKSNW15785() {
+  Log.AppendFolder("OfflineConfig_HARTDDdevice_EPKSNW15785");
+
+  try {
+    ClickOnlineViewTab();
+    clickOnNetworkViewTab();
+
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+    let treeView = frmHCMClientMain.panelLeftPanMain
+                    .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                    .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    // 📂 Initiate template creation from history
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Offline Configuration|Create template from history");
+
+    let historyFileList = HCMClient.HistoryFileList;
+    let listView = historyFileList.listView1;
+    listView.ClickItem("6441754471472", 0);
+    historyFileList.btnOK.ClickButton();
+
+    // 📝 Enter filename and save
+    let hostPanel = frmHCMClientMain.MdiClient.CreateConfigHistForm.panelBase;
+    let adornerDecorator = hostPanel.panelForDerivedForms.panel1.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator;
+    let textBox = adornerDecorator.txt_fileName;
+
+    let timestamp = aqConvert.DateTimeToFormatStr(aqDateTime.Now(), "%Y%m%d%H%M%S");
+    let saveFileName = "Barath_" + timestamp;
+    textBox.SetText(saveFileName);
+    adornerDecorator.ButtonSave.ClickButton();
+
+    // ✅ Confirm success
+    let dlgSuccess = HCMClient.dlgFDMConfiguration;
+    // aqObject.CheckProperty(dlgSuccess.Static, "WndCaption", cmpEqual, "Offline configuration saved successfully");
+    dlgSuccess.btnOK.ClickButton();
+    hostPanel.panelFullTop.panelTitle.buttonClose.Click(10, 7);
+    dlgSuccess.btnYes.ClickButton();
+
+    // 🔁 Attempt overwrite with same name
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Offline Configuration|Create template from history");
+    listView.ClickItem("6441754471472", 0);
+    historyFileList.btnOK.ClickButton();
+
+    textBox.Drag(174, 11, -269, 8); // Optional: clear or reposition
+    textBox.SetText(saveFileName);
+    adornerDecorator.ButtonSave.ClickButton();
+
+    // aqObject.CheckProperty(dlgSuccess.Static, "WndCaption", cmpEqual, `Offline Template Name ${saveFileName} already exists`);
+    dlgSuccess.btnOK.ClickButton();
+    hostPanel.panelFullTop.panelTitle.buttonClose.Click(9, 18);
+    dlgSuccess.btnYes.ClickButton();
+
+    Log.Message("Offline configuration created and overwrite handled for: " + saveFileName);
+
+  } catch (error) {
+    Log.Error("Error in OfflineConfig_HARTDDdevice_EPKSNW15785: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      OfflineDownload_HARTDD15849
+// Description:   Downloads offline configuration for HART DD device and validates success.
+// Created On:    19-Aug-2025
+// =====================================================================
+function OfflineDownload_HARTDD15849() {
+  Log.AppendFolder("OfflineDownload_HARTDD15849");
+
+  try {
+    BuildNetwork()
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+
+    // 🌲 Right-click device and trigger download
+    let treeView = frmHCMClientMain.panelLeftPanMain
+                    .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                    .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Offline Configuration|Download Offline Configuration");
+    Log.Message("Download Offline Configuration triggered for: " + Project.Variables.Device);
+
+    // 📂 Access download panel
+    let hostPanel = frmHCMClientMain.MdiClient.HCMOfflineConfigForm.panelBase;
+    let panel = hostPanel.panelForDerivedForms.panelOfflineBase;
+
+    aqObject.CheckProperty(panel, "Enabled", cmpEqual, true);
+    Log.Message("Offline configuration panel is enabled.");
+
+    // 📁 Select configuration
+    panel.pnlDownloadConfiguration.ElementHost.HwndSource_AdornerDecorator.AdornerDecorator.ButtonSelect.ClickButton();
+    Log.Message("Configuration selection initiated.");
+
+    // ⬇️ Download parameters
+    let adornerDecorator = panel.groupBoxConfigView.pnlConfiguration.OfflineDownloadConfig
+                                .HwndSource_AdornerDecorator.AdornerDecorator;
+
+    adornerDecorator.btn_Download.ClickButton();
+    Log.Message("Download button clicked.");
+
+    // ✅ Wait for success message
+    adornerDecorator.TextblockParametersDownloadedSucc.WaitProperty("Exists", true, 100000);
+    aqObject.CheckProperty(adornerDecorator.TextblockParametersDownloadedSucc, "WPFControlText", cmpContains, "parameters downloaded successfully");
+    Log.Message("Parameters downloaded successfully.");
+
+    // ❎ Close configuration window
+    hostPanel.panelFullTop.panelTitle.buttonClose.Click(19, 11);
+    Log.Message("Offline configuration window closed.");
+
+  } catch (error) {
+    Log.Error("Error in OfflineDownload_HARTDD15849: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+// =====================================================================
+// Author:        Bharath
+// Function:      OnlineMuxdevices15797
+// Description:   Renames a MUX device node in the tree view, handles name conflict,
+//                and retries renaming from an alternate node path.
+// Created On:    19-Aug-2025
+// Modified On:   19-Aug-2025
+// =====================================================================
+
+function OnlineMuxdevices15797() {
+  Log.AppendFolder("OnlineMuxdevices15797");
+
+  try {
+    let HCMClient = Aliases.HCMClient;
+    let treeView = HCMClient.ClientMainWindow.panelLeftPanMain
+                    .tabControlLeftPanMain.tabPageOnlineView.panelOnlineView
+                    .panelTabControlOnlineView.tabControlOnlineView.tabConnected.treeView;
+
+    // === Step 1: Attempt to rename device to '644Temperature' ===
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Rename");
+
+    let renameNodeDialog = HCMClient.HwndSource_RenameNodeDialog.RenameNodeDialog;
+    let textBox = renameNodeDialog.NewNameTextBox;
+    textBox.Keys("![ReleaseLast]");  // Clear previous name
+    textBox.SetText("644Temperature");
+
+    let button = renameNodeDialog.ButtonConfirm;
+    button.ClickButton();
+
+    // === Step 2: Attempt to rename again to '644FDMdevice' ===
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Rename");
+    textBox.SetText("644FDMdevice");
+    button.ClickButton();
+
+    // === Step 3: Handle name conflict warning ===
+    let textBlock = renameNodeDialog.WarningMessageTextBlock;
+    aqObject.CheckProperty(textBlock, "Enabled", cmpEqual, true);
+    aqObject.CheckProperty(textBlock, "WPFControlText", cmpEqual, "⚠ Name Already Exists");
+    renameNodeDialog.ButtonCancel.ClickButton();
+
+    // === Step 4: Retry renaming from alternate node path ===
+    treeView.ClickItemR("|FDM Server ( DESKTOP-AJ7O5O5 )|DESKTOP-AJ7O5O5|MUX|SFT_PNF|644Temperature");
+    treeView.StripPopupMenu.Click("Rename");
+    textBox.SetText("644FDMdevice");
+    button.ClickButton();
+
+  } catch (error) {
+    Log.Error("Error in OnlineMuxdevices15797: " + error.message);
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}
 

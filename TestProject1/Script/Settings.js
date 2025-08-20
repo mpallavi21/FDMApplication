@@ -1,6 +1,8 @@
-﻿
+﻿//USEUNIT CommonPageObjects
 //USEUNIT SettingsPage
 //USEUNIT ClientLoginPage
+//USEUNIT NetworkTreeViewPage
+//USEUNIT NetworkView
 
 
 // =====================================================================
@@ -114,3 +116,135 @@ function FDMSettings_AuditTrailAction15803() {
 }
 
 
+// =====================================================================
+// Author:        Bharath
+// Function:      FDMSettings_System15841
+// Description:   Enables and disables Single Sign-On for a selected device.
+// Created On:    06-Aug-2025
+// =====================================================================
+function FDMSettings_System15841() {
+  Log.AppendFolder("FDMSettings_System15841");
+
+  try {
+    // 🔓 Enable Single Sign-On
+    enableDisableSingleSignOn(1);
+    Log.Message("Single Sign-On enabled.");
+
+    // 📌 Click on target device
+    clickOnDevice(Project.Variables.Device);
+    Log.Message("Clicked on device: " + Project.Variables.Device);
+    
+    CloseWindow()
+    clickOnConfirmFDMButton()
+
+    // 🔒 Disable Single Sign-On
+    enableDisableSingleSignOn(0);
+    Log.Message("Single Sign-On disabled.");
+
+  } catch (error) {
+    Log.Error("Error in FDMSettings_System15841: " + error.message);
+  } finally {
+    Log.PopLogFolder();
+  }
+}
+
+
+
+// =====================================================================
+// Author:        Bharath
+// Function:      OfflineDownload_HARTDTM15851
+// Description:   Automates offline configuration download for HART DTM device,
+//                including switching DD/DTM settings, triggering download,
+//                monitoring status, and restoring DD settings post-download.
+// Created On:    19-Aug-2025
+// Modified On:   19-Aug-2025
+// =====================================================================
+
+function OfflineDownload_HARTDTM15851() {
+  Log.AppendFolder("OfflineDownload_HARTDTM15851");
+
+  try {
+    // === Step 1: Switch DD/DTM settings to DTM mode ===
+    openFDMToolBarSettings();
+    
+    Log.Message("FDM Settings opened.");
+
+    let settingsForm = Aliases.HCMClient.SettingsForm;
+    let tabControl = settingsForm.tabControl1;
+    tabControl.ClickTab("DD/DTM");
+    tabControl.tabPageLoadSetting.LoadSettingGroup.MoveAllToDtmButton.Click(11, 11);
+    OCR.Recognize(settingsForm.buttonOK).BlockByText("OK").Click();
+
+    // === Step 2: Trigger Offline Configuration Download 
+    BuildNetwork()
+    let HCMClient = Aliases.HCMClient;
+    let frmHCMClientMain = HCMClient.ClientMainWindow;
+    let treeView = frmHCMClientMain.panelLeftPanMain.tabControlLeftPanMain
+                    .tabPageOnlineView.panelOnlineView.panelTabControlOnlineView
+                    .tabControlOnlineView.tabConnected.treeView;
+
+    treeView.ClickItemR(Project.Variables.Device);
+    treeView.StripPopupMenu.Click("Offline Configuration|Download Offline Configuration");
+
+    let hostPanel = frmHCMClientMain.MdiClient.DtmForm.panelBase;
+    let DTMTabView = hostPanel.panelForDerivedForms.DTMTabView;
+
+    DTMTabView.panelSelectOfflineConfig.buttonOfflineView.ClickButton();
+
+    // === Step 3: Wait for configuration panel to be enabled ===
+    DTMTabView.panelConfiguration.tabControl1.TabPage.panelDtmStartup.WaitProperty("Enabled", true, 60000);
+    aqObject.CheckProperty(DTMTabView.panelConfiguration.tabControl1.TabPage.panelDtmStartup, "Enabled", cmpEqual, true);
+
+    // === Step 4: Initiate download ===
+    let hostPanel2 = hostPanel.panelFullTop.panelTitle;
+    hostPanel2.buttonDownload.Click(11, 10);
+
+    let btnYes = HCMClient.dlgFDMConfiguration.btnYes;
+    btnYes.ClickButton();
+
+    // === Step 5: Monitor download status ===
+    let statusBarDevice = hostPanel.statusBarDevice;
+    let statusItem = statusBarDevice.Items.Item_2(1);
+    let timeout = 80000;
+    let startTime = new Date().getTime();
+
+    Delay(1000);  // Initial buffer
+
+    while (true) {
+      let downloadStatus = aqString.Trim(statusItem.Text);
+
+      if (downloadStatus === "Parameters download failed") {
+        Log.Error("❌ Parameters download failed for device.");
+        break;
+      }
+
+      if (downloadStatus === "Parameters downloaded successfully") {
+        Log.Message("✅ Parameters downloaded successfully.");
+        break;
+      }
+
+      Delay(500);
+
+      if (new Date().getTime() - startTime > timeout) {
+        throw new Error("⏳ Timeout: Parameter download did not complete.");
+      }
+    }
+
+    // === Step 6: Cleanup and restore DD settings ===
+    CloseWindow();
+    btnYes.ClickButton();
+
+    openFDMToolBarSettings();
+    settingsForm = HCMClient.SettingsForm;
+    tabControl = settingsForm.tabControl1;
+    tabControl.ClickTab("DD/DTM");
+    OCR.Recognize(tabControl.tabPageLoadSetting.LoadSettingGroup.MoveAllToDDButton).BlockByText("<<").Click();
+    settingsForm.buttonOK.Click(44, 12);
+
+  } catch (error) {
+    Log.Error("Error in OfflineDownload_HARTDTM15851: " + error.message);
+
+  } finally {
+    Log.PopLogFolder();
+  }
+}

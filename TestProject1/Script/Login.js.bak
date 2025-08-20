@@ -1,6 +1,7 @@
 ﻿//USEUNIT ClientLoginPage
 //USEUNIT ServerPage
 //USEUNIT SettingsPage
+//USEUNIT CommonPageObjects
 
 // =====================================================================
 // Author:        Bharath

@@ -58,7 +58,7 @@
 					</Node>
 					<Node name="var13">
 						<Node name="value">
-							<Prp name="strvalue" type="H" value="440054004D003100370035003400340035003600330031003900"/>
+							<Prp name="strvalue" type="H" value="440054004D00"/>
 						</Node>
 						<Prp name="name" type="S" value="OfflineDTMSavedFileName"/>
 					</Node>
@@ -67,6 +67,9 @@
 							<Prp name="strvalue" type="H" value="4F00460046004C0049004E0045005F003000300032003600320036003100380030003900300032005F003100"/>
 						</Node>
 						<Prp name="name" type="S" value="OfflineDDSaveFileName"/>
+					</Node>
+					<Node name="var15">
+						<Prp name="name" type="S" value="Password2"/>
 					</Node>
 					<Node name="var2">
 						<Prp name="name" type="S" value="Var1"/>
@@ -88,7 +91,7 @@
 					</Node>
 					<Node name="var6">
 						<Node name="value">
-							<Prp name="strvalue" type="H" value="7C00460044004D0020005300650072007600650072002000280020004400450053004B0054004F0050002D0041004A0037004F0035004F003500200029007C004400450053004B0054004F0050002D0041004A0037004F0035004F0035007C004D00750078007C005300460054005F0050004E0046007C00360034003400"/>
+							<Prp name="strvalue" type="H" value="7C00460044004D0020005300650072007600650072002000280020004400450053004B0054004F0050002D0041004A0037004F0035004F003500200029007C004400450053004B0054004F0050002D0041004A0037004F0035004F0035007C004D00550058007C005300460054005F0050004E0046007C00360034003400540065006D0070006500720061007400750072006500"/>
 						</Node>
 						<Prp name="name" type="S" value="Device"/>
 					</Node>
@@ -106,7 +109,7 @@
 					</Node>
 					<Node name="var9">
 						<Node name="value">
-							<Prp name="intvalue" type="I" value="1"/>
+							<Prp name="intvalue" type="I" value="0"/>
 						</Node>
 						<Prp name="name" type="S" value="SignOnToggle"/>
 					</Node>

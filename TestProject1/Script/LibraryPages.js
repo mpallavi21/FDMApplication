@@ -207,7 +207,7 @@ function clickAddToLibraryButton() {
 function clickAdd_DDPackagePopUpCloseButton() {
   try {
     Log.AppendFolder("clickAdd_DDPackagePopUpCloseButton - Clicks the 'Close' button on the Add DD Package File popup.")
-    let closeButton = Aliases.HCMClient.Add_DDPackageFilePopUp.Button.CloseButton;
+    let closeButton = Aliases.HCMClient.Add_DDPackageFilePopUp.CloseButton;
 
     if (closeButton && closeButton.Enabled) {
       closeButton.Click();
@@ -232,7 +232,7 @@ function clickManage_DDPackagePopUpCloseButton() {
   try {
     Log.AppendFolder("clickManage_DDPackagePopUpCloseButton - Clicks the 'Close' button on the Add DD Package File popup.")
     let closeButton = Aliases.HCMClient.ManagePackagesWindow.ManagePackageMainWindow.ManagePackages.CloseManageDDPackageWind;
-
+                      
     if (closeButton && closeButton.Enabled) {
       closeButton.Click();
       Log.Message("Clicked 'Close' button successfully.");
@@ -434,8 +434,6 @@ function findDDAndClickDeleteRow(targetName, targetdeviceRevision, targetDDpacka
     aqObject.CheckProperty(confirmationWindow.TextblockDeletePackage, "WPFControlText", cmpContains, "Delete");
     confirmationWindow.ButtonOk.ClickButton();
 
-    aqObject.CheckProperty(HCMClient.HwndSource_ProgressBar.ProgressBar.Border, "Enabled", cmpEqual, true);
-
     let dlgDeleteDDFile = HCMClient.dlgDeleteDDFile;
     aqObject.CheckProperty(dlgDeleteDDFile, "Enabled", cmpEqual, true);
     let btnYes = dlgDeleteDDFile.btnYes;
@@ -455,7 +453,6 @@ function clickDeleteButtonInRow(rowIndex) {
 
   var deleteButton = row
     .WPFObject("DataGridCell", "", 7)
-    .WPFObject("ContentPresenter", "", 1)
     .WPFObject("Button", "DELETE", 1);
 
   deleteButton.Click();

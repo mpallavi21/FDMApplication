@@ -127,7 +127,8 @@ function DetachApplication() {
 
     // === Step 2: Click 'Applications' from the dropdown ===
     if (Aliases.HCMClient.DropDownForm.SubSmartControl.Exists) {
-      OCR.Recognize(Aliases.HCMClient.DropDownForm.SubSmartControl).BlockByText("Applications").Click();
+
+      OCR.Recognize(HCMClient.DropDownForm.SubSmartControl).BlockByText("Other Applications").Click();
       Log.Message("Selected 'Applications' from the Tools dropdown.");
     } else {
       Log.Error("Applications option in dropdown not found.");
@@ -146,7 +147,7 @@ function DetachApplication() {
       return;
     }
     
-    var dlgFDM = Aliases.HCMClient.dlgFDM;
+    var dlgFDM = Aliases.HCMClient.dlgFDMConfiguration;
     var dlgFDMConfiguration = Aliases.HCMClient.dlgFDMConfiguration
     var staticText = dlgFDM.Static;
 
@@ -180,7 +181,7 @@ function DetachApplication() {
       }
 
       if (HCMClient.dlgFDMConfiguration.btnYes.Exists) {
-        let WndCaption = HCMClient.dlgFDM.Static.WndCaption;
+        let WndCaption = HCMClient.dlgFDMConfiguration.Static.WndCaption;
         HCMClient.dlgFDMConfiguration.btnYes.Click();
         Log.Message("Confirmation dialog caption: " + WndCaption);
       } else {
@@ -208,6 +209,7 @@ function DetachApplication() {
   } finally {
     Log.PopLogFolder();
   }
+  
 }
 
 function clickOnDeviceAttachDocument() {

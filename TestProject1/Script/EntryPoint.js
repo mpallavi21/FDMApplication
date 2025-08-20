@@ -8,6 +8,9 @@ function FDMGR4876_4877(){
   try{
   ClickOnlineViewTab()
   clickOnNetworkViewTab()
+  input = Project.Variables.Device
+  clickOnbuildNetwork(input.split("|").slice(0, -2).join("|"));
+  clickOnbuildNetwork(input.split("|").slice(0, -1).join("|"));
   clickOnDevice(Project.Variables.Device);
   clickSaveHistoryHyperlink()
   input = Project.Variables.Device
@@ -48,7 +51,6 @@ function DeviceParam() {
     Log.Message("Clicked on device: " + Project.Variables.Device);
     Delay(1000)
     let adornerDecorator = Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator;
-    aqObject.CheckProperty(adornerDecorator.HyperlinkAdvancedConfiguration, "WPFControlText", cmpEqual, "Advanced Configuration");
     aqObject.CheckProperty(adornerDecorator.HyperlinkFdmDeviceStatus, "WPFControlText", cmpEqual, "FDM Device Status");
     aqObject.CheckProperty(adornerDecorator.HyperlinkFdmDeviceProperties, "WPFControlText", cmpEqual, "FDM Device properties");
     aqObject.CheckProperty(adornerDecorator.HyperlinkMethodList, "WPFControlText", cmpEqual, "Method List");

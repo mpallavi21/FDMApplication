@@ -40,5 +40,17 @@
 			<testData />
 			<data />
 		</child>
+		<child key="{15F29EF0-CB4D-4F46-B22A-28B8141543AE}">
+			<config nodeName="HCMClient1" autorunOnRecording="False" enabled="True" count="1" useFeaturedRuntimeObject="True" userChangeName="False">
+				<runModeParams activeRunMode="Simple">
+					<param name="RunAs" parameters="-z" workFolder="C:\Program Files (x86)\Honeywell\FDM\ClientMachine\bin" userName="" password="" domain="" />
+					<param name="Profile" parameters="-z" workFolder="C:\Program Files (x86)\Honeywell\FDM\ClientMachine\bin" useProject="False" projectFileName="" overrideProfiler="False" profilerName="" profileRunMode="Silent" AQtimeVersion="0" forceRunMode="False" />
+					<param name="Debug" parameters="-z" workFolder="C:\Program Files (x86)\Honeywell\FDM\ClientMachine\bin" />
+					<param name="Simple" fileName="HCMClient.exe" filePath="C:\Program Files (x86)\Honeywell\FDM\ClientMachine\Bin\" parameters="-z" workFolder="C:\Program Files (x86)\Honeywell\FDM\ClientMachine\bin" />
+				</runModeParams>
+			</config>
+			<testData />
+			<data />
+		</child>
 	</children>
 </Root>

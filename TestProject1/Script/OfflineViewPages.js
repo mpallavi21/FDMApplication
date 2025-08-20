@@ -318,6 +318,14 @@ function CreateDisplayFilterConfiguration() {
 
     // 💾 Save configuration
     deviceViewTabPage.buttonSave.Click(53, 14);
+    
+    let saveFileDlg = Aliases.HCMClient.SaveFileDlg;
+    let textBoxArea = saveFileDlg.textBoxFileName.TextBoxArea;
+    textBoxArea.Click(67, 7);
+    let formattedDate = aqConvert.DateTimeToFormatStr(aqDateTime.Now(), "%d%m%Y%H%M%S");
+    textBoxArea.SetText("644" + formattedDate);
+    saveFileDlg.buttonOK.Click(20, 10);
+  
     HCMClient.dlgFDMConfiguration.btnOK.ClickButton();
 
     // ❎ Close configuration dialog
@@ -330,6 +338,7 @@ function CreateDisplayFilterConfiguration() {
   } finally {
     Log.PopLogFolder();
   }
+  
 }
 
 // =====================================================================

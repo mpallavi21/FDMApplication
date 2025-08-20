@@ -15,7 +15,6 @@ function FDMGR3909() {
     Log.AppendFolder("FDMGR3909 - Verify that login client is successful")
     Log.Message("Launching FDM Client...");
     launchFDMClient(Project.Variables.FDMClientUserName, Project.Variables.FDMClientPassword);
-
     Log.Message("Terminating HCMClient...");
     // TestedApps.HCMClient.Terminate();
     Aliases.HCMClient.ClientMainWindow.MdiClient.EntryPointTabPage.EntryPointsTabPage.HwndSource_AdornerDecorator.AdornerDecorator.HyperlinkMethodList
